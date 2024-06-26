@@ -7,30 +7,63 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-        <!-- Scripts -->
-        {{asset('js/app.js')}}
+        <link rel="stylesheet" href="{{asset('css/app.css')}}">
+        <script src="{{asset('js/app.js')}}"></script>
+        <script src="https://kit.fontawesome.com/0ca303331d.js" crossorigin="anonymous"></script>
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @include('layouts.navigation')
+        @include('layouts.navigation')
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
+        <main id="app">
+            @yield('content')
+        </main>
+
+        <footer class="d-flex justify-content-around">
+            <a class="navbar-brand nav-logo align-self-center" href="{{route('main-page')}}"></a>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                        <ul class="navbar-nav mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">УСЛУГИ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">ОБЪЕКТЫ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">КОНТАКТЫ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">ПАРТНЕРЫ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">АНАЛИТИКА</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">КОМПАНИЯ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">РУКОВОДСТВО</a>
+                            </li>
+                        </ul>
                     </div>
-                </header>
-            @endif
+                </div>
+            </nav>
+        </footer>
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+        <div class="bottom_block pdd">
+            <div class="container">
+                <div class="copy">© 2018-{{now()->year}} NT Properties. Все права защищены.</div>
+                <div class="clear"></div>
+            </div>
         </div>
+
+        <script src="{{asset('js/main.js')}}" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>
 </html>
