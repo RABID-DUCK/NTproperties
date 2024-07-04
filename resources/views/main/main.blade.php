@@ -2,93 +2,21 @@
 
 @section('content')
     <div id="carouselExampleInterval" class="carousel slide position-relative" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="10000">
-                <img src="{{asset('img/slider-1.jpg')}}" class="d-block w-100" alt="слайдер 1">
+        <div class="carousel-inner h-100">
+            <div class="carousel-item active h-100" data-bs-interval="10000000">
+                <img src="{{asset('img/slider-1.jpg')}}" class="d-block w-100 h-100" alt="слайдер 1">
+                @include('components.UI.filter-window')
             </div>
-            <div class="carousel-item" data-bs-interval="2000">
-                <img src="{{asset('img/slider-2.jpg')}}" class="d-block w-100" alt="слайдер 2">
+            <div class="carousel-item h-100" data-bs-interval="2000">
+                <img src="{{asset('img/slider-2.jpg')}}" class="d-block w-100 h-100" alt="слайдер 2">
+                @include('components.UI.filter-window')
             </div>
-        </div>
-
-        <div class="filter-wrapper">
-            <div class="filter-window">
-                <div class="filter-content p-4">
-                    <div class="filter-1 d-flex">
-                        <button class="btn d-flex align-items-center active" id="rentBtn"><i class="fas fa-check" style="margin-right: 10px;"></i> Аренда</button>
-                        <button class="btn d-flex align-items-center" id="saleBtn" style="margin-left: 10px; margin-right: 10px"><i class="fas fa-times" style="margin-right: 10px;"></i> Продажа</button>
-                        <select class="form-select" name="" id="">
-                            <option value="">Складские помещения</option>
-                            <option value="">Промышленные участки</option>
-                        </select>
-                    </div>
-
-                    <div class="input-group mt-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Цена</span>
-                        </div>
-                        <input type="number" class="form-control" placeholder="10 000">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon2">-</span>
-                        </div>
-                        <input type="number" class="form-control" placeholder="20 000">
-                        <div class="input-group-append">
-                            <select class="form-select" id="inputGroupSelect01">
-                                <option selected>за м<sub>2</sub> в год</option>
-                                <option value="1">Общая</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="filter-3 d-flex mt-3 input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Площадь</span>
-                        </div>
-                        <input type="number" class="form-control" placeholder="6300">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon2">-</span>
-                        </div>
-                        <input type="number" class="form-control" placeholder="700 000">
-                        <button class="btn">Наличие стеллажей</button>
-                    </div>
-
-                    <div class="filter-4 d-flex mt-3">
-                        <select class="form-select" name="" id="">
-                            <option value="">Города</option>
-                        </select>
-
-                        <select class="form-select" name="" id="">
-                            <option value="">Все направления</option>
-                        </select>
-
-                        <select class="form-select" name="" id="">
-                            <option value="">Все шоссе</option>
-                        </select>
-                    </div>
-
-                    <div class="input-group mb-3 mt-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Расстояние от МКАД</span>
-                        </div>
-                        <input type="number" class="form-control" placeholder="4">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon2">-</span>
-                        </div>
-                        <input type="number" class="form-control" placeholder="92">
-                        <div class="input-group-append">
-                            <span class="input-group-text">км</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <button class="btn btn-apply-filter">ПОКАЗАТЬ РЕЗУЛЬТАТЫ</button>
         </div>
     </div>
 
 {{--    Секция подписки на рассылку   --}}
     <div class="mailing-wrapper">
-        <div class="mailing-content d-flex justify-content-between align-items-center">
+        <div class="mailing-content d-flex justify-content-between align-items-center flex-sm-column flex-xxl-row">
             <div class="mailing-text d-flex align-items-start">
                 <i class="fa-regular fa-envelope" style="color: #ff6d12; margin-right: 15px;"></i>
                 <div>

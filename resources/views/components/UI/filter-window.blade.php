@@ -1,0 +1,73 @@
+<div class="filter-wrapper">
+    <div class="filter-window">
+        <div class="filter-content p-4">
+            <div class="filter-1 d-flex">
+                <button class="btn d-flex align-items-center active" id="rentBtn"><i class="fas fa-check" style="margin-right: 10px;"></i> Аренда</button>
+                <button class="btn d-flex align-items-center" id="saleBtn" style="margin-left: 10px; margin-right: 10px"><i class="fas fa-times" style="margin-right: 10px;"></i> Продажа</button>
+                <select class="form-select" name="" id="">
+                    <option value="">Складские помещения</option>
+                    <option value="">Промышленные участки</option>
+                </select>
+            </div>
+
+            <div class="input-group mt-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Цена</span>
+                </div>
+                <input type="number" class="form-control" placeholder="10 000">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon2">-</span>
+                </div>
+                <input type="number" class="form-control" placeholder="20 000">
+                <div class="input-group-append">
+                    <select class="form-select" id="inputGroupSelect01">
+                        <option selected>за м<sub>2</sub> в год</option>
+                        <option value="1">Общая</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="filter-3 d-flex mt-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Площадь</span>
+                </div>
+                <input type="number" class="form-control" placeholder="6300">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon2">-</span>
+                </div>
+                <input type="number" class="form-control" placeholder="700 000">
+                <button class="btn">Наличие стеллажей</button>
+            </div>
+
+            <div class="filter-4 d-flex mt-3">
+                <select class="form-select" name="" id="">
+                    <option value="">Города</option>
+                </select>
+
+                <select class="form-select" name="" id="">
+                    <option value="">Все направления</option>
+                </select>
+
+                <select class="form-select" name="" id="">
+                    <option value="">Все шоссе</option>
+                </select>
+            </div>
+
+            <div class="input-group mb-3 mt-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Расстояние от МКАД</span>
+                </div>
+                <input type="number" class="form-control" placeholder="4">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon2">-</span>
+                </div>
+                <input type="number" class="form-control" placeholder="92">
+                <div class="input-group-append">
+                    <span class="input-group-text">км</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn btn-apply-filter">ПОКАЗАТЬ РЕЗУЛЬТАТЫ</button>
+</div>

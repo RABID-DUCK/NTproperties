@@ -147,34 +147,35 @@ a{
     background: #e9ebee;
     position: relative;
 
-    &:before {
+    &:before,
+    &:after {
         content: '';
         position: absolute;
-        width: 400px;
-        height: 100%;
-        right: 45%;
         top: 0;
-        background: #ccc;
+        right: 45%;
+        height: 100%;
+    }
+
+    &:before {
+        width: 400px;
         background: linear-gradient(to right, rgba(255, 255, 255, 0), #dde0e4);
         border-right: 50px solid #e9ebee;
     }
 
-    &:after{
-        content: "";
-        position: absolute;
-        right: 45%;
-        top: 117%;
-        margin: -197px -50px 0 0;
+    &:after {
         width: 0;
-        height: 0;
-        border-width: 84px 100px;
+        border-width: 140px 100px;
         border-color: #e9ebee rgba(255, 255, 255, 0);
         border-style: solid;
+        margin-top: -152px;
+        top: 52%;
+        right: 42.4%;
     }
 
     .mailing-content {
         width: 80%;
         margin: 0 auto;
+        padding: 60px 0;
 
         i {
             font-size: 40px;
@@ -381,4 +382,95 @@ footer{
 .navbar-nav .nav-link:hover::after {
     width: 100%;
     left: 0;
+}
+
+.carousel{
+    height: 555px;
+}
+
+.carousel-item {
+    position: relative;
+}
+
+.filter-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+@media (max-width: 1710px) {
+    .mailing-wrapper{
+        &:after{
+            width: 0;
+            border-width: 157px 100px;
+            border-color: #e9ebee rgba(255, 255, 255, 0);
+            border-style: solid;
+            margin-top: -152px;
+            top: 49%;
+            right: 42%;
+        }
+    }
+}
+
+@media (max-width: 1500px) {
+    .mailing-wrapper{
+        &:after, &:before{
+            display: none;
+        }
+    }
+}
+@media (max-width: 1400px) {
+    .mailing-wrapper {
+
+        .mailing-content {
+            padding: 35px 0;
+
+            .mailing-text{
+                width: 50%;
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .mailing-wrapper {
+
+        .mailing-content {
+
+            .mailing-text{
+                width: 90%;
+            }
+        }
+    }
+}
+
+@media (max-width: 580px) {
+    .mailing-wrapper {
+
+        .mailing-content {
+            flex-direction: column;
+        }
+    }
+}
+
+@media (max-width: 530px) {
+    .mailing-wrapper {
+
+        .mailing-content {
+
+            .mailing-write{
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                .btn{
+                    width: 100%;
+                    margin-left: 0;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
 }
