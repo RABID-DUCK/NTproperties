@@ -30,25 +30,25 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">УСЛУГИ</a>
+                            <a class="nav-link active" aria-current="page" href="{{route('services')}}">УСЛУГИ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">ОБЪЕКТЫ</a>
+                            <a class="nav-link" href="{{route('objects')}}">ОБЪЕКТЫ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">КОНТАКТЫ</a>
+                            <a class="nav-link" href="{{route('contacts')}}">КОНТАКТЫ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">ПАРТНЕРЫ</a>
+                            <a class="nav-link" href="{{route('partners')}}">ПАРТНЕРЫ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">АНАЛИТИКА</a>
+                            <a class="nav-link" href="{{route('analitick')}}">АНАЛИТИКА</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">КОМПАНИЯ</a>
+                            <a class="nav-link" href="{{route('company')}}">КОМПАНИЯ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">РУКОВОДСТВО</a>
+                            <a class="nav-link" href="{{route('guide')}}">РУКОВОДСТВО</a>
                         </li>
                         <li class="nav-item">
                             <i class="fa-solid fa-magnifying-glass"></i>

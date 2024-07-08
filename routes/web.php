@@ -2,6 +2,16 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ServicesController;
+use \App\Http\Controllers\AnalitickController;
+use \App\Http\Controllers\AnaliticOverviewController;
+use \App\Http\Controllers\CompanyController;
+use \App\Http\Controllers\ContactsController;
+use \App\Http\Controllers\GuideController;
+use \App\Http\Controllers\NewsSingleController;
+use \App\Http\Controllers\ObjectSingleController;
+use \App\Http\Controllers\ObjectsController;
+use \App\Http\Controllers\PartnersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +26,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\MainController::class, 'index'])->name('main-page');
 
-Route::get('/services', [\App\Http\Controllers\ServicesController::class, 'index'])->name('services');
+Route::get('/services', [ServicesController::class, 'index'])->name('services');
+Route::get('/analitick', [AnalitickController::class, 'index'])->name('analitick');
+Route::get('/analitic-overview', [AnaliticOverviewController::class, 'index'])->name('analitic-overview');
+Route::get('/company', [CompanyController::class, 'index'])->name('company');
+Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts');
+Route::get('/guide', [GuideController::class, 'index'])->name('guide');
+Route::get('/news-single', [NewsSingleController::class, 'index'])->name('news-single');
+Route::get('/object-single', [ObjectSingleController::class, 'index'])->name('object-single');
+Route::get('/objects', [ObjectsController::class, 'index'])->name('objects');
+Route::get('/partners', [PartnersController::class, 'index'])->name('partners');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -41,7 +41,7 @@
                 <span class="date">25.05.2024</span><br>
                 <h4>Холдинг "Строительный Альянс" построит 746 тыс. кв. м площадей Light Industrial</h4>
                 <p>Холдинг "Строительный альянс" является одним из ведущих девелоперов на рынке Light</p>
-                <a href="#" class="more">Читать полностью</a>
+                <a href="{{route('news-single')}}" class="more">Читать полностью</a>
             </div>
         </div>
     </div>
@@ -62,7 +62,7 @@
                     Компания работает в соответствии с международными стандартами предоставления агентских и брокерских услуг RICS – Real Estate Agency and Brokerage Standards (REABS).
                 </p>
                 <p>
-                    <a class="more" href="/kompaniya/">Читать полностью</a>
+                    <a class="more" href="{{route('object-single')}}">Читать полностью</a>
                 </p>
             </div>
         </div>
