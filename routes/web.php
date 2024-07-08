@@ -12,6 +12,7 @@ use \App\Http\Controllers\NewsSingleController;
 use \App\Http\Controllers\ObjectSingleController;
 use \App\Http\Controllers\ObjectsController;
 use \App\Http\Controllers\PartnersController;
+use \App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,7 @@ Route::get('/news-single', [NewsSingleController::class, 'index'])->name('news-s
 Route::get('/object-single', [ObjectSingleController::class, 'index'])->name('object-single');
 Route::get('/objects', [ObjectsController::class, 'index'])->name('objects');
 Route::get('/partners', [PartnersController::class, 'index'])->name('partners');
+Route::get('/search', [SearchController::class, 'index'])->name('partners');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
