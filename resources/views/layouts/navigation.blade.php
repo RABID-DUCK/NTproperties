@@ -33,7 +33,7 @@
                             <a class="nav-link active" aria-current="page" href="{{route('services')}}">УСЛУГИ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('objects')}}">ОБЪЕКТЫ</a>
+                            <a class="nav-link" href="{{route('object-single')}}">ОБЪЕКТЫ</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('contacts')}}">КОНТАКТЫ</a>

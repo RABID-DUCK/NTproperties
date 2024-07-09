@@ -1,0 +1,69 @@
+.object {
+    max-width: 1000px;
+    padding-right: 40px;
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        background-color: #f5f7f8;
+        padding: 30px;
+        gap: 10px;
+
+        p {
+            font-size: 15px;
+            line-height: 18px;
+            font-weight: 400;
+            color: #676a6b;
+            margin-bottom: 0;
+        }
+
+        .data {
+            font-size: 16px;
+            color: #676a6b;
+        }
+        .text {
+            display: flex;
+            justify-content: space-between;
+            .geo {
+                max-width: max-content;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                h3 {
+                    font-size: 18px;
+                    line-height: 18px;
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 20px;
+                    margin-bottom: 0;
+                }
+
+                .tech {
+                    display: flex;
+                    gap: 10px
+                }
+            }
+            .price {
+                display: flex;
+                flex-direction: column;
+                align-items: end;
+                gap: 5px;
+                span {
+                    text-align: end;
+                    color: #8c9092;
+                    font-size: 22px;
+                }
+                p {
+                    text-align: end;
+                    color: #ff6d12;
+                    font-size: 36px;
+                    line-height: 36px;
+                }
+            }
+        }
+    }
+    img {
+        width: 100%;
+    }
+}
