@@ -21,7 +21,7 @@
                 <input type="number" class="form-control" placeholder="20 000">
                 <div class="input-group-append">
                     <select class="form-select" id="inputGroupSelect01">
-                        <option selected>за м<sub>2</sub> в год</option>
+                        <option selected>за м&sup2; в год</option>
                         <option value="1">Общая</option>
                     </select>
                 </div>
@@ -35,7 +35,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon2">-</span>
                 </div>
-                <input type="number" class="form-control" placeholder="700 000">
+                <input type="number" style="border-right: 1px solid #ced4da;border-radius: .25rem;" class="form-control" placeholder="700 000">
                 <button class="btn">Наличие стеллажей</button>
             </div>
 

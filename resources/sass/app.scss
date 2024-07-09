@@ -6,8 +6,56 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Roboto' sans-serif;
+    font-style: normal;
+    font-weight: 400;
 }
+.uslugi {
+    padding: 30px 0 50px;
+    h2 {
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 40px;
+        margin-bottom: 40px;
+        color: #3c3c3c;
+    }
 
+    p {
+        line-height: 26px;
+        font-size: 16px;
+        color: #3c3c3c;
+        padding-bottom: 30px;
+    }
+
+    .content {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 47px;
+        .item {
+            width: 48%;
+            h3 {
+                font-weight: 400;
+                font-size: 32px;
+                line-height: 32px;
+                margin-bottom: 30px;
+            }
+            ul {
+                li {
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 26px;
+                    padding: 0px 0px 20px 10px;
+                    color: #3c3c3c;
+                }
+                ::marker {
+                    color: #ff6d12;
+                }
+            }
+        }
+
+    }
+}
 .btn:focus,
 .form-control:focus,
 .custom-select:focus,
@@ -17,6 +65,11 @@
 .custom-checkbox:focus,
 .custom-radio:focus {
     box-shadow: none !important;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
 }
 
 .btn-orange{
@@ -44,6 +97,7 @@
     //z-index: 4;
 }
 
+
 a{
     text-decoration: none;
 }
@@ -52,9 +106,38 @@ a{
     margin-left: 20px;
 }
 
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0 0;
+
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 5px 0;
+
+    background: white;
+
+    .navbar {
+        padding-bottom: 0;
+    }
+
+    .navbar-nav {
+        gap: 30px;
+    }
+
+    .d-flex {
+        span {
+            font-size: 14px;
+            font-weight: 400;
+        }
+    }
+}
+
 .nav-wrap{
-    width: 80%;
-    margin: 20px auto;
 
     a, span{
         color: #3c3c3c;
@@ -85,6 +168,24 @@ a{
     position: absolute;
     top: 15%;
     left: 30%;
+
+    #basic-addon2 {
+        background: white;
+        border-left: none;
+        border-right: none;
+        cursor: default;
+        border-radius: 0;
+    }
+
+    .form-control {
+        border-right: none;
+        border-left: none;
+        z-index: 0;
+    }
+
+    .input-group-prepend,.input-group-append {
+        z-index: 10;
+    }
 
     .filter-window{
         background: rgba(255, 255, 255, .9);
@@ -123,6 +224,7 @@ a{
             }
         }
     }
+
 
     .btn-apply-filter{
         background: #ff6d12;
@@ -464,6 +566,7 @@ footer{
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+
 
                 .btn{
                     width: 100%;

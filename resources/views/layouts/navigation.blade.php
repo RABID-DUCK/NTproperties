@@ -1,5 +1,5 @@
-<div>
-    <div class="nav-wrap">
+<header>
+    <div class="nav-wrap container">
         <div class="header-wrapper d-flex justify-content-between">
             <a class="navbar-brand nav-logo align-self-center" href="{{route('main-page')}}"></a>
             <div class="d-flex">
@@ -59,4 +59,4 @@
         </nav>
     </div>
 
-</div>
+</header>
