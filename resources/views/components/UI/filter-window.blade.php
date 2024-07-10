@@ -40,8 +40,15 @@
             </div>
 
             <div class="filter-4 d-flex mt-3">
-                <select class="form-select" name="" id="">
-                    <option value="">Города</option>
+                <select class="form-select" name="region" id="" @if($regions->isEmpty()) disabled @endif>
+                    @if($regions->isNotEmpty())
+                        @foreach($regions as $region)
+                            <option value="{{$region->id}}">{{$region->name}}</option>
+                        @endforeach
+
+                    @else
+                        <option value="empty">Не выбрано</option>
+                    @endif
                 </select>
 
                 <select class="form-select" name="" id="">

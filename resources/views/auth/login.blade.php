@@ -1,22 +1,31 @@
-<x-guest-layout>
     <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="{{asset('js/app.js')}}"></script>
+    <style>
+        body{
+            background: radial-gradient(circle at 10% 20%, rgb(69, 86, 102) 0%, rgb(34, 34, 34) 90%);
+        }
 
-    <form method="POST" action="{{ route('login') }}">
+        label, a{
+            color: white;
+        }
+    </style>
+    <form method="POST" action="{{ route('login') }}" class="w-80 d-flex flex-column justify-content-center align-items-center" style="margin: 20% auto">
         @csrf
 
         <!-- Email Address -->
         <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            <x-input-label for="email" :value="__('Email')" class="form-label" />
+            <x-text-input id="email" class="block mt-1 w-full form-control" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <x-input-label class="form-label" for="password" :value="__('Password')" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
+            <x-text-input id="password" class="block mt-1 w-full form-control"
                             type="password"
                             name="password"
                             required autocomplete="current-password" />
@@ -39,9 +48,8 @@
                 </a>
             @endif
 
-            <x-primary-button class="ms-3">
+            <x-primary-button class="ms-3 btn btn-success">
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
