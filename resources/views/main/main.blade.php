@@ -9,7 +9,7 @@
             </div>
             <div class="carousel-item h-100" data-bs-interval="10000">
                 <img src="{{asset('img/slider-2.jpg')}}" class="d-block w-100 h-100" alt="слайдер 2">
-                @include('components.UI.filter-window', compact('regions'))
+                @include('components.UI.filter-window', compact('regions', 'directions', 'highways'))
             </div>
         </div>
     </div>

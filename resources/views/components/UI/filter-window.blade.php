@@ -51,12 +51,28 @@
                     @endif
                 </select>
 
-                <select class="form-select" name="" id="">
+                <select class="form-select" name="direction" id="" @if($directions->isEmpty()) disabled @endif>
                     <option value="">Все направления</option>
+                    @if($directions->isNotEmpty())
+                        @foreach($directions as $direction)
+                            <option value="{{$direction->id}}">{{$direction->name}}</option>
+                        @endforeach
+
+                        @else
+                        <option value="empty">Не выбрано</option>
+                    @endif
                 </select>
 
-                <select class="form-select" name="" id="">
+                <select class="form-select" name="highway" id="" @if($highways->isEmpty()) disabled @endif>
                     <option value="">Все шоссе</option>
+                    @if($highways->isNotEmpty())
+                        @foreach($highways as $highway)
+                            <option value="{{$highway->id}}">{{$highway->name}}</option>
+                        @endforeach
+                        <option value="">Все шоссе</option>
+                        @else
+                        <option value="empty">Не выбрано</option>
+                    @endif
                 </select>
             </div>
 

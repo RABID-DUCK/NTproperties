@@ -58,8 +58,8 @@
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <li class="nav-item menu-open">
-                        <a href="{{route('admin.regions')}}" class="nav-link active">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <a href="{{route('admin.regions')}}" class="nav-link {{ Request::is('admin/regions') ? 'active' : '' }}">
+                            <i class="fa-solid fa-city"></i>
                             <p>
                                 Города
                             </p>
@@ -67,44 +67,21 @@
                     </li>
 
                     <li class="nav-item menu-open">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <a href="{{route('admin.directions')}}" class="nav-link {{ Request::is('admin/directions') ? 'active' : '' }}">
+                            <i class="fa-solid fa-compass"></i>
                             <p>
-                                Направление
+                                Направления
                             </p>
                         </a>
                     </li>
 
                     <li class="nav-item menu-open">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <a href="{{route('admin.highways')}}" class="nav-link {{ Request::is('admin/highways') ? 'active' : '' }}">
+                            <i class="fa-solid fa-road"></i>
                             <p>
                                 Шоссе
                             </p>
                         </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Simple Tables</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>DataTables</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>jsGrid</p>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
             </nav>
@@ -119,12 +96,6 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1 class="m-0">Dashboard</h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Главная</a></li>
-                            <li class="breadcrumb-item active"><a href="{{route('admin.regions')}}">Регионы</a></li>
-                        </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->

@@ -1,9 +1,9 @@
 @extends('backend.index')
 
 @section('content')
-    @if($regions->isNotEmpty())
+    @if($highWays->isNotEmpty())
         <div class="d-flex justify-content-end align-items-end">
-            <button type="button" class="btn btn-primary mb-4 mr-2" data-bs-toggle="modal" data-bs-target="#regionModal" data-bs-whatever="@mdo" data-action="{{route('admin.regions.store')}}">Создать</button>
+            <button type="button" class="btn btn-primary mb-4 mr-2" data-bs-toggle="modal" data-bs-target="#highWayModal" data-bs-whatever="@mdo" data-action="{{route('admin.highways.store')}}">Создать</button>
         </div>
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -24,14 +24,14 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($regions as $region)
+            @foreach($highWays as $highWay)
                 <tr>
-                    <th scope="row">{{ $region->id }}</th>
-                    <td>{{ $region->name }}</td>
-                    <td>{{ $region->created_at }}</td>
+                    <th scope="row">{{ $highWay->id }}</th>
+                    <td>{{ $highWay->name }}</td>
+                    <td>{{ $highWay->created_at }}</td>
                     <td class="d-flex">
-                        <i class="fa-solid fa-pen mr-2" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#regionModal" data-bs-whatever="@mdo" data-action="{{route('admin.regions.update', $region->id)}}"></i>
-                        <i class="fa-solid fa-circle-minus text-danger" style="cursor: pointer;" onclick="deleteRow_bd('{{ route('admin.regions.destroy', $region->id) }}', 'delete')"></i>
+                        <i class="fa-solid fa-pen mr-2" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#highWayModal" data-bs-whatever="@mdo" data-action="{{route('admin.highways.update', $highWay->id)}}"></i>
+                        <i class="fa-solid fa-circle-minus text-danger" style="cursor: pointer;" onclick="deleteRow_bd('{{ route('admin.highways.destroy', $highWay->id) }}', 'delete')"></i>
                     </td>
                 </tr>
             @endforeach
@@ -39,20 +39,20 @@
         </table>
     @else
         <div class="d-flex flex-column justify-content-center align-items-center">
-            <h3 class="text-center">Здесь ещё нет регионов</h3>
-            <button type="button" class="btn btn-primary w-25" data-bs-toggle="modal" data-bs-target="#regionModal" data-bs-whatever="@mdo" data-action="{{route('admin.regions.store')}}">Создать</button>
+            <h3 class="text-center">Здесь ещё нет шоссе</h3>
+            <button type="button" class="btn btn-primary w-25" data-bs-toggle="modal" data-bs-target="#highWayModal" data-bs-whatever="@mdo" data-action="{{route('admin.highways.store')}}">Создать</button>
         </div>
     @endif
 
-    <div class="modal fade" id="regionModal" tabindex="-1" aria-labelledby="regionModalLabel" aria-hidden="true">
+    <div class="modal fade" id="highWayModal" tabindex="-1" aria-labelledby="highWayModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Создать/Редактировать</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Создание/Редактировать</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="regionForm" method="POST">
+                    <form id="highWayForm" method="POST">
                         @csrf
 
                         <div class="mb-3">

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\DirectionController;
+use App\Http\Controllers\Admin\HighWayController;
 use App\Http\Controllers\Admin\RegionController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ProfileController;
@@ -51,6 +53,20 @@ Route::middleware('auth')->group(function () {
            Route::post('/store', [RegionController::class, 'store'])->name('admin.regions.store');
            Route::post('/update/{region}', [RegionController::class, 'update'])->name('admin.regions.update');
            Route::delete('/destroy/{region}', [RegionController::class, 'destroy'])->name('admin.regions.destroy');
+        });
+
+        Route::group(['prefix' => 'directions'], function (){
+            Route::get('/', [DirectionController::class, 'index'])->name('admin.directions');
+            Route::post('/store', [DirectionController::class, 'store'])->name('admin.directions.store');
+            Route::post('/update/{direction}', [DirectionController::class, 'update'])->name('admin.directions.update');
+            Route::delete('/destroy/{direction}', [DirectionController::class, 'destroy'])->name('admin.directions.destroy');
+        });
+
+        Route::group(['prefix' => 'highways'], function (){
+            Route::get('/', [HighWayController::class, 'index'])->name('admin.highways');
+            Route::post('/store', [HighWayController::class, 'store'])->name('admin.highways.store');
+            Route::post('/update/{direction}', [HighWayController::class, 'update'])->name('admin.highways.update');
+            Route::delete('/destroy/{direction}', [HighWayController::class, 'destroy'])->name('admin.highways.destroy');
         });
     });
 });

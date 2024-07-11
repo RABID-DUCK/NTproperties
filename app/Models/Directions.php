@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Directions extends Model
 {
     use HasFactory;
+    protected $table = 'directions';
+
+    protected $fillable = ['name'];
 }
