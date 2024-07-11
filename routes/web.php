@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DirectionController;
 use App\Http\Controllers\Admin\HighWayController;
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\RegionController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ProfileController;
@@ -38,7 +39,7 @@ Route::get('/analitic-overview', [AnaliticOverviewController::class, 'index'])->
 Route::get('/company', [CompanyController::class, 'index'])->name('company');
 Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts');
 Route::get('/guide', [GuideController::class, 'index'])->name('guide');
-Route::get('/news-single', [NewsSingleController::class, 'index'])->name('news-single');
+Route::get('/news-single/{news:id}', [NewsSingleController::class, 'show'])->name('news-single');
 Route::get('/object-single', [ObjectSingleController::class, 'index'])->name('object-single');
 Route::get('/objects', [ObjectsController::class, 'index'])->name('objects');
 Route::get('/partners', [PartnersController::class, 'index'])->name('partners');
@@ -65,8 +66,15 @@ Route::middleware('auth')->group(function () {
         Route::group(['prefix' => 'highways'], function (){
             Route::get('/', [HighWayController::class, 'index'])->name('admin.highways');
             Route::post('/store', [HighWayController::class, 'store'])->name('admin.highways.store');
-            Route::post('/update/{direction}', [HighWayController::class, 'update'])->name('admin.highways.update');
-            Route::delete('/destroy/{direction}', [HighWayController::class, 'destroy'])->name('admin.highways.destroy');
+            Route::post('/update/{highway}', [HighWayController::class, 'update'])->name('admin.highways.update');
+            Route::delete('/destroy/{highway}', [HighWayController::class, 'destroy'])->name('admin.highways.destroy');
+        });
+
+        Route::group(['prefix' => 'news'], function (){
+            Route::get('/', [NewsController::class, 'index'])->name('admin.news');
+            Route::post('/store', [NewsController::class, 'store'])->name('admin.news.store');
+            Route::post('/update/{direction}', [NewsController::class, 'update'])->name('admin.news.update');
+            Route::delete('/destroy/{direction}', [NewsController::class, 'destroy'])->name('admin.news.destroy');
         });
     });
 });

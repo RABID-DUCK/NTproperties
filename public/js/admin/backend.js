@@ -20,6 +20,15 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.find('#highWayForm').attr('action', action)
     })
 
+    $('#summernote').summernote();
+
+    // $('#newModal').on('show.bs.modal', function (event) {
+    //     var button = $(event.relatedTarget)
+    //     var action = button.data('action')
+    //     var modal = $(this)
+    //     modal.find('#newForm').attr('action', action)
+    // })
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

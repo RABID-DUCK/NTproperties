@@ -41,9 +41,23 @@
                 <span class="date">25.05.2024</span><br>
                 <h4>Холдинг "Строительный Альянс" построит 746 тыс. кв. м площадей Light Industrial</h4>
                 <p>Холдинг "Строительный альянс" является одним из ведущих девелоперов на рынке Light</p>
-                <a href="{{route('news-single')}}" class="more">Читать полностью</a>
+                <a href="{{route('news-single', 1)}}" class="more">Читать полностью</a>
             </div>
         </div>
+
+        @if($news->isNotEmpty())
+            @foreach($news as $item)
+                <div class="news-content d-flex">
+                    <div class="news-item">
+                        <img src="{{asset('storage/images/' . $item->image)}}" alt="{{$item->img}}">
+                        <span class="date">{{$item->created_at}}</span><br>
+                        <h4>{{$item->title}}</h4>
+                        <p>{{\Illuminate\Support\Str::limit($item->description, 100)}}</p>
+                        <a href="{{route('news-single', $item->id)}}" class="more">Читать полностью</a>
+                    </div>
+                </div>
+            @endforeach
+        @endif
     </div>
 
     <div class="about-blog">

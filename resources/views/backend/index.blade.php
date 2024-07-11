@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="{{asset('css/admin/adminlte.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/admin/OverlayScrollbars.css')}}">
     <link rel="stylesheet" href="{{asset('css/admin/summernote-bs4.min.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/0ca303331d.js" crossorigin="anonymous"></script>
-
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -80,6 +80,15 @@
                             <i class="fa-solid fa-road"></i>
                             <p>
                                 Шоссе
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item menu-open">
+                        <a href="{{route('admin.news')}}" class="nav-link {{ Request::is('admin/news') ? 'active' : '' }}">
+                            <i class="fa-solid fa-newspaper"></i>
+                            <p>
+                                Новости
                             </p>
                         </a>
                     </li>
