@@ -1,14 +1,23 @@
 .object {
     max-width: 1000px;
     padding-right: 40px;
-
+    h2 {
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+    h3 {
+        font-size: 18px;
+        line-height: 22px;
+        font-weight: normal;
+        font-weight: 600;
+    }
     .info {
         display: flex;
         flex-direction: column;
         background-color: #f5f7f8;
         padding: 30px;
         gap: 10px;
-
+        margin-bottom: 30px;
         p {
             font-size: 15px;
             line-height: 18px;
@@ -63,6 +72,29 @@
             }
         }
     }
+
+
+    .feature {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        p {
+            margin-bottom: 0;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0px;
+            li:before {
+                content: "-";
+                margin-right: 10px;
+            }
+        }
+
+        span {
+            color: #8c9092;
+        }
+    }
+
     img {
         width: 100%;
     }
