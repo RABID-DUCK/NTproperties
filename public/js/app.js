@@ -2134,6 +2134,32 @@ module.exports = Array.isArray || function (arr) {
 
 /***/ }),
 
+/***/ "./resources/sass/partners.scss":
+/*!**************************************!*\
+  !*** ./resources/sass/partners.scss ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/sass/analitick.scss":
+/*!***************************************!*\
+  !*** ./resources/sass/analitick.scss ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -6986,7 +7012,9 @@ const isThenable = (thing) =>
 /******/ 			"css/object-single": 0,
 /******/ 			"css/uslugi": 0,
 /******/ 			"css/news-single": 0,
-/******/ 			"css/app": 0
+/******/ 			"css/app": 0,
+/******/ 			"css/analitick": 0,
+/******/ 			"css/partners": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -7036,12 +7064,14 @@ const isThenable = (thing) =>
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/contacts","css/object-single","css/uslugi","css/news-single","css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/contacts","css/object-single","css/uslugi","css/news-single","css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/contacts","css/object-single","css/uslugi","css/news-single","css/app"], () => (__webpack_require__("./resources/sass/news-single.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/contacts","css/object-single","css/uslugi","css/news-single","css/app"], () => (__webpack_require__("./resources/sass/uslugi.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/contacts","css/object-single","css/uslugi","css/news-single","css/app"], () => (__webpack_require__("./resources/sass/object-single.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/contacts","css/object-single","css/uslugi","css/news-single","css/app"], () => (__webpack_require__("./resources/sass/contacts.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/contacts","css/object-single","css/uslugi","css/news-single","css/app","css/analitick","css/partners"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/contacts","css/object-single","css/uslugi","css/news-single","css/app","css/analitick","css/partners"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/contacts","css/object-single","css/uslugi","css/news-single","css/app","css/analitick","css/partners"], () => (__webpack_require__("./resources/sass/news-single.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/contacts","css/object-single","css/uslugi","css/news-single","css/app","css/analitick","css/partners"], () => (__webpack_require__("./resources/sass/uslugi.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/contacts","css/object-single","css/uslugi","css/news-single","css/app","css/analitick","css/partners"], () => (__webpack_require__("./resources/sass/object-single.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/contacts","css/object-single","css/uslugi","css/news-single","css/app","css/analitick","css/partners"], () => (__webpack_require__("./resources/sass/contacts.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/contacts","css/object-single","css/uslugi","css/news-single","css/app","css/analitick","css/partners"], () => (__webpack_require__("./resources/sass/partners.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/contacts","css/object-single","css/uslugi","css/news-single","css/app","css/analitick","css/partners"], () => (__webpack_require__("./resources/sass/analitick.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

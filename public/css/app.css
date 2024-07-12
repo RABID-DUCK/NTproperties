@@ -10,6 +10,10 @@
   font-weight: 400;
 }
 
+h1, h2, h3, h4, p, a {
+  font-weight: 400;
+}
+
 .btn:focus,
 .form-control:focus,
 .custom-select:focus,

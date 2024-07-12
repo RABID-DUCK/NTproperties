@@ -1,0 +1,69 @@
+.analitick {
+    margin-bottom: 40px;
+    h1 {
+        margin: 20px 0;
+        font-size: 40px;
+        line-height: 40px;
+    }
+
+    .news {
+        margin-bottom: 20px;
+        h2 {
+            font-size: 32px;
+            line-height: 32px;
+            margin-bottom: 30px;
+        }
+
+        .list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            .item {
+                max-width: 578px;
+                width: 100%;
+                display: flex;
+                gap: 20px;
+                .text {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    color: #393632;
+                    .date {
+                        font-size: 14px;
+                        color: #969ba1;
+                        font-weight: 400;
+                    }
+                    h3 {
+                         font-size: 14px;
+                         line-height: 22px;
+                        font-weight: bold;
+                         margin: 0;
+                     }
+                    p {
+                        font-size: 14px;
+                        line-height: 22px;
+                        margin: 0;
+                    }
+                    .about {
+                        color: #ff6d12;
+                    }
+                }
+                img {
+                    max-width: 170px;
+                    object-fit: cover;
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .news_more {
+        color: #ff6d12;
+        padding: 5px 10px;
+        border: #ff6d12 2px solid;
+        border-radius: 2px;
+        margin-bottom: 100px;
+    }
+    hr {
+        margin: 30px 0 40px;
+    }
+}
