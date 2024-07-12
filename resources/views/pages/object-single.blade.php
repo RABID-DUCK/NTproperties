@@ -47,6 +47,10 @@
                 <li><span>система пожаротушения :</span> Спринклерная</li>
             </ul>
         </div>
+        <div class="map">
+            <h3>Объект на карте</h3>
+            <div id="map"></div>
+        </div>
     </div>
 </div>
 @endsection
