@@ -39,6 +39,17 @@ h1, h2, h3, h4, p, a {
   color: white;
 }
 
+ul li {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  padding: 0 0 20px 10px;
+  color: #3c3c3c;
+}
+ul ::marker {
+  color: #ff6d12;
+}
+
 .nav-logo {
   display: block;
   width: 189px;
@@ -73,6 +84,9 @@ header .navbar {
 }
 header .navbar-nav {
   gap: 30px;
+}
+header .navbar-nav .nav-item {
+  padding: 0;
 }
 header .d-flex span {
   font-size: 14px;

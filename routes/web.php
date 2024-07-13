@@ -43,7 +43,7 @@ Route::get('/news-single/{news:id}', [NewsSingleController::class, 'show'])->nam
 Route::get('/object-single', [ObjectSingleController::class, 'index'])->name('object-single');
 Route::get('/objects', [ObjectsController::class, 'index'])->name('objects');
 Route::get('/partners', [PartnersController::class, 'index'])->name('partners');
-Route::get('/search', [SearchController::class, 'index'])->name('partners');
+Route::get('/search', [SearchController::class, 'index'])->name('search');
 
 Route::middleware('auth')->group(function () {
     Route::group(['prefix' => 'admin'], function (){
