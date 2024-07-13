@@ -2,8 +2,6 @@
     margin-bottom: 40px;
     h1 {
         margin: 40px 0;
-        font-size: 40px;
-        line-height: 40px;
     }
 
     .news {
@@ -15,12 +13,10 @@
         }
 
         .list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
             .item {
-                max-width: 578px;
-                width: 100%;
                 display: flex;
                 gap: 20px;
                 .text {
@@ -44,8 +40,8 @@
                         line-height: 22px;
                         margin: 0;
                     }
-                    .about {
-                        color: #ff6d12;
+                    .more {
+                        margin-left: 28px;
                     }
                 }
                 img {
