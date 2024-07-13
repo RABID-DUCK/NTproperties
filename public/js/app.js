@@ -2134,6 +2134,19 @@ module.exports = Array.isArray || function (arr) {
 
 /***/ }),
 
+/***/ "./resources/sass/contacts.scss":
+/*!**************************************!*\
+  !*** ./resources/sass/contacts.scss ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/sass/partners.scss":
 /*!**************************************!*\
   !*** ./resources/sass/partners.scss ***!
@@ -2225,10 +2238,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/sass/object-single.scss":
-/*!*******************************************!*\
-  !*** ./resources/sass/object-single.scss ***!
-  \*******************************************/
+/***/ "./resources/sass/objects.scss":
+/*!*************************************!*\
+  !*** ./resources/sass/objects.scss ***!
+  \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2238,10 +2251,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/sass/contacts.scss":
-/*!**************************************!*\
-  !*** ./resources/sass/contacts.scss ***!
-  \**************************************/
+/***/ "./resources/sass/object-single.scss":
+/*!*******************************************!*\
+  !*** ./resources/sass/object-single.scss ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -7034,15 +7047,16 @@ const isThenable = (thing) =>
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
-/******/ 			"css/contacts": 0,
 /******/ 			"css/object-single": 0,
+/******/ 			"css/objects": 0,
 /******/ 			"css/uslugi": 0,
 /******/ 			"css/news-single": 0,
 /******/ 			"css/app": 0,
 /******/ 			"css/guide": 0,
 /******/ 			"css/company": 0,
 /******/ 			"css/analitick": 0,
-/******/ 			"css/partners": 0
+/******/ 			"css/partners": 0,
+/******/ 			"css/contacts": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -7092,16 +7106,17 @@ const isThenable = (thing) =>
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/contacts","css/object-single","css/uslugi","css/news-single","css/app","css/guide","css/company","css/analitick","css/partners"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/contacts","css/object-single","css/uslugi","css/news-single","css/app","css/guide","css/company","css/analitick","css/partners"], () => (__webpack_require__("./resources/sass/app.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/contacts","css/object-single","css/uslugi","css/news-single","css/app","css/guide","css/company","css/analitick","css/partners"], () => (__webpack_require__("./resources/sass/news-single.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/contacts","css/object-single","css/uslugi","css/news-single","css/app","css/guide","css/company","css/analitick","css/partners"], () => (__webpack_require__("./resources/sass/uslugi.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/contacts","css/object-single","css/uslugi","css/news-single","css/app","css/guide","css/company","css/analitick","css/partners"], () => (__webpack_require__("./resources/sass/object-single.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/contacts","css/object-single","css/uslugi","css/news-single","css/app","css/guide","css/company","css/analitick","css/partners"], () => (__webpack_require__("./resources/sass/contacts.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/contacts","css/object-single","css/uslugi","css/news-single","css/app","css/guide","css/company","css/analitick","css/partners"], () => (__webpack_require__("./resources/sass/partners.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/contacts","css/object-single","css/uslugi","css/news-single","css/app","css/guide","css/company","css/analitick","css/partners"], () => (__webpack_require__("./resources/sass/analitick.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/contacts","css/object-single","css/uslugi","css/news-single","css/app","css/guide","css/company","css/analitick","css/partners"], () => (__webpack_require__("./resources/sass/company.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/contacts","css/object-single","css/uslugi","css/news-single","css/app","css/guide","css/company","css/analitick","css/partners"], () => (__webpack_require__("./resources/sass/guide.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/object-single","css/objects","css/uslugi","css/news-single","css/app","css/guide","css/company","css/analitick","css/partners","css/contacts"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/object-single","css/objects","css/uslugi","css/news-single","css/app","css/guide","css/company","css/analitick","css/partners","css/contacts"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/object-single","css/objects","css/uslugi","css/news-single","css/app","css/guide","css/company","css/analitick","css/partners","css/contacts"], () => (__webpack_require__("./resources/sass/news-single.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/object-single","css/objects","css/uslugi","css/news-single","css/app","css/guide","css/company","css/analitick","css/partners","css/contacts"], () => (__webpack_require__("./resources/sass/uslugi.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/object-single","css/objects","css/uslugi","css/news-single","css/app","css/guide","css/company","css/analitick","css/partners","css/contacts"], () => (__webpack_require__("./resources/sass/objects.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/object-single","css/objects","css/uslugi","css/news-single","css/app","css/guide","css/company","css/analitick","css/partners","css/contacts"], () => (__webpack_require__("./resources/sass/object-single.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/object-single","css/objects","css/uslugi","css/news-single","css/app","css/guide","css/company","css/analitick","css/partners","css/contacts"], () => (__webpack_require__("./resources/sass/contacts.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/object-single","css/objects","css/uslugi","css/news-single","css/app","css/guide","css/company","css/analitick","css/partners","css/contacts"], () => (__webpack_require__("./resources/sass/partners.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/object-single","css/objects","css/uslugi","css/news-single","css/app","css/guide","css/company","css/analitick","css/partners","css/contacts"], () => (__webpack_require__("./resources/sass/analitick.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/object-single","css/objects","css/uslugi","css/news-single","css/app","css/guide","css/company","css/analitick","css/partners","css/contacts"], () => (__webpack_require__("./resources/sass/company.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/object-single","css/objects","css/uslugi","css/news-single","css/app","css/guide","css/company","css/analitick","css/partners","css/contacts"], () => (__webpack_require__("./resources/sass/guide.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
