@@ -1,5 +1,61 @@
 .objects {
+    margin-bottom: 40px;
+    .filter-wrapper {
+        position: static;
+        transform: none;
+        margin-bottom: 40px;
+        .filter-window {
+            position: static;
+            max-width: 100%;
+            .filter-content {
+                padding: 20px;
+                background: #f5f7f8;
+                border-radius: 2px;
+                .buttons {
+                    display: flex;
+                    justify-content: center;
+                    gap: 20px;
+                }
+            }
+            .btn-apply-filter {
+                position: static;
+            }
+            .reset {
+                background: #b1bbc5;
+                padding: 15px 40px 18px 40px;
+                color: #ffffff;
+                font-size: 18px;
+                font-weight: 400;
+                text-transform: uppercase;
+                text-align: center;
+                border-radius: 3px;
+                -moz-border-radius: 3px;
+                -webkit-border-radius: 3px;
+                -khtml-border-radius: 3px;
+                -webkit-transition: all .3s ease;
+                -moz-transition: all .3s ease;
+                transition: all .3s ease;
+                text-decoration: none;
+                white-space: nowrap;
+                -webkit-appearance: none;
+                border-style: solid;
+                border-width: 3px;
+            }
+        }
+        .filter-window:after {
+            display: none;
+        }
+    }
 
+    .group {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        p {
+            color: #8c9092;
+            font-size: 20px;
+        }
+    }
 
     .list {
         width: 100%;
@@ -25,7 +81,7 @@
                 padding: 20px;
                 h2 {
                     display: flex;
-                    gap: 5px;
+                    gap: 10px;
                     font-size: 16px;
                     line-height: 18px;
                 }
@@ -54,7 +110,7 @@
                 }
             }
 
-            .text :before{
+            .ob :before{
                 content: "";
                 position: absolute;
                 top: -7.5px;
@@ -67,6 +123,97 @@
         }
         .item:hover {
             box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+        }
+    }
+
+    .pagination {
+        margin: 30px 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+         button {
+             width: 25px;
+             height: 25px;
+             border-radius: 50%;
+             background: none;
+             border: none;
+         }
+        button:hover {
+
+            text-align: center;
+            color: white;
+            background: #ff6d12;
+        }
+        a {
+            background: none;
+            color: #c3d1d8;
+
+            padding: 0;
+            margin: 5px;
+            text-decoration: none;
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+            border-radius: 20px;
+            -moz-border-radius: 20px;
+            -webkit-border-radius: 20px;
+            -khtml-border-radius: 20px;
+            font-size: 14px;
+            -webkit-transition: all .3s ease;
+            -moz-transition: all .3s ease;
+            transition: all .3s ease;
+            font-weight: 600;
+        }
+        a:hover {
+            border-radius: 50%;
+            background: #ff6d12;
+            color: white;
+        }
+        .active {
+            background: #c3d1d8;
+            color: #fff;
+            padding: 0px;
+            margin: 5px;
+            text-decoration: none;
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+            border-radius: 20px;
+            -moz-border-radius: 20px;
+            -webkit-border-radius: 20px;
+            -khtml-border-radius: 20px;
+            font-size: 14px;
+            -webkit-transition: all .3s ease;
+            -moz-transition: all .3s ease;
+            transition: all .3s ease;
+            font-weight: 600;
+        }
+    }
+
+    .news {
+        h2 {
+
+            margin-bottom: 30px;
+        }
+        .news_more {
+            display: inline-block;
+            color: #ff6d12;
+            padding: 5px 10px;
+            border: #ff6d12 2px solid;
+            border-radius: 2px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .list {
+            .item {
+                .text {
+                    align-items: flex-start;
+                }
+            }
         }
     }
 }

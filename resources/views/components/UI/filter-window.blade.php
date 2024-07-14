@@ -1,4 +1,4 @@
-<div class="filter-wrapper">
+<form class="filter-wrapper">
     <div class="filter-window">
         <div class="filter-content p-4">
             <div class="filter-1 d-flex">
@@ -93,4 +93,4 @@
     </div>
 
     <button class="btn btn-apply-filter">ПОКАЗАТЬ РЕЗУЛЬТАТЫ</button>
-</div>
+</form>

@@ -13,14 +13,121 @@
         </div>
         <h1>Объекты</h1>
 
-        @include('components.UI.filter-window', compact('regions', 'directions', 'highways'))
+        <form class="filter-wrapper">
+            <div class="filter-window">
+                <div class="filter-content">
+                    <div class="filter-1 d-flex">
+                        <button class="btn d-flex align-items-center active" id="rentBtn"><i class="fas fa-check" style="margin-right: 10px;"></i> Аренда</button>
+                        <button class="btn d-flex align-items-center" id="saleBtn" style="margin-left: 10px; margin-right: 10px"><i class="fas fa-times" style="margin-right: 10px;"></i> Продажа</button>
+                        <select class="form-select" name="" id="">
+                            <option value="">Складские помещения</option>
+                            <option value="">Промышленные участки</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group mt-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Цена</span>
+                        </div>
+                        <input type="number" class="form-control" placeholder="10 000">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon2">-</span>
+                        </div>
+                        <input type="number" class="form-control" placeholder="20 000">
+                        <div class="input-group-append">
+                            <select class="form-select" id="inputGroupSelect01">
+                                <option selected>за м&sup2; в год</option>
+                                <option value="1">Общая</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="filter-3 d-flex mt-3 input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Площадь</span>
+                        </div>
+                        <input type="number" class="form-control" placeholder="6300">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon2">-</span>
+                        </div>
+                        <input type="number" style="border-right: 1px solid #ced4da;border-radius: .25rem;" class="form-control" placeholder="700 000">
+                        <button class="btn">Наличие стеллажей</button>
+                    </div>
+
+                    <div class="filter-4 d-flex mt-3">
+                        <select class="form-select" name="region" id="" @if($regions->isEmpty()) disabled @endif>
+                            @if($regions->isNotEmpty())
+                                @foreach($regions as $region)
+                                    <option value="{{$region->id}}">{{$region->name}}</option>
+                                @endforeach
+
+                            @else
+                                <option value="empty">Не выбрано</option>
+                            @endif
+                        </select>
+
+                        <select class="form-select" name="direction" id="" @if($directions->isEmpty()) disabled @endif>
+                            <option value="">Все направления</option>
+                            @if($directions->isNotEmpty())
+                                @foreach($directions as $direction)
+                                    <option value="{{$direction->id}}">{{$direction->name}}</option>
+                                @endforeach
+
+                                @else
+                                <option value="empty">Не выбрано</option>
+                            @endif
+                        </select>
+
+                        <select class="form-select" name="highway" id="" @if($highways->isEmpty()) disabled @endif>
+                            <option value="">Все шоссе</option>
+                            @if($highways->isNotEmpty())
+                                @foreach($highways as $highway)
+                                    <option value="{{$highway->id}}">{{$highway->name}}</option>
+                                @endforeach
+                                <option value="">Все шоссе</option>
+                                @else
+                                <option value="empty">Не выбрано</option>
+                            @endif
+                        </select>
+                    </div>
+
+                    <div class="input-group mb-3 mt-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Расстояние от МКАД</span>
+                        </div>
+                        <input type="number" class="form-control" placeholder="4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon2">-</span>
+                        </div>
+                        <input type="number" class="form-control" placeholder="92">
+                        <div class="input-group-append">
+                            <span class="input-group-text">км</span>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                      <button class="btn btn-apply-filter">Показать</button><button class="btn reset">Очистить</button>
+                  </div>
+                </div>
+            </div>
+
+        </form>
+
+        <div class="group">
+            <p>Найдено 0 предложений</p>
+            <div>
+                <button>Б/М</button>
+                <button>Флекс</button>
+                <button>Грид</button>
+            </div>
+        </div>
+
 
         <div class="list">
             @if($objects->isNotEmpty())
                 @foreach($objects as $object)
                     <a href="{{route('objects.show', $object->id)}}" class="item">
                         <img src="{{asset('img/slider-1.jpg')}}"/>
-                        <div class="text">
+                        <div class="text ob">
                             <h2>
 
                                 <svg fill="#ff6d12" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -53,6 +160,38 @@
                 @endforeach
             @endif
 
+        </div>
+        <div class="pagination">
+            <button disabled><</button>
+                <a class="active" href="#">1</a>
+                <a href="#">2</a>
+            <button>></button>
+        </div>
+        <div class="news">
+            <h2>Новости</h2>
+            <div class="list">
+                <a href="#" class="item">
+                    <img src="{{asset('img/slider-1.jpg')}}"/>
+                     <div class="text">
+                         <p class="date">25.06.2024</p>
+                         <h3>Загаловоок</h3>
+                     </div>
+                </a>
+            </div>
+            <a class="news_more" href="#">Все новости</a>
+        </div>
+        <div class="news">
+            <h2>Новости</h2>
+            <div class="list">
+                <a href="#" class="item">
+                    <img src="{{asset('img/slider-1.jpg')}}"/>
+                     <div class="text">
+                         <p class="date">25.06.2024</p>
+                         <h3>Загаловоок</h3>
+                     </div>
+                </a>
+            </div>
+            <a class="news_more" href="#">Все обзоры</a>
         </div>
     </div>
 </div>
