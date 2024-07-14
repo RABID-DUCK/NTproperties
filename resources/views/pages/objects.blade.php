@@ -13,6 +13,8 @@
         </div>
         <h1>Объекты</h1>
 
+        @include('components.UI.filter-window', compact('regions', 'directions', 'highways'))
+
         <div class="list">
             @if($objects->isNotEmpty())
                 @foreach($objects as $object)
