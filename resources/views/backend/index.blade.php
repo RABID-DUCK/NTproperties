@@ -26,10 +26,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Contact</a>
+                <a href="#" class="nav-link">Главная</a>
             </li>
         </ul>
 
@@ -89,6 +86,15 @@
                             <i class="fa-solid fa-newspaper"></i>
                             <p>
                                 Новости
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item menu-open">
+                        <a href="{{route('admin.objects')}}" class="nav-link {{ Request::is('admin/objects') ? 'active' : '' }}">
+                            <i class="fa-solid fa-newspaper"></i>
+                            <p>
+                                Объекты
                             </p>
                         </a>
                     </li>

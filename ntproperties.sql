@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 10 2024 г., 22:16
+-- Время создания: Июл 14 2024 г., 21:56
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -34,6 +34,20 @@ CREATE TABLE `directions` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Дамп данных таблицы `directions`
+--
+
+INSERT INTO `directions` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(19, 'Север', '2024-07-11 14:57:59', NULL),
+(20, 'Северо-восток', '2024-07-11 14:57:59', NULL),
+(21, 'Восток', '2024-07-11 14:57:59', NULL),
+(22, 'Юго-восток', '2024-07-11 14:57:59', NULL),
+(23, 'Юг', '2024-07-11 14:57:59', NULL),
+(24, 'Юго-запад', '2024-07-11 14:57:59', NULL),
+(25, 'Запад', '2024-07-11 14:57:59', NULL),
+(26, 'Северо-запад', '2024-07-11 14:57:59', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -63,6 +77,49 @@ CREATE TABLE `high_ways` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Дамп данных таблицы `high_ways`
+--
+
+INSERT INTO `high_ways` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(16, 'Горьковское шоссе', '2024-07-11 14:57:56', NULL),
+(17, 'Дмитровское шоссе', '2024-07-11 14:57:56', NULL),
+(18, 'Каширское шоссе', '2024-07-11 14:57:56', NULL),
+(19, 'Киевское шоссе', '2024-07-11 14:57:56', NULL),
+(20, 'Ленинградское шоссе', '2024-07-11 14:57:56', NULL),
+(21, 'М4-Дон', '2024-07-11 14:57:56', NULL),
+(22, 'Минское шоссе', '2024-07-11 14:57:56', NULL),
+(23, 'МКАД', '2024-07-11 14:57:56', NULL),
+(24, 'Новорижское шоссе', '2024-07-11 14:57:56', NULL),
+(25, 'Новорязанское шоссе', '2024-07-11 14:57:56', NULL),
+(26, 'Подольск', '2024-07-11 14:57:56', NULL),
+(27, 'Рогачевское шоссе', '2024-07-11 14:57:56', NULL),
+(28, 'Симферопольское шоссе', '2024-07-11 14:57:56', NULL),
+(29, 'Ярославское шоссе', '2024-07-11 14:57:56', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `images`
+--
+
+CREATE TABLE `images` (
+  `id` bigint UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type_model` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_id` int NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `images`
+--
+
+INSERT INTO `images` (`id`, `name`, `type_model`, `model_id`, `created_at`, `updated_at`) VALUES
+(6, '7day_logo.jpg', 'App\\Models\\Objects', 2, '2024-07-14 15:24:16', '2024-07-14 15:24:16'),
+(7, 'ck_v1.PNG', 'App\\Models\\Objects', 2, '2024-07-14 15:34:10', '2024-07-14 15:34:10');
+
 -- --------------------------------------------------------
 
 --
@@ -88,7 +145,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (6, '2024_07_08_192406_create_regions_table', 1),
 (7, '2024_07_08_192424_create_directions_table', 1),
 (8, '2024_07_08_192446_create_high_ways_table', 1),
-(9, '2024_07_08_174519_create_objects_table', 2);
+(9, '2024_07_08_174519_create_objects_table', 2),
+(10, '2024_07_14_162818_add_column_type_room_in_objects', 3),
+(11, '2024_07_14_165349_create_images_table', 4),
+(12, '2024_07_14_170044_change_columns_in_table_objects', 5),
+(13, '2024_07_14_171435_add_column_distance_in_objects', 6);
 
 -- --------------------------------------------------------
 
@@ -100,10 +161,19 @@ CREATE TABLE `news` (
   `id` bigint UNSIGNED NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `news`
+--
+
+INSERT INTO `news` (`id`, `image`, `title`, `description`, `created_at`, `updated_at`) VALUES
+(10, 'dead_v1.PNG', 'Холдинг \"Строительный Альянс\" построит 746 тыс. кв. м площадей Light Industrial', 'Холдинг \"Строительный альянс\" является одним из ведущих девелоперов на рынке Light Industrial, текущий портфель проектов компании на стадии реализации включает 615 тыс. кв. м. В число этих проектов входит цифровой промышленный хаб «Жуковский» (общая площадь 250 тыс. кв. м), данный объект объединяет индустриальный парк с общественно-городским пространством, включает общественно-деловую, социальную и спортивную инфраструктуру. В Краснодаре и Санкт-Петербурге «Строительный альянс» реализует два крупных проекта с общей площадью 200 и 100 тыс. кв. м соответственно. Во втором квартале 2025 г. планируется ввод в эксплуатацю порядка 50 тыс. кв. м площадей Light Industrial в <br> цифровом промышленном коворкинге \"Есипово 4\" в Солнечногорском районе, помимо этого девелопер строит еще 81 тыс. кв. м индустриальной недвижимости в Коледино с запланированной датой ввода до конца 2024 г.\r\n\r\nСогласно данным NT Properties на июнь 2024 г. объем рынка Light Industrial Московского региона составляет 569 тыс. кв. м площадей, на этапе строительства и планирования находится еще более 700 тыс. кв. м.\r\n\r\nСредневзвешенная ставка аренды в объектах Light Industrial составляет 17 100 руб./ кв. м/ год, включая НДС и операционные расходы.', '2024-07-11 16:26:26', '2024-07-11 16:26:26'),
+(11, 'dk.jpg', '2Холдинг \"Строительный Альянс\" построит 746 тыс. кв. м площадей Light Industrial', '<p align=\"justify\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px 0px 30px; font-family: \" open=\"\" sans\",=\"\" tahoma,=\"\" helvetica,=\"\" sans-serif;=\"\" outline:=\"\" none;=\"\" -webkit-font-smoothing:=\"\" antialiased;=\"\" line-height:=\"\" 26px;=\"\" color:=\"\" rgb(60,=\"\" 60,=\"\" 60);\"=\"\">1Холдинг \"Строительный альянс\" является одним из ведущих девелоперов на рынке Light Industrial, текущий портфель проектов компании на стадии реализации включает 615 тыс. кв. м. В число этих проектов входит цифровой промышленный хаб «Жуковский» (общая площадь 250 тыс. кв. м), данный объект объединяет индустриальный парк с общественно-городским пространством, включает общественно-деловую, социальную и спортивную инфраструктуру. В Краснодаре и Санкт-Петербурге «Строительный альянс» реализует два крупных проекта с общей площадью 200 и 100 тыс. кв. м соответственно. Во втором квартале 2025 г. планируется ввод в эксплуатацю порядка 50 тыс. кв. м площадей Light Industrial в цифровом промышленном коворкинге \"Есипово 4\" в Солнечногорском районе, помимо этого девелопер строит еще 81 тыс. кв. м индустриальной недвижимости в Коледино с запланированной датой ввода до конца 2024 г.</p><p align=\"justify\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px 0px 30px; font-family: \" open=\"\" sans\",=\"\" tahoma,=\"\" helvetica,=\"\" sans-serif;=\"\" outline:=\"\" none;=\"\" -webkit-font-smoothing:=\"\" antialiased;=\"\" line-height:=\"\" 26px;=\"\" color:=\"\" rgb(60,=\"\" 60,=\"\" 60);\"=\"\">Согласно данным NT Properties на июнь 2024 г. объем рынка Light Industrial <b>Московского региона</b> составляет 569 тыс. кв. м площадей, на этапе строительства и планирования находится еще более 700 тыс. кв. м.</p><p align=\"justify\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px 0px 30px; font-family: \" open=\"\" sans\",=\"\" tahoma,=\"\" helvetica,=\"\" sans-serif;=\"\" outline:=\"\" none;=\"\" -webkit-font-smoothing:=\"\" antialiased;=\"\" line-height:=\"\" 26px;=\"\" color:=\"\" rgb(60,=\"\" 60,=\"\" 60);\"=\"\">Средневзвешенная ставка аренды в объектах Light Industrial составляет 17 100 руб./ кв. м/ год, включая НДС и операционные расходы.</p>', '2024-07-11 17:07:39', '2024-07-14 12:11:35'),
+(12, 'dead_v1.PNG', 'ssdfsdf324', '<p>sssssssssssssssss324</p><p><br></p><p><b>4444444444</b></p><p>fdgfdgdfg</p>', '2024-07-14 12:14:56', '2024-07-14 12:24:00');
 
 -- --------------------------------------------------------
 
@@ -113,30 +183,39 @@ CREATE TABLE `news` (
 
 CREATE TABLE `objects` (
   `id` bigint UNSIGNED NOT NULL,
-  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `city` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type_room` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `column_pitch` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lighting` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `fire_system` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fire_system` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'null',
   `price_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` int NOT NULL,
   `all_square` int NOT NULL,
   `free_square` int NOT NULL,
   `min_square` int NOT NULL,
-  `class_house` int NOT NULL,
+  `class_house` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'null',
   `height` int NOT NULL,
+  `distance_mkad` int DEFAULT NULL,
   `floor_load` int NOT NULL,
-  `zoom` int NOT NULL,
-  `x_coord` double(8,2) NOT NULL,
-  `y_coord` double(8,2) NOT NULL,
+  `zoom` int DEFAULT NULL,
+  `x_coord` double(8,2) DEFAULT NULL,
+  `y_coord` double(8,2) DEFAULT NULL,
   `region_id` bigint UNSIGNED NOT NULL,
   `highway_id` bigint UNSIGNED NOT NULL,
   `direction_id` bigint UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `objects`
+--
+
+INSERT INTO `objects` (`id`, `address`, `city`, `title`, `description`, `type_room`, `column_pitch`, `lighting`, `fire_system`, `price_type`, `price`, `all_square`, `free_square`, `min_square`, `class_house`, `height`, `distance_mkad`, `floor_load`, `zoom`, `x_coord`, `y_coord`, `region_id`, `highway_id`, `direction_id`, `created_at`, `updated_at`) VALUES
+(2, NULL, 'Москоу4', 'название1', 'описание2', '1', '235', 'Светодиодно', 'Спринклерная1', '1', 1234, 123, 342, 545, 'D6', 11112, 2135, 26, 23, 214.12, 23.45, 19, 17, 20, '2024-07-14 15:24:16', '2024-07-14 15:34:10');
 
 -- --------------------------------------------------------
 
@@ -247,6 +326,12 @@ ALTER TABLE `high_ways`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `images`
+--
+ALTER TABLE `images`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `migrations`
 --
 ALTER TABLE `migrations`
@@ -302,7 +387,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `directions`
 --
 ALTER TABLE `directions`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT для таблицы `failed_jobs`
@@ -314,25 +399,31 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT для таблицы `high_ways`
 --
 ALTER TABLE `high_ways`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- AUTO_INCREMENT для таблицы `images`
+--
+ALTER TABLE `images`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT для таблицы `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT для таблицы `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT для таблицы `objects`
 --
 ALTER TABLE `objects`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `personal_access_tokens`

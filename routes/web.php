@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DirectionController;
 use App\Http\Controllers\Admin\HighWayController;
+use App\Http\Controllers\Admin\ImagesController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\RegionController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
@@ -51,6 +52,7 @@ Route::get('/news', [NewsSingleController::class, 'index'])->name('news');
 
 Route::get('/object-single', [ObjectSingleController::class, 'index'])->name('object-single');
 Route::get('/objects', [ObjectsController::class, 'index'])->name('objects');
+Route::get('/objects/{object:id}', [ObjectsController::class, 'show'])->name('objects.show');
 
 Route::get('/partners', [PartnersController::class, 'index'])->name('partners');
 Route::get('/search', [SearchController::class, 'index'])->name('search');
@@ -90,6 +92,16 @@ Route::middleware('auth')->group(function () {
             Route::post('/update/{news:id}', [NewsController::class, 'update'])->name('admin.news.update');
             Route::delete('/destroy/{news:id}', [NewsController::class, 'destroy'])->name('admin.news.destroy');
         });
+
+        Route::group(['prefix' => 'objects'], function (){
+            Route::get('/', [\App\Http\Controllers\Admin\ObjectsController::class, 'index'])->name('admin.objects');
+            Route::get('show/{object:id}', [\App\Http\Controllers\Admin\ObjectsController::class, 'show'])->name('admin.objects.show');
+            Route::post('/store', [\App\Http\Controllers\Admin\ObjectsController::class, 'store'])->name('admin.objects.store');
+            Route::post('/update/{object:id}', [\App\Http\Controllers\Admin\ObjectsController::class, 'update'])->name('admin.objects.update');
+            Route::delete('/destroy/{object:id}', [\App\Http\Controllers\Admin\ObjectsController::class, 'destroy'])->name('admin.objects.destroy');
+        });
+
+        Route::delete('/images/delete/{image:id}', [ImagesController::class, 'delete'])->name('admin.objects-images.destroy');
     });
 });
 

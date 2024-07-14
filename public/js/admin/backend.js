@@ -50,3 +50,17 @@ function deleteRow_bd(routeName, type){
         }
     })
 }
+
+function deleteImageRow_bd(routeName, type){
+    let target = event.target;
+    $.ajax({
+        url: routeName,
+        method: type,
+        success: function (data){
+            target.parentNode.remove()
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(textStatus)
+        }
+    })
+}
