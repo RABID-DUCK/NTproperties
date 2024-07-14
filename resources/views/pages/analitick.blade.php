@@ -16,7 +16,7 @@
         <div class="news">
             <h2>Новости</h2>
             <div class="list">
-                <a href="#" class="item">
+                <a href="{{route('analitick-single')}}" class="item">
                     <img src="{{asset('img/slider-1.jpg')}}"/>
                     <div class="text">
                         <p class="date">25.06.2024</p>
@@ -45,13 +45,13 @@
                 </a>
             </div>
         </div>
-        <a href="#" class="news_more">Все новости</a>
+        <a href="{{route('news')}}" class="news_more">Все новости</a>
         <hr>
 
         <div class="news">
             <h2>Обзоры</h2>
             <div class="list">
-                <a href="#" class="item">
+                <a href="{{route('reviews.single')}}" class="item">
                     <img src="{{asset('img/slider-1.jpg')}}"/>
                     <div class="text">
                         <h3>Холдинг "Строительный Альянс" построит 746 тыс. кв. м площадей Light Industrial</h3>
@@ -77,7 +77,7 @@
                 </a>
             </div>
         </div>
-        <a href="#" class="news_more">Все обзоры</a>
+        <a href="{{route('reviews')}}" class="news_more">Все обзоры</a>
     </div>
 </div>
 @endsection

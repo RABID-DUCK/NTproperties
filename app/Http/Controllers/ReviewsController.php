@@ -4,14 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AnalitickController extends Controller
+class ReviewsController extends Controller
 {
     public function index(){
-        return view('pages.analitick');
+        return view('pages.reviews');
     }
 
     public function show(){
-
-        return view('pages.analitick-overview');
+        return view('pages.reviews-single');
     }
 }

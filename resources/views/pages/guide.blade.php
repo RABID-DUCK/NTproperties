@@ -13,7 +13,7 @@
         </div>
         <h1>Руководство</h1>
         <div class="list">
-            <a href="#" class="item">
+            <a href="{{route('guide-single')}}" class="item">
                 <img src="{{asset('img/rykovod.jpg')}}"/>
                 <h2>Владислав Рябов</h2>
                 <p>Управляющий партнер NT Properties</p>

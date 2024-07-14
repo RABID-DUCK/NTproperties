@@ -1,0 +1,41 @@
+.uslugi {
+  padding: 30px 0 50px;
+}
+.uslugi h2 {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 40px;
+  margin-bottom: 40px;
+  color: #3c3c3c;
+}
+.uslugi p {
+  line-height: 26px;
+  font-size: 16px;
+  color: #3c3c3c;
+  padding-bottom: 30px;
+}
+.uslugi .content {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 47px;
+}
+.uslugi .content .item {
+  width: 48%;
+}
+.uslugi .content .item h3 {
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 32px;
+  margin-bottom: 30px;
+}
+.uslugi .content .item ul li {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  padding: 0px 0px 20px 10px;
+  color: #3c3c3c;
+}
+.uslugi .content .item ul ::marker {
+  color: #ff6d12;
+}

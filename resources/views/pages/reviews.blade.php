@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-аналитика одонго
+    обзоры все
 @endsection

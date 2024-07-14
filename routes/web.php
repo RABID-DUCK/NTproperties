@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\RegionController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReviewsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServicesController;
 use \App\Http\Controllers\AnalitickController;
@@ -34,16 +35,28 @@ use \App\Http\Controllers\SearchController;
 Route::get('/', [\App\Http\Controllers\MainController::class, 'index'])->name('main-page');
 
 Route::get('/services', [ServicesController::class, 'index'])->name('services');
+
 Route::get('/analitick', [AnalitickController::class, 'index'])->name('analitick');
+Route::get('/analitick-single', [AnalitickController::class, 'show'])->name('analitick-single');
 Route::get('/analitic-overview', [AnaliticOverviewController::class, 'index'])->name('analitic-overview');
+
 Route::get('/company', [CompanyController::class, 'index'])->name('company');
 Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts');
+
 Route::get('/guide', [GuideController::class, 'index'])->name('guide');
+Route::get('/guide-single', [GuideController::class, 'show'])->name('guide-single');
+
 Route::get('/news-single/{news:id}', [NewsSingleController::class, 'show'])->name('news-single');
+Route::get('/news', [NewsSingleController::class, 'index'])->name('news');
+
 Route::get('/object-single', [ObjectSingleController::class, 'index'])->name('object-single');
 Route::get('/objects', [ObjectsController::class, 'index'])->name('objects');
+
 Route::get('/partners', [PartnersController::class, 'index'])->name('partners');
 Route::get('/search', [SearchController::class, 'index'])->name('search');
+
+Route::get('/reviews', [ReviewsController::class, 'index'])->name('reviews');
+Route::get('/reviews-single', [ReviewsController::class, 'show'])->name('reviews.single');
 
 Route::middleware('auth')->group(function () {
     Route::group(['prefix' => 'admin'], function (){
