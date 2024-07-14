@@ -30,11 +30,11 @@
                 <tr>
                     <th scope="row">{{ $new->id }}</th>
                     <td>{{ $new->title }}</td>
-                    <td>{{ $new->description }}</td>
+                    <td>{!! \Illuminate\Support\Str::limit($new->description, 400) !!}</td>
                     <td><img src="/storage/images/{{ $new->image }}" alt="{{ $new->image }}" width="100" height="70"></td>
                     <td>{{ $new->created_at }}</td>
                     <td class="d-flex">
-                        <i class="fa-solid fa-pen mr-2" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#newModal" data-bs-whatever="@mdo" data-action="{{route('admin.news.update', $new->id)}}"></i>
+                        <a href="{{route('admin.news.show', $new->id)}}"><i class="fa-solid fa-pen mr-2" style="cursor: pointer;"></i></a>
                         <i class="fa-solid fa-circle-minus text-danger" style="cursor: pointer;" onclick="deleteRow_bd('{{ route('admin.news.destroy', $new->id) }}', 'delete')"></i>
                     </td>
                 </tr>
@@ -52,7 +52,7 @@
         <div class="modal-dialog" style="max-width: 1000px;">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Создание/Редактировать</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Создание</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

@@ -85,9 +85,10 @@ Route::middleware('auth')->group(function () {
 
         Route::group(['prefix' => 'news'], function (){
             Route::get('/', [NewsController::class, 'index'])->name('admin.news');
+            Route::get('show/{news:id}', [NewsController::class, 'show'])->name('admin.news.show');
             Route::post('/store', [NewsController::class, 'store'])->name('admin.news.store');
-            Route::post('/update/{direction}', [NewsController::class, 'update'])->name('admin.news.update');
-            Route::delete('/destroy/{direction}', [NewsController::class, 'destroy'])->name('admin.news.destroy');
+            Route::post('/update/{news:id}', [NewsController::class, 'update'])->name('admin.news.update');
+            Route::delete('/destroy/{news:id}', [NewsController::class, 'destroy'])->name('admin.news.destroy');
         });
     });
 });
