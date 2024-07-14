@@ -1,0 +1,31 @@
+.guide {
+  margin-bottom: 30px;
+}
+.guide .list {
+  display: flex;
+  gap: 20px;
+}
+.guide .list .item {
+  color: #3c3c3c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.guide .list .item h2 {
+  font-size: 20px;
+  line-height: 22px;
+  font-weight: 400;
+}
+.guide .list .item p {
+  font-size: 14px;
+  line-height: 22px;
+}
+.guide .list .item img {
+  width: 180px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.guide .list .item:hover > h2 {
+  color: #ff6d12;
+}

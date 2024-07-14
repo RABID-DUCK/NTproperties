@@ -14,7 +14,7 @@
         <h1>Объекты</h1>
 
         <div class="list">
-            <a href="#" class="item">
+            <a href="{{route('object-single')}}" class="item">
                 <img src="{{asset('img/slider-1.jpg')}}"/>
                 <div class="text">
                     <h2>

@@ -1,0 +1,68 @@
+.objects .list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+}
+.objects .list .item {
+  color: #3c3c3c;
+  border-radius: 5px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.objects .list .item img {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.objects .list .item .text {
+  position: relative;
+  padding: 20px;
+}
+.objects .list .item .text h2 {
+  display: flex;
+  gap: 5px;
+  font-size: 16px;
+  line-height: 18px;
+}
+.objects .list .item .text p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #676a6b;
+  font-size: 15px;
+}
+.objects .list .item .text hr {
+  margin-top: 60px;
+}
+.objects .list .item .text .price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.objects .list .item .text .price h3 {
+  color: #8c9092;
+  font-size: 15px;
+}
+.objects .list .item .text .price p {
+  color: #ff6d12;
+  font-size: 18px;
+}
+.objects .list .item .text :before {
+  content: "";
+  position: absolute;
+  top: -7.5px;
+  left: 30px;
+  width: 15px;
+  height: 15px;
+  transform: rotate(45deg);
+  background: white;
+}
+.objects .list .item:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}

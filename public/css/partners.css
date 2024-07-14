@@ -1,0 +1,17 @@
+.partners .list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+.partners .list .item {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 20px;
+  line-height: 22px;
+  font-weight: 400;
+  color: black;
+}
