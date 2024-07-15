@@ -16,6 +16,15 @@ header {
                 display: flex;
                 align-items: center;
                 gap: 20px;
+                .menu {
+                    display: none;
+                }
+                .menu-button-container {
+                    display: none;
+                }
+                #menu-toggle {
+                    display: none;
+                }
                 a {
                     display: flex;
                     gap: 10px;
