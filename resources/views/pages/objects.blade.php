@@ -163,10 +163,29 @@
 
         </div>
         <div class="pagination">
-            <button disabled><</button>
-                <a class="active" href="#">1</a>
-                <a href="#">2</a>
-            <button>></button>
+            @if ($objects->onFirstPage())
+                <button disabled><</button>
+            @else
+                <a href="{{ $objects->previousPageUrl() }}"><</a>
+            @endif
+
+            @foreach ($objects->links()->elements as $element)
+                @if (is_array($element))
+                    @foreach ($element as $page => $url)
+                        @if ($page == $objects->currentPage())
+                            <a class="active" href="{{ $url }}">{{ $page }}</a>
+                        @else
+                            <a href="{{ $url }}">{{ $page }}</a>
+                        @endif
+                    @endforeach
+                @endif
+            @endforeach
+
+            @if ($objects->hasMorePages())
+                <a href="{{ $objects->nextPageUrl() }}">></a>
+            @else
+                <button disabled>></button>
+            @endif
         </div>
         <div class="news">
             <h2>Новости</h2>

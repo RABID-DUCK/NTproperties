@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 class ObjectsController extends Controller
 {
     public function index(){
-        $objects = Objects::all();
+        $objects = Objects::query()->paginate(10);
         $regions = Regions::all();
         $directions = Directions::all();
         $highways = Highways::all();
