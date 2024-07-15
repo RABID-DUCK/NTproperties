@@ -1,12 +1,13 @@
-<form class="filter-wrapper">
+<form class="filter-wrapper" action="{{route('object-list')}}">
     <div class="filter-window">
         <div class="filter-content p-4">
             <div class="filter-1 d-flex">
-                <button class="btn d-flex align-items-center active" id="rentBtn"><i class="fas fa-check" style="margin-right: 10px;"></i> Аренда</button>
-                <button class="btn d-flex align-items-center" id="saleBtn" style="margin-left: 10px; margin-right: 10px"><i class="fas fa-times" style="margin-right: 10px;"></i> Продажа</button>
-                <select class="form-select" name="" id="">
-                    <option value="">Складские помещения</option>
-                    <option value="">Промышленные участки</option>
+                <button type="button" class="btn d-flex align-items-center active" id="rentBtn"><i class="fas fa-check" style="margin-right: 10px;"></i> Аренда</button>
+                <button type="button" class="btn d-flex align-items-center" id="saleBtn" style="margin-left: 10px; margin-right: 10px"><i class="fas fa-times" style="margin-right: 10px;"></i> Продажа</button>
+                <input type="hidden" name="price_type" id="price_type">
+                <select class="form-select" name="type_room" id="">
+                    <option value="1">Складские помещения</option>
+                    <option value="2">Промышленные участки</option>
                 </select>
             </div>
 
@@ -14,11 +15,11 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Цена</span>
                 </div>
-                <input type="number" class="form-control" placeholder="10 000">
+                <input type="number" class="form-control" name="price_min" placeholder="10 000">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon2">-</span>
                 </div>
-                <input type="number" class="form-control" placeholder="20 000">
+                <input type="number" class="form-control" placeholder="20 000" name="price_max">
                 <div class="input-group-append">
                     <select class="form-select" id="inputGroupSelect01">
                         <option selected>за м&sup2; в год</option>
@@ -31,11 +32,11 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Площадь</span>
                 </div>
-                <input type="number" class="form-control" placeholder="6300">
+                <input type="number" class="form-control" placeholder="6300" name="square_min">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon2">-</span>
                 </div>
-                <input type="number" style="border-right: 1px solid #ced4da;border-radius: .25rem;" class="form-control" placeholder="700 000">
+                <input type="number" style="border-right: 1px solid #ced4da;border-radius: .25rem;" class="form-control" placeholder="700 000" name="square_max">
                 <button class="btn">Наличие стеллажей</button>
             </div>
 
@@ -80,11 +81,11 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Расстояние от МКАД</span>
                 </div>
-                <input type="number" class="form-control" placeholder="4">
+                <input type="number" class="form-control" placeholder="4" name="distance_min">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon2">-</span>
                 </div>
-                <input type="number" class="form-control" placeholder="92">
+                <input type="number" class="form-control" placeholder="92" name="distance_max">
                 <div class="input-group-append">
                     <span class="input-group-text">км</span>
                 </div>
@@ -92,5 +93,5 @@
         </div>
     </div>
 
-    <button class="btn btn-apply-filter">ПОКАЗАТЬ РЕЗУЛЬТАТЫ</button>
+    <button type="submit" class="btn btn-apply-filter">ПОКАЗАТЬ РЕЗУЛЬТАТЫ</button>
 </form>

@@ -53,6 +53,7 @@ Route::get('/news', [NewsSingleController::class, 'index'])->name('news');
 Route::get('/object-single', [ObjectSingleController::class, 'index'])->name('object-single');
 Route::get('/objects', [ObjectsController::class, 'index'])->name('objects');
 Route::get('/objects/{object:id}', [ObjectsController::class, 'show'])->name('objects.show');
+Route::get('/object-list', [ObjectsController::class, 'list'])->name('object-list');
 
 Route::get('/partners', [PartnersController::class, 'index'])->name('partners');
 Route::get('/search', [SearchController::class, 'index'])->name('search');
