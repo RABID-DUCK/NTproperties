@@ -1,8 +1,8 @@
 .guide {
     margin-bottom: 30px;
-
     .list {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: 20px;
         .item {
             h2 {
@@ -26,6 +26,17 @@
         }
         .item:hover > h2 {
             color: #ff6d12;
+        }
+    }
+}
+@media (min-device-width: 320px) and (max-device-width: 480px) {
+    .guide {
+        .list {
+            grid-template-columns: 1fr;
+
+            .item {
+
+            }
         }
     }
 }

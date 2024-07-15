@@ -18,6 +18,11 @@
                 <h2>Владислав Рябов</h2>
                 <p>Управляющий партнер NT Properties</p>
             </a>
+            <a href="{{route('guide-single')}}" class="item">
+                <img src="{{asset('img/rykovod.jpg')}}"/>
+                <h2>Владислав Рябов</h2>
+                <p>Управляющий партнер NT Properties</p>
+            </a>
         </div>
     </div>
 </div>

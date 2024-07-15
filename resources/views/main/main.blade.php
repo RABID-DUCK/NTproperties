@@ -1,16 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    @if(isset($objects))
-        <link rel="stylesheet" href="{{asset('css/objects.css')}}">
-    @endif
     <div id="carouselExampleInterval" class="carousel slide position-relative" data-bs-ride="carousel">
         <div class="carousel-inner h-100">
-            <div class="carousel-item active h-100" data-bs-interval="10000">
+            <div class="carousel-item active h-100" data-bs-interval="100000000000000000000">
                 <img src="{{asset('img/slider-1.jpg')}}" class="d-block w-100 h-100" alt="слайдер 1">
                 @include('components.UI.filter-window')
             </div>
-            <div class="carousel-item h-100" data-bs-interval="100000">
+            <div class="carousel-item h-100" data-bs-interval="10000000000000000000000">
                 <img src="{{asset('img/slider-2.jpg')}}" class="d-block w-100 h-100" alt="слайдер 2">
                 @include('components.UI.filter-window', compact('regions', 'directions', 'highways'))
             </div>
@@ -36,20 +33,24 @@
 {{--    Конец секции подписки на рассылку--}}
 
     <div class="news-wrapper">
-        <h1 class="text-center">Новости сферы недвижимости</h1>
-        @if($news->isNotEmpty())
-            @foreach($news as $item)
-                <div class="news-content d-flex">
-                    <div class="news-item">
-                        <img src="{{asset('storage/images/' . $item->image)}}" alt="{{$item->img}}">
-                        <span class="date">{{$item->created_at}}</span><br>
-                        <h4>{{$item->title}}</h4>
-                        <p>{{\Illuminate\Support\Str::limit($item->description, 100)}}</p>
-                        <a href="{{route('news-single', $item->id)}}" class="more">Читать полностью</a>
-                    </div>
-                </div>
-            @endforeach
-        @endif
+        <div class="container">
+        <a href="#" class="text-center">Новости сферы недвижимости</a>
+            <div class="list">
+                 @if($news->isNotEmpty())
+                    @foreach($news as $item)
+                        <div class="news-content d-flex">
+                            <div class="news-item">
+                                <img src="{{asset('storage/images/' . $item->image)}}" alt="{{$item->img}}">
+                                <span class="date">{{$item->created_at}}</span><br>
+                                <h4>{{$item->title}}</h4>
+                                <p>{{\Illuminate\Support\Str::limit($item->description, 100)}}</p>
+                                <a href="{{route('news-single', $item->id)}}" class="more">Читать полностью</a>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+            </div>
+        </div>
     </div>
 
     <div class="about-blog">
