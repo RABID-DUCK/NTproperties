@@ -17,8 +17,10 @@
             <div class="filter-window">
                 <div class="filter-content">
                     <div class="filter-1 d-flex">
-                        <button type="button" class="btn d-flex align-items-center active" id="rentBtn"><i class="fas fa-check" style="margin-right: 10px;"></i> Аренда</button>
-                        <button type="button" class="btn d-flex align-items-center" id="saleBtn" style="margin-left: 10px; margin-right: 10px"><i class="fas fa-times" style="margin-right: 10px;"></i> Продажа</button>
+                        <div class="button">
+                            <button type="button" class="btn d-flex align-items-center active" id="rentBtn"><i class="fas fa-check" style="margin-right: 10px;"></i> Аренда</button>
+                            <button type="button" class="btn d-flex align-items-center" id="saleBtn" style="margin-left: 10px; margin-right: 10px"><i class="fas fa-times" style="margin-right: 10px;"></i> Продажа</button>
+                        </div>
                         <input type="hidden" name="price_type" id="price_type">
                         <select class="form-select" name="type_room" id="">
                             <option value="1">Складские помещения</option>
@@ -30,11 +32,13 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">Цена</span>
                         </div>
-                        <input type="number" class="form-control" name="price_min" placeholder="10 000">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon2">-</span>
+                        <div class="button">
+                            <input type="number" class="form-control" name="price_min" placeholder="10 000">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon2">-</span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="20 000" name="price_max">
                         </div>
-                        <input type="number" class="form-control" placeholder="20 000" name="price_max">
                         <div class="input-group-append">
                             <select class="form-select" id="inputGroupSelect01">
                                 <option selected>за м&sup2; в год</option>
@@ -47,14 +51,15 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">Площадь</span>
                         </div>
-                        <input type="number" class="form-control" placeholder="6300" name="square_min">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon2">-</span>
+                        <div class="button">
+                            <input type="number" class="form-control" placeholder="6300" name="square_min">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon2">-</span>
+                            </div>
+                            <input type="number" style="border-right: 1px solid #ced4da;border-radius: .25rem;" class="form-control" placeholder="700 000" name="square_max">
                         </div>
-                        <input type="number" style="border-right: 1px solid #ced4da;border-radius: .25rem;" class="form-control" placeholder="700 000" name="square_max">
                         <input type="checkbox" id="isHave"></input>
                         <label class="btn" for="isHave">Наличие стеллажей</label>
-
                     </div>
 
                     <div class="filter-4 d-flex mt-3">
@@ -95,14 +100,17 @@
                     </div>
 
                     <div class="input-group mb-3 mt-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Расстояние от МКАД</span>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">Расстояние от МКАД</span>
+                            </div>
+                        <div class="button">
+                            <input type="number" class="form-control" placeholder="4" name="distance_min">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon2">-</span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="92" name="distance_max">
+
                         </div>
-                        <input type="number" class="form-control" placeholder="4" name="distance_min">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon2">-</span>
-                        </div>
-                        <input type="number" class="form-control" placeholder="92" name="distance_max">
                         <div class="input-group-append">
                             <span class="input-group-text">км</span>
                         </div>
@@ -119,8 +127,8 @@
             <p>Найдено {{$objects->count()}} предложений</p>
             <div>
                 <button>Б/М</button>
-                <button>Флекс</button>
-                <button>Грид</button>
+                <button class="gflex">Флекс</button>
+                <button class="ggrid">Грид</button>
             </div>
         </div>
 

@@ -25,3 +25,51 @@
 
     }
 }
+
+@media (min-device-width: 1025px) and (max-device-width: 1200px) {
+    .uslugi {
+        .content {
+            .item {
+                width: 46%;
+            }
+        }
+    }
+}
+
+@media (min-device-width: 769px) and (max-device-width: 1024px) {
+    .uslugi {
+        .content {
+            h3 {
+                font-size: 28px !important;
+            }
+            .item {
+                width: 46%;
+            }
+        }
+    }
+}
+@media (min-device-width: 481px) and (max-device-width: 768px) {
+    .uslugi {
+        .content {
+            h3 {
+                font-size: 24px !important;
+            }
+            .item {
+                width: 100%;
+            }
+        }
+    }
+
+}
+@media (min-device-width: 320px) and (max-device-width: 480px) {
+    .uslugi {
+        .content {
+            h3 {
+                font-size: 20px !important;
+            }
+            .item {
+                width: 100%;
+            }
+        }
+    }
+}

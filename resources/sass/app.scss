@@ -512,7 +512,6 @@ footer{
 }
 
 .filter-wrapper {
-
     position: absolute;
     top: 50%;
     left: 50%;
@@ -522,6 +521,39 @@ footer{
     }
 }
 @media (min-device-width: 1025px) and (max-device-width: 1399px) {
+
+    .filter-wrapper {
+        width: max-content;
+        .filter-2 {
+            .form-control {
+                border-right: 1px solid #ced4da;
+                border-radius: .25rem !important;
+                font-size: 12px;
+                font-weight: 500;
+            }
+        }
+
+        .form-control {
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .filter-window {
+            max-width: 769px;
+
+            .filter-1 {
+                display: flex;
+                gap: 10px;
+            }
+        }
+        .filter-window:after {
+            top: 85.4%;
+        }
+        .btn-apply-filter {
+            left: 32%;
+            bottom: -35px;
+            font-size: 14px;
+        }
+    }
     .mailing-wrapper {
         .mailing-content {
             flex-direction: row !important;

@@ -2,6 +2,7 @@
 <header>
     <div class="container">
         <div class="header">
+            <a href="{{route('main-page')}}">
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
             	 width="189px" height="64px" viewBox="0 0 189 64" enable-background="new 0 0 189 64" xml:space="preserve">
             <g>
@@ -49,7 +50,7 @@
             		"/>
             </g>
             </svg>
-
+            </a>
             <div class="right">
                 <div class="info">
                     <a id="geo" href="#">
@@ -96,13 +97,13 @@
 
                       </label>
                         <ul class="menu">
-                          <a href="#">Услуги</a>
-                          <a href="#">Объекты</a>
-                          <a href="#">Контакты</a>
-                          <a href="#">Партнеры</a>
-                          <a href="#">Аналитика</a>
-                          <a href="#">Компания</a>
-                          <a href="#">Руководство</a>
+                          <a href="{{route('services')}}">Услуги</a>
+                          <a href="{{route('objects')}}">Объекты</a>
+                          <a href="{{route('contacts')}}">Контакты</a>
+                          <a href="{{route('partners')}}">Партнеры</a>
+                          <a href="{{route('analitick')}}">Аналитика</a>
+                          <a href="{{route('company')}}">Компания</a>
+                          <a href="{{route('guide')}}">Руководство</a>
                         </ul>
 
                     <select>
@@ -111,13 +112,13 @@
                     </select>
                 </div>
                 <div class="navigation">
-                    <a href="#">Услуги</a>
-                    <a href="#">Объекты</a>
-                    <a href="#">Контакты</a>
-                    <a href="#">Партнеры</a>
-                    <a href="#">Аналитика</a>
-                    <a href="#">Компания</a>
-                    <a href="#">Руководство</a>
+                    <a href="{{route('services')}}">Услуги</a>
+                    <a href="{{route('objects')}}">Объекты</a>
+                    <a href="{{route('contacts')}}">Контакты</a>
+                    <a href="{{route('partners')}}">Партнеры</a>
+                    <a href="{{route('analitick')}}">Аналитика</a>
+                    <a href="{{route('company')}}">Компания</a>
+                    <a href="{{route('guide')}}">Руководство</a>
                 </div>
             </div>
         </div>
