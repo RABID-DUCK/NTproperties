@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 14 2024 г., 21:56
+-- Время создания: Июл 16 2024 г., 18:08
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -149,7 +149,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (10, '2024_07_14_162818_add_column_type_room_in_objects', 3),
 (11, '2024_07_14_165349_create_images_table', 4),
 (12, '2024_07_14_170044_change_columns_in_table_objects', 5),
-(13, '2024_07_14_171435_add_column_distance_in_objects', 6);
+(13, '2024_07_14_171435_add_column_distance_in_objects', 6),
+(14, '2024_07_16_144112_create_reviews_table', 7);
 
 -- --------------------------------------------------------
 
@@ -215,7 +216,9 @@ CREATE TABLE `objects` (
 --
 
 INSERT INTO `objects` (`id`, `address`, `city`, `title`, `description`, `type_room`, `column_pitch`, `lighting`, `fire_system`, `price_type`, `price`, `all_square`, `free_square`, `min_square`, `class_house`, `height`, `distance_mkad`, `floor_load`, `zoom`, `x_coord`, `y_coord`, `region_id`, `highway_id`, `direction_id`, `created_at`, `updated_at`) VALUES
-(2, NULL, 'Москоу4', 'название1', 'описание2', '1', '235', 'Светодиодно', 'Спринклерная1', '1', 1234, 123, 342, 545, 'D6', 11112, 2135, 26, 23, 214.12, 23.45, 19, 17, 20, '2024-07-14 15:24:16', '2024-07-14 15:34:10');
+(2, NULL, 'Москоу4', 'название1', 'описание2', '1', '235', 'Светодиодно', 'Спринклерная1', '1', 1234, 123, 342, 545, 'D6', 11112, 2135, 26, 23, 214.12, 23.45, 19, 17, 20, '2024-07-14 15:24:16', '2024-07-14 15:34:10'),
+(3, NULL, 'Москоу4', 'название1', 'описание2', '1', '235', 'Светодиодно', 'Спринклерная1', '1', 1234, 123, 342, 545, 'D6', 11112, 2135, 26, 23, 214.12, 23.45, 19, 17, 20, '2024-07-14 15:24:16', '2024-07-14 15:34:10'),
+(4, NULL, 'Москоу5', 'название3', 'описание3', '1', '235', 'Светодиодно', 'Спринклерная1', '1', 1234, 123, 342, 545, 'D6', 11112, 2135, 26, 23, 214.12, 23.45, 19, 17, 20, '2024-07-14 15:24:16', '2024-07-14 15:34:10');
 
 -- --------------------------------------------------------
 
@@ -277,6 +280,28 @@ INSERT INTO `regions` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (23, 'Самарская область', '2024-07-10 16:08:50', '2024-07-10 16:08:50'),
 (24, 'Свердловская область', '2024-07-10 16:09:02', '2024-07-10 16:09:02'),
 (25, 'Другие субъекты', '2024-07-10 16:09:09', '2024-07-10 16:09:09');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `reviews`
+--
+
+CREATE TABLE `reviews` (
+  `id` bigint UNSIGNED NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `image`, `title`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'dk_v1.PNG', 'Обзор2', '<ul style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px 20px; font-family: \"Open Sans\", Tahoma, Helvetica, sans-serif; outline: none; -webkit-font-smoothing: antialiased; list-style: outside none none; color: rgb(60, 60, 60);\"><li style=\"margin: 0px; padding: 0px 0px 20px 24px; outline: none; -webkit-font-smoothing: antialiased; line-height: 26px; position: relative;\">За первые три месяца текущего года в Московском регионе было введено порядка 356 тыс. кв. м складских площадей класса А и В. Общий объем качественного предложения достиг 25 млн кв. м. По данным компании NT Properties к концу года будет введено еще порядка 1,6 млн кв. м складских площадей.</li><li style=\"margin: 0px; padding: 0px 0px 20px 24px; outline: none; -webkit-font-smoothing: antialiased; line-height: 26px; position: relative;\">Низкий уровень вакансии на рынке складской недвижимости в Московском регионе сохранился в первом квартале 2024 г. и по-прежнему не превысил 0,5%. Высокий спрос на складские объекты приводит к быстрому снятию доступных блоков с рынка.</li></ul><p style=\"margin: 0px; padding: 0px 0px 20px 24px; outline: none; -webkit-font-smoothing: antialiased; line-height: 26px; position: relative;\">По итогам 1 кв. 2024 г. средневзвешенная базовая ставка аренды на складские объекты достигла 9 940 руб./кв. м/год, рост по сравнению с концом 2023 г. составил 14,3%. По мнению специалистов NT Properties тенденция роста ставок аренды сохранится на конец 2024 и в 2025 гг.</p><p style=\"margin: 0px; padding: 0px 0px 20px 24px; outline: none; -webkit-font-smoothing: antialiased; line-height: 26px; position: relative;\">По итогам 1 квартала сумма купленных и арендованных площадей составила 318 тыс. кв. м, что на 42% меньше, чем за аналогичный период прошлого года. Согласно нашему прогнозу к концу текущего года общий объем сделок на рынке складской недвижимости достигнет отметки в 2,5 млн кв. м.</p><p style=\"margin: 0px; padding: 0px 0px 20px 24px; outline: none; -webkit-font-smoothing: antialiased; line-height: 26px; position: relative;\">Высокий спрос, крайне низкий уровень вакансии в существующих объекта и, как следствие, высокие ставки аренды, приводят к тому, что собственники все чаще стремятся пересогласовать с текущими арендаторами коммерческие условия в сторону повышения, либо прибегают к ротации.</p>', '2024-07-16 11:48:03', '2024-07-16 11:48:59');
 
 -- --------------------------------------------------------
 
@@ -373,6 +398,12 @@ ALTER TABLE `regions`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `users`
 --
 ALTER TABLE `users`
@@ -411,7 +442,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT для таблицы `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT для таблицы `news`
@@ -423,7 +454,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT для таблицы `objects`
 --
 ALTER TABLE `objects`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `personal_access_tokens`
@@ -436,6 +467,12 @@ ALTER TABLE `personal_access_tokens`
 --
 ALTER TABLE `regions`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT для таблицы `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `users`

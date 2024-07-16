@@ -59,7 +59,7 @@ Route::get('/partners', [PartnersController::class, 'index'])->name('partners');
 Route::get('/search', [SearchController::class, 'index'])->name('search');
 
 Route::get('/reviews', [ReviewsController::class, 'index'])->name('reviews');
-Route::get('/reviews-single', [ReviewsController::class, 'show'])->name('reviews.single');
+Route::get('/reviews-single/{reviews:id}', [ReviewsController::class, 'show'])->name('reviews.single');
 
 Route::middleware('auth')->group(function () {
     Route::group(['prefix' => 'admin'], function (){
@@ -92,6 +92,14 @@ Route::middleware('auth')->group(function () {
             Route::post('/store', [NewsController::class, 'store'])->name('admin.news.store');
             Route::post('/update/{news:id}', [NewsController::class, 'update'])->name('admin.news.update');
             Route::delete('/destroy/{news:id}', [NewsController::class, 'destroy'])->name('admin.news.destroy');
+        });
+
+        Route::group(['prefix' => 'reviews'], function (){
+            Route::get('/', [\App\Http\Controllers\Admin\ReviewsController::class, 'index'])->name('admin.reviews');
+            Route::get('show/{reviews:id}', [\App\Http\Controllers\Admin\ReviewsController::class, 'show'])->name('admin.reviews.show');
+            Route::post('/store', [\App\Http\Controllers\Admin\ReviewsController::class, 'store'])->name('admin.reviews.store');
+            Route::post('/update/{reviews:id}', [\App\Http\Controllers\Admin\ReviewsController::class, 'update'])->name('admin.reviews.update');
+            Route::delete('/destroy/{reviews:id}', [\App\Http\Controllers\Admin\ReviewsController::class, 'destroy'])->name('admin.reviews.destroy');
         });
 
         Route::group(['prefix' => 'objects'], function (){

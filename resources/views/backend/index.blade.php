@@ -98,6 +98,15 @@
                             </p>
                         </a>
                     </li>
+
+                    <li class="nav-item menu-open">
+                        <a href="{{route('admin.reviews')}}" class="nav-link {{ Request::is('admin/reviews') ? 'active' : '' }}">
+                            <i class="fa-solid fa-newspaper"></i>
+                            <p>
+                                Обзоры
+                            </p>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>

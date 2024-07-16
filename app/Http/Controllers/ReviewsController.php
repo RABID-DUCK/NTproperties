@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\News;
+use App\Models\Reviews;
 use Illuminate\Http\Request;
 
 class ReviewsController extends Controller
 {
     public function index(){
-        return view('pages.reviews');
+        $reviews = Reviews::query()->paginate(12);
+
+        return view('pages.reviews', compact('reviews'));
     }
 
-    public function show(){
-        return view('pages.reviews-single');
+    public function show(Reviews $reviews){
+
+        return view('pages.reviews-single', compact('reviews'));
     }
 }

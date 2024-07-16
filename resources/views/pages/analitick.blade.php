@@ -36,32 +36,20 @@
 
         <div class="news">
             <h2>Обзоры</h2>
+            @if($reviews->isNotEmpty())
             <div class="list">
-                <a href="{{route('reviews.single')}}" class="item">
-                    <img src="{{asset('img/slider-1.jpg')}}"/>
-                    <div class="text">
-                        <h3>Холдинг "Строительный Альянс" построит 746 тыс. кв. м площадей Light Industrial</h3>
-                        <p>Холдинг "Строительный альянс" является одним из ведущих девелоперов на рынке Light Industrial...</p>
-                        <p class="more">Читать полностью</p>
-                    </div>
-                </a>
-                <a href="#" class="item">
-                    <img src="{{asset('img/slider-1.jpg')}}"/>
-                    <div class="text">
-                        <h3>Холдинг "Строительный Альянс" построит 746 тыс. кв. м площадей Light Industrial</h3>
-                        <p>Холдинг "Строительный альянс" является одним из ведущих девелоперов на рынке Light Industrial...</p>
-                        <p class="more">Читать полностью</p>
-                    </div>
-                </a>
-                <a href="#" class="item">
-                    <img src="{{asset('img/slider-1.jpg')}}"/>
-                    <div class="text">
-                        <h3>Холдинг "Строительный Альянс" построит 746 тыс. кв. м площадей Light Industrial</h3>
-                        <p>Холдинг "Строительный альянс" является одним из ведущих девелоперов на рынке Light Industrial...</p>
-                        <p class="more">Читать полностью</p>
-                    </div>
-                </a>
+                @foreach($reviews as $review)
+                    <a href="{{route('reviews.single', $review->id)}}" class="item">
+                        <img src="{{asset('storage/images/' . $review->image)}}"/>
+                        <div class="text">
+                            <h3>{{$review->title}}</h3>
+                            <p>{{ Str::limit($review->description, 100) }}</p>
+                            <p class="more">Читать полностью</p>
+                        </div>
+                    </a>
+                @endforeach
             </div>
+            @endif
         </div>
         <a href="{{route('reviews')}}" class="news_more">Все обзоры</a>
     </div>

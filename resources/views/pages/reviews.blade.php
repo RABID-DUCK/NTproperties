@@ -6,42 +6,30 @@
         <div class="container">
             <h2>Обзоры</h2>
             <div class="list">
-                <a href="{{route('reviews.single')}}" class="item">
-                    <img src="{{asset('img/slider-1.jpg')}}"/>
-                    <div class="text">
-                        <h3>Холдинг "Строительный Альянс" построит 746 тыс. кв. м площадей Light Industrial</h3>
-                        <p>Холдинг "Строительный альянс" является одним из ведущих девелоперов на рынке Light Industrial...</p>
-                        <p class="more">Читать полностью</p>
-                    </div>
-                </a>
-                <a href="#" class="item">
-                    <img src="{{asset('img/slider-1.jpg')}}"/>
-                    <div class="text">
-                        <h3>Холдинг "Строительный Альянс" построит 746 тыс. кв. м площадей Light Industrial</h3>
-                        <p>Холдинг "Строительный альянс" является одним из ведущих девелоперов на рынке Light Industrial...</p>
-                        <p class="more">Читать полностью</p>
-                    </div>
-                </a>
-                <a href="#" class="item">
-                    <img src="{{asset('img/slider-1.jpg')}}"/>
-                    <div class="text">
-                        <h3>Холдинг "Строительный Альянс" построит 746 тыс. кв. м площадей Light Industrial</h3>
-                        <p>Холдинг "Строительный альянс" является одним из ведущих девелоперов на рынке Light Industrial...</p>
-                        <p class="more">Читать полностью</p>
-                    </div>
-                </a>
+                @if($reviews->isNotEmpty(0))
+                    @foreach($reviews as $review)
+                        <a href="{{route('reviews.single', $review->id)}}" class="item">
+                            <img src="{{asset('storage/images/' . $review->image)}}"/>
+                            <div class="text">
+                                <h3>{{$review->title}}</h3>
+                                <p>{{Str::limit($review->description, 100)}}</p>
+                                <p class="more">Читать полностью</p>
+                            </div>
+                        </a>
+                    @endforeach
+                @endif
             </div>
             <div class="pagination">
-            @if ($objects->onFirstPage())
+            @if ($reviews->onFirstPage())
                 <button disabled><</button>
             @else
-                <a href="{{ $objects->previousPageUrl() }}"><</a>
+                <a href="{{ $reviews->previousPageUrl() }}"><</a>
             @endif
 
-            @foreach ($objects->links()->elements as $element)
+            @foreach ($reviews->links()->elements as $element)
                 @if (is_array($element))
                     @foreach ($element as $page => $url)
-                        @if ($page == $objects->currentPage())
+                        @if ($page == $reviews->currentPage())
                             <a class="active" href="{{ $url }}">{{ $page }}</a>
                         @else
                             <a href="{{ $url }}">{{ $page }}</a>
@@ -50,8 +38,8 @@
                 @endif
             @endforeach
 
-            @if ($objects->hasMorePages())
-                <a href="{{ $objects->nextPageUrl() }}">></a>
+            @if ($reviews->hasMorePages())
+                <a href="{{ $reviews->nextPageUrl() }}">></a>
             @else
                 <button disabled>></button>
             @endif

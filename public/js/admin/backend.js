@@ -22,12 +22,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     $('#summernote').summernote();
 
-    // $('#newModal').on('show.bs.modal', function (event) {
-    //     var button = $(event.relatedTarget)
-    //     var action = button.data('action')
-    //     var modal = $(this)
-    //     modal.find('#newForm').attr('action', action)
-    // })
+    $('#newModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var action = button.data('action')
+        var modal = $(this)
+        modal.find('#newForm').attr('action', action)
+    })
+
+    $('#reviewModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var action = button.data('action')
+        var modal = $(this)
+        modal.find('#reviewForm').attr('action', action)
+    })
 
     $.ajaxSetup({
         headers: {
