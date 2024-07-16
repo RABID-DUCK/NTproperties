@@ -7,56 +7,47 @@
         <div class="container">
             <h2>Новости</h2>
             <div class="list">
-                <a href="#" class="item">
-                    <img src="{{asset('img/slider-1.jpg')}}"/>
-                    <div class="text">
-                        <h3>Холдинг "Строительный Альянс" построит 746 тыс. кв. м площадей Light Industrial</h3>
-                        <p>Холдинг "Строительный альянс" является одним из ведущих девелоперов на рынке Light Industrial...</p>
-                        <p class="more">Читать полностью</p>
-                    </div>
-                </a>
-                <a href="#" class="item">
-                    <img src="{{asset('img/slider-1.jpg')}}"/>
-                    <div class="text">
-                        <h3>Холдинг "Строительный Альянс" построит 746 тыс. кв. м площадей Light Industrial</h3>
-                        <p>Холдинг "Строительный альянс" является одним из ведущих девелоперов на рынке Light Industrial...</p>
-                        <p class="more">Читать полностью</p>
-                    </div>
-                </a>
-                <a href="#" class="item">
-                    <img src="{{asset('img/slider-1.jpg')}}"/>
-                    <div class="text">
-                        <h3>Холдинг "Строительный Альянс" построит 746 тыс. кв. м площадей Light Industrial</h3>
-                        <p>Холдинг "Строительный альянс" является одним из ведущих девелоперов на рынке Light Industrial...</p>
-                        <p class="more">Читать полностью</p>
-                    </div>
-                </a>
-            </div>
-            <div class="pagination">
-                @if ($objects->onFirstPage())
-                    <button disabled><</button>
-                @else
-                    <a href="{{ $objects->previousPageUrl() }}"><</a>
+                @if(isset($news) && $news->isNotEmpty())
+                    @foreach($news as $item)
+                        <a href="{{route('news-single', $item->id)}}" class="item">
+                            <img src="{{asset('/storage/images/'.$item->image)}}"/>
+                            <div class="text">
+                                <p class="date">{{$item->created_at->format('d.m.Y')}}</p>
+                                <h3>{{$item->title}}</h3>
+                                <p>{!!   \Illuminate\Support\Str::limit($item->description, 100) !!}</p>
+                                <p class="more">Читать полностью</p>
+                            </div>
+                        </a>
+                    @endforeach
                 @endif
-
-                @foreach ($objects->links()->elements as $element)
-                    @if (is_array($element))
-                        @foreach ($element as $page => $url)
-                            @if ($page == $objects->currentPage())
-                                <a class="active" href="{{ $url }}">{{ $page }}</a>
-                            @else
-                                <a href="{{ $url }}">{{ $page }}</a>
-                            @endif
-                        @endforeach
+            </div>
+            @if(isset($news))
+                <div class="pagination">
+                    @if ($news->onFirstPage())
+                        <button disabled><</button>
+                    @else
+                        <a href="{{ $news->previousPageUrl() }}"><</a>
                     @endif
-                @endforeach
 
-                @if ($objects->hasMorePages())
-                    <a href="{{ $objects->nextPageUrl() }}">></a>
-                @else
-                    <button disabled>></button>
-                @endif
-            </div>
+                    @foreach ($news->links()->elements as $element)
+                        @if (is_array($element))
+                            @foreach ($element as $page => $url)
+                                @if ($page == $news->currentPage())
+                                    <a class="active" href="{{ $url }}">{{ $page }}</a>
+                                @else
+                                    <a href="{{ $url }}">{{ $page }}</a>
+                                @endif
+                            @endforeach
+                        @endif
+                    @endforeach
+
+                    @if ($news->hasMorePages())
+                        <a href="{{ $news->nextPageUrl() }}">></a>
+                    @else
+                        <button disabled>></button>
+                    @endif
+                </div>
+            @endif
         </div>
     </div>
 @endsection

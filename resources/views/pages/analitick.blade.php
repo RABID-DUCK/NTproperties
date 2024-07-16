@@ -16,33 +16,19 @@
         <div class="news">
             <h2>Новости</h2>
             <div class="list">
-                <a href="{{route('analitick-single')}}" class="item">
-                    <img src="{{asset('img/slider-1.jpg')}}"/>
-                    <div class="text">
-                        <p class="date">25.06.2024</p>
-                        <h3>Холдинг "Строительный Альянс" построит 746 тыс. кв. м площадей Light Industrial</h3>
-                        <p>Холдинг "Строительный альянс" является одним из ведущих девелоперов на рынке Light Industrial...</p>
-                        <p class="more">Читать полностью</p>
-                    </div>
-                </a>
-                <a href="#" class="item">
-                    <img src="{{asset('img/slider-1.jpg')}}"/>
-                    <div class="text">
-                        <p class="date">25.06.2024</p>
-                        <h3>Холдинг "Строительный Альянс" построит 746 тыс. кв. м площадей Light Industrial</h3>
-                        <p>Холдинг "Строительный альянс" является одним из ведущих девелоперов на рынке Light Industrial...</p>
-                        <p class="more">Читать полностью</p>
-                    </div>
-                </a>
-                <a href="#" class="item">
-                    <img src="{{asset('img/slider-1.jpg')}}"/>
-                    <div class="text">
-                        <p class="date">25.06.2024</p>
-                        <h3>Холдинг "Строительный Альянс" построит 746 тыс. кв. м площадей Light Industrial</h3>
-                        <p>Холдинг "Строительный альянс" является одним из ведущих девелоперов на рынке Light Industrial...</p>
-                        <p class="more">Читать полностью</p>
-                    </div>
-                </a>
+                @if(isset($news) && $news->isNotEmpty())
+                    @foreach($news as $item)
+                        <a href="{{route('news-single', $item->id)}}" class="item">
+                            <img src="{{asset('/storage/images/'.$item->image)}}"/>
+                            <div class="text">
+                                <p class="date">{{$item->created_at->format('d.m.Y')}}</p>
+                                <h3>{{$item->title}}</h3>
+                                <p>{!!   \Illuminate\Support\Str::limit($item->description, 100) !!}</p>
+                                <p class="more">Читать полностью</p>
+                            </div>
+                        </a>
+                    @endforeach
+                @endif
             </div>
         </div>
         <a href="{{route('news')}}" class="news_more">Все новости</a>

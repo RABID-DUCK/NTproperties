@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class AnalitickController extends Controller
 {
     public function index(){
-        return view('pages.analitick');
+        $news = News::all();
+
+        return view('pages.analitick', compact('news'));
     }
 
     public function show(){
