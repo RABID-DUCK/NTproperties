@@ -1,0 +1,115 @@
+.news {
+    margin-bottom: 20px;
+    h2 {
+        font-size: 32px;
+        line-height: 32px;
+        margin-bottom: 30px;
+    }
+
+    .list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        .item {
+            display: flex;
+            gap: 20px;
+            .text {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                color: #393632;
+                .date {
+                    font-size: 14px;
+                    color: #969ba1;
+                    font-weight: 400;
+                }
+                h3 {
+                    font-size: 14px;
+                    line-height: 22px;
+                    font-weight: bold;
+                    margin: 0;
+                }
+                p {
+                    font-size: 14px;
+                    line-height: 22px;
+                    margin: 0;
+                }
+                .more {
+                    margin-left: 28px;
+                }
+            }
+            img {
+                max-width: 170px;
+                object-fit: cover;
+                width: 100%;
+            }
+        }
+    }
+    .pagination {
+        margin: 30px 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        button {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: none;
+            border: none;
+        }
+        button:hover {
+
+            text-align: center;
+            color: white;
+            background: #ff6d12;
+        }
+        a {
+            background: none;
+            color: #c3d1d8;
+
+            padding: 0;
+            margin: 5px;
+            text-decoration: none;
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+            border-radius: 20px;
+            -moz-border-radius: 20px;
+            -webkit-border-radius: 20px;
+            -khtml-border-radius: 20px;
+            font-size: 14px;
+            -webkit-transition: all .3s ease;
+            -moz-transition: all .3s ease;
+            transition: all .3s ease;
+            font-weight: 600;
+        }
+        a:hover {
+            border-radius: 50%;
+            background: #ff6d12;
+            color: white;
+        }
+        .active {
+            background: #c3d1d8;
+            color: #fff;
+            padding: 0px;
+            margin: 5px;
+            text-decoration: none;
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+            border-radius: 20px;
+            -moz-border-radius: 20px;
+            -webkit-border-radius: 20px;
+            -khtml-border-radius: 20px;
+            font-size: 14px;
+            -webkit-transition: all .3s ease;
+            -moz-transition: all .3s ease;
+            transition: all .3s ease;
+            font-weight: 600;
+        }
+    }
+}
