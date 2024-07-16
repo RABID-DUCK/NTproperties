@@ -690,6 +690,11 @@ footer{
     .container {
         max-width: 769px;
     }
+    .main_object {
+        .list {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
     .carousel {
         height: 700px;
     }
@@ -794,7 +799,11 @@ footer{
         line-height: 26px;
         margin-bottom: 20px;
     }
-
+    .main_object {
+        .list {
+            grid-template-columns: 1fr;
+        }
+    }
     .container {
         max-width: 480px;
     }
@@ -915,6 +924,12 @@ footer{
 
     .container {
         max-width: 320px;
+    }
+
+    .main_object {
+        .list {
+            grid-template-columns: 1fr;
+        }
     }
     .carousel {
         height: 700px;
