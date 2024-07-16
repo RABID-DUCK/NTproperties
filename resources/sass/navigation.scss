@@ -69,6 +69,7 @@ header {
                     span {
                         font-size: 14px;
                     }
+                    transition: color .3s ease;
                 }
                 a:hover {
                     color: #ff6d12;
@@ -79,22 +80,39 @@ header {
                         display: block;
                         background: none;
                         border: none;
+                        transition: all .3s ease;
                     }
+                    transition: all .3s ease;
                 }
             }
             .navigation {
                 display: flex;
                 gap: 30px;
                 a {
+                    position: relative;
                     display: block;
                     font-size: 15px;
                     text-transform: uppercase;
                     height: 32px;
                     font-weight: 400;
+                    transition: all .3s ease;
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 0%;
+                        height: 2px;
+                        background-color: #ff6d12;
+                    }
+                }
+                a:hover:after {
+                    color: #ff6d12;
+                    border-bottom: 2px solid #ff6d12;
+                    animation: border-length-hover .5s forwards;
                 }
                 a:hover {
                     color: #ff6d12;
-                    border-bottom: 2px solid #ff6d12;
                 }
                 .active {
                     color: #ff6d12;
@@ -104,6 +122,15 @@ header {
         }
     }
 }
+@keyframes border-length-hover {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
 @media (min-device-width: 769px) and (max-device-width: 1024px) {
     header {
 

@@ -22,7 +22,6 @@ saleBtn.addEventListener('click', function() {
 var inputSearch = document.getElementById("search")
 var blockSearch = document.querySelector(".search")
 
-console.log(inputSearch)
 inputSearch.addEventListener("click", () => {
     blockSearch.classList.toggle("show")
 })

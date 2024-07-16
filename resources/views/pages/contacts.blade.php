@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 <link rel="stylesheet" href="{{asset('css/contacts.css')}}">
     <div class="container">
         <div class="contacts">
@@ -42,6 +44,15 @@
             </div>
             <h3>Схема проезда</h2>
             <div id="map"></div>
+            <script type="text/javascript">
+                ymaps.ready(init);
+                function init() {
+                    var myMap = new ymaps.Map("map", {
+                        center: [55.76, 37.64], // Координаты центра карты
+                        zoom: 10
+                    });
+                }
+            </script>
         </div>
     </div>
 @endsection
