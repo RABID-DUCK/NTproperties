@@ -43,7 +43,7 @@
                         <img src="{{asset('storage/images/' . $review->image)}}"/>
                         <div class="text">
                             <h3>{{$review->title}}</h3>
-                            <p>{{ Str::limit($review->description, 100) }}</p>
+                            <p>{!! \Illuminate\Support\Str::limit($review->description, 100) !!}</p>
                             <p class="more">Читать полностью</p>
                         </div>
                     </a>
