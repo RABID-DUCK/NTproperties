@@ -201,6 +201,20 @@ a{
         z-index: 0;
     }
 
+    #isHave {
+        display: none;
+        & + label {
+            background: #afafaf;
+            color: #797979;
+        }
+        &:checked + label {
+            background-color: #ffffff;
+            color: #3c3c3c;
+            border: #ff6d12 1px solid;
+        }
+    }
+
+
     .input-group-prepend,.input-group-append {
         z-index: 10;
     }

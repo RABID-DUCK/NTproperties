@@ -43,7 +43,9 @@
                     </div>
                     <input type="number" style="border-right: 1px solid #ced4da;border-radius: .25rem;" class="form-control" placeholder="700 000">
                 </div>
-                <button class="btn">Наличие стеллажей</button>
+                <input type="checkbox" id="isHave"></input>
+                <label class="btn" for="isHave">Наличие стеллажей</label>
+
             </div>
 
             <div class="filter-4 d-flex mt-3">
