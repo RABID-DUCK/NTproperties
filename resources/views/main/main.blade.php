@@ -34,7 +34,7 @@
 
     <div class="news-wrapper">
         <div class="container">
-        <a href="#" class="text-center">Новости сферы недвижимости</a>
+        <a href="{{route('news')}}" class="text-center">Новости сферы недвижимости</a>
             <div class="list">
                  @if($news->isNotEmpty())
                     @foreach($news as $item)
@@ -43,7 +43,7 @@
                                 <img src="{{asset('storage/images/' . $item->image)}}" alt="{{$item->img}}">
                                 <span class="date">{{$item->created_at}}</span><br>
                                 <h4>{{$item->title}}</h4>
-                                <p>{{\Illuminate\Support\Str::limit($item->description, 100)}}</p>
+                                <p>{!! substr(strip_tags($item->description), 0, 340) !!}...</p>
                                 <a href="{{route('news-single', $item->id)}}" class="more">Читать полностью</a>
                             </div>
                         </div>
