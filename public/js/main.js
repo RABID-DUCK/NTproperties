@@ -18,3 +18,15 @@ saleBtn.addEventListener('click', function() {
     this.classList.add('active');
     rentBtn.classList.remove('active');
 });
+
+
+var displayFlex = document.getElementById("fl");
+var displayGrid = document.getElementById("gr");
+var list = document.getElementById("list")
+displayFlex.addEventListener("click", () =>  {
+        list.classList.add("flex")
+})
+displayGrid.addEventListener("click", () => {
+    list.classList.remove("flex")
+})
+

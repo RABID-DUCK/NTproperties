@@ -1,5 +1,5 @@
 .news-single {
-    padding: 40px 0 50px;
+    padding: 0 0 50px;
     h1 {
         margin-bottom: 40px;
     }
@@ -20,6 +20,7 @@
                 line-height: 26px;
             }
             img {
+                width: 100%;
                 max-width: 500px;
                 aspect-ratio: 16/9;
                 margin-right: 30px;
@@ -47,5 +48,43 @@
 
 }
 @media (min-device-width: 320px) and (max-device-width: 480px) {
+    .news-single {
+        padding: 0 0 50px;
+        h1 {
+            margin-bottom: 40px;
+        }
 
+        .item {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 1000px;
+            .data {
+                font-size: 16px;
+                color: #969ba1;
+            }
+            .content {
+                p {
+                    font-size: 16px;
+                    font-weight: 300;
+                    line-height: 26px;
+                }
+                img {
+                    width: 100%;
+                    max-width: 500px;
+                    aspect-ratio: 16/9;
+                    margin-right: 30px;
+                    margin-bottom: 30px;
+                }
+            }
+        }
+
+        a {
+            color: #ff6d12;
+        }
+        a:hover {
+            text-decoration: underline dotted #ff6d12;
+            text-underline-offset: 3px;
+        }
+    }
 }

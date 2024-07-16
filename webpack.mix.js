@@ -14,3 +14,5 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/navigation.scss', 'public/css')
     .sass('resources/sass/news.scss', 'public/css')
     .sass('resources/sass/reviews.scss', 'public/css')
+    .sass('resources/sass/guide-single.scss', 'public/css')
+

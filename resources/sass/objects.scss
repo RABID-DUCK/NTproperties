@@ -8,6 +8,7 @@
             position: static;
             max-width: 100%;
             .filter-content {
+                width: fit-content;
                 padding: 20px;
                 background: #f5f7f8;
                 border-radius: 2px;
@@ -54,6 +55,52 @@
         p {
             color: #8c9092;
             font-size: 20px;
+        }
+        input {
+            display: none
+        }
+        #sort {
+            cursor: pointer !important;
+            label {
+                cursor: pointer !important;
+            }
+            &:checked + label {
+
+            }
+        }
+        #fl {
+
+            label {
+                svg {
+                    path {
+                        cursor: pointer !important;
+                        stroke: #9da3a8;
+                    }
+                }
+            }
+            &:checked + label {
+                svg {
+                    path {
+                        cursor: pointer !important;
+                        stroke: #ff6d12;
+                    }
+
+                }
+            }
+        }
+        #gr {
+            cursor: pointer;
+            label {
+
+                svg {
+                    fill: #9da3a8;
+                }
+            }
+            &:checked + label {
+                svg {
+                    fill: #ff6d12;
+                }
+            }
         }
     }
 
@@ -108,24 +155,60 @@
                     justify-content: space-between;
                     align-items: center;
                 }
+                &:before{
+                    content: "";
+                    position: absolute;
+                    top: -7.5px;
+                    left: 30px;
+                    width: 15px;
+                    height: 15px;
+                    transform: rotate(45deg);
+                    background: white;
+                }
             }
 
-            .ob :before{
-                content: "";
-                position: absolute;
-                top: -7.5px;
-                left: 30px;
-                width: 15px;
-                height: 15px;
-                transform: rotate(45deg);
-                background: white;
-            }
+
         }
         .item:hover {
             box-shadow: 0 0 10px rgba(0, 0, 0, .2);
         }
     }
-
+    .flex {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .item {
+            display: flex;
+            flex-direction: row;
+            .text {
+                width: 100%;
+                h2 {
+                    margin-bottom: 10px;
+                }
+            }
+            .list .ob:before{
+                display: none;
+            }
+            .text:before {
+                content: "";
+                position: absolute;
+                top: 22px;
+                left: -8px;
+                width: 15px;
+                height: 15px;
+                transform: rotate(45deg);
+                background: white;
+            }
+            img {
+                border-top-right-radius: 0;
+                border-bottom-left-radius: 3px;
+                max-width: 300px;
+            }
+            .price {
+                justify-content: space-between;
+            }
+        }
+    }
     .pagination {
         margin: 30px 0;
         display: flex;

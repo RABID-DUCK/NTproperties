@@ -24,7 +24,7 @@
                                 <p class="date">{{$item->created_at->format('d.m.Y')}}</p>
                                 <h3>{{$item->title}}</h3>
                                 <p>{!! substr(strip_tags($item->description), 0, 400) !!}...</p>
-                                <p class="more">Читать полностью</p>
+                                <span class="more">Читать полностью</span>
                             </div>
                         </a>
                     @endforeach
@@ -44,7 +44,7 @@
                         <div class="text">
                             <h3>{{$review->title}}</h3>
                             <p>{!! substr(strip_tags($review->description), 0, 350) !!}...</p>
-                            <p class="more">Читать полностью</p>
+                            <span class="more">Читать полностью</span>
                         </div>
                     </a>
                 @endforeach

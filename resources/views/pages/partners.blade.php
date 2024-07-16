@@ -14,24 +14,36 @@
         <h1>Партнеры</h1>
         <div class="list">
             <a href="https://www.pnkgroup.ru" class="item">
-                <img src="{{asset('img/logo.svg')}}"/>
+                <img src="{{asset('img/PNK.jpg')}}"/>
                 <p>PNK Group</p>
             </a>
-            <a href="https://www.pnkgroup.ru" class="item">
-                <img src="{{asset('img/logo.svg')}}"/>
-                <p>PNK Group</p>
+            <a href="https://orientir.ru/" class="item">
+                <img src="{{asset('img/orientir.jpg')}}"/>
+                <p>Ориентир</p>
             </a>
-            <a href="https://www.pnkgroup.ru" class="item">
-                <img src="{{asset('img/logo.svg')}}"/>
-                <p>PNK Group</p>
+            <a href="https://www.rrpa.ru/" class="item">
+                <img src="{{asset('img/raven.jpg')}}"/>
+                <p>Raven Russia</p>
             </a>
-            <a href="https://www.pnkgroup.ru" class="item">
-                <img src="{{asset('img/logo.svg')}}"/>
-                <p>PNK Group</p>
+            <a href="https://accent.ru/" class="item">
+                <img src="{{asset('img/accent.jpg')}}"/>
+                <p>Accent Capital</p>
             </a>
-            <a href="https://www.pnkgroup.ru" class="item">
-                <img src="{{asset('img/logo.svg')}}"/>
-                <p>PNK Group</p>
+            <a href="https://mega-stroy.su/" class="item">
+                <img src="{{asset('img/mega.jpg')}}"/>
+                <p>Mega-Story</p>
+            </a>
+            <a href="https://mlprussia.com/" class="item">
+                <img src="{{asset('img/mlp.jpg')}}"/>
+                <p>МЛП</p>
+            </a>
+            <a href="https://pltpm.ru/" class="item">
+                <img src="{{asset('img/plt.jpg')}}"/>
+                <p>PLT</p>
+            </a>
+            <a href="https://parametr.space/" class="item">
+                <img src="{{asset('img/parametr.jpg')}}"/>
+                <p>Parametr</p>
             </a>
         </div>
     </div>
