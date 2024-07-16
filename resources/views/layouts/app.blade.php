@@ -17,6 +17,7 @@
         <script src="{{asset('js/app.js')}}"></script>
         <script src="https://kit.fontawesome.com/0ca303331d.js" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript"></script>
     </head>
     <body class="font-sans antialiased">
         @include('layouts.navigation')

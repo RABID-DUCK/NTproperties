@@ -9,55 +9,104 @@
             <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5.77778 10.2222V18C5.77778 19.1046 6.67321 20 7.77778 20H12M5.77778 10.2222L11.2929 4.70711C11.6834 4.31658 12.3166 4.31658 12.7071 4.70711L17.5 9.5M5.77778 10.2222L4 12M18.2222 10.2222V18C18.2222 19.1046 17.3268 20 16.2222 20H12M18.2222 10.2222L20 12M18.2222 10.2222L17.5 9.5M17.5 9.5V6M12 20V15" stroke="#ff6d12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            </a><a href="#"> Главная <span>></span></a><a href="#"> Объекты <span>></span></a><a href="#"> ЛП Истра <span>></span></a>
+            </a><a href="{{route('main-page')}}"> Главная <span>></span></a><a href="{{route('objects')}}"> Объекты <span>></span></a><a href="#"> {{$object->title}} <span>></span></a>
         </div>
-        <h1>ЛП Истра</h1>
+        <h1>{{$object->title}}</h1>
         <img src="{{asset('img/slider-1.jpg')}}"/>
         <div class="info">
-            <span class="data">18.04.2024</span>
+            <span class="data">{{$object->created_at->format('d.m.y')}}</span>
             <div class="text">
                 <div class="geo">
-                    <h3>ЛП Истра</h3>
-                    <p>Новорижское шоссе</p>
+                    <h3>{{$object->title}}</h3>
+                    <p>{{$object->highway->name}}</p>
                     <div class="tech">
-                        <p>Складские помещени</p>
-                        <p>205 690 м²</p>
+                        <p>{{$object->type_room == 1 ? 'Складские помещения' : 'Промышленные участки'}}</p>
+                        <p>{{$object->all_square}} м²</p>
                     </div>
                 </div>
                 <div class="price">
-                    <span>Аренда (в год)</span>
-                    <p>13000 &#8381;/м²</p>
+                    <span>{{$object->price_type == 1 ? 'Аренда (в год)' : 'Продажа'}}</span>
+                    <p>{{$object->price}} &#8381;/м²</p>
                 </div>
             </div>
         </div>
         <div class="description">
             <h3>Описание</h3>
-            <p>
-                В действующем логистическом парке в аренду предлагается складской блок площадью - 8 444 кв. м. Объект имеет уникальное месторасположение на одной из наименее загруженных автомагистралей – Москва-Рига (М9) в 42 км от МКАД. Доступ ноябрь 2024 г.
-            </p>
+            <p>{{$object->description}}</p>
         </div>
         <div class="feature">
             <h3>Характеристики</h3>
-            <p><span>Регион:</span> Московская область</p>
-            <p><span>Направление:</span> Запад</p>
-            <p><span>Шоссе:</span> Новорижское</p>
-            <p><span>Удаленность от МКАД, км:</span> 42</p>
-            <p><span>Класс помещений :</span> A</p>
-            <p><span>Общая площадь, кв. м :</span> 205 690</p>
-            <p><span>Свободная площадь, кв. м :</span> 8 444</p>
-            <p><span>Минимальный блок, кв. м :</span> 8 444</p>
+            @if($object->region)
+                <p><span>Регион:</span> {{$object->region->name}}</p>
+            @endif
+            @if($object->direction)
+                <p><span>Направление:</span> {{$object->direction->name}}</p>
+            @endif
+            @if($object->highway)
+                <p><span>Шоссе:</span> {{$object->highway->name}}</p>
+            @endif
+            @if($object->distance_mkad)
+                <p><span>Удаленность от МКАД, км:</span> {{$object->distance_mkad}}</p>
+            @endif
+            @if($object->class_house)
+                <p><span>Класс помещений :</span> {{$object->class_house}}</p>
+            @endif
+            @if($object->all_square)
+                <p><span>Общая площадь, кв. м :</span> {{$object->all_square}}</p>
+            @endif
+            @if($object->free_square)
+                <p><span>Свободная площадь, кв. м :</span> {{$object->free_square}}</p>
+            @endif
+            @if($object->min_square)
+                <p><span>Минимальный блок, кв. м :</span> {{$object->min_square}}</p>
+            @endif
             <ul>
-                <li><span>высота, м:</span> 12</li>
-                <li><span>шаг колонн, м :</span> 12х18</li>
-                <li><span>нагрузка на пол, т/кв. м :</span> 7</li>
-                <li><span>освещение:</span> Светодиодное</li>
-                <li><span>система пожаротушения :</span> Спринклерная</li>
+                @if($object->height)
+                    <li><span>высота, м:</span> {{$object->height}}</li>
+                @endif
+                @if($object->column_pitch)
+                    <li><span>шаг колонн, м :</span> {{$object->column_pitch}}</li>
+                @endif
+                @if($object->floor_load)
+                    <li><span>нагрузка на пол, т/кв. м :</span> {{$object->floor_load}}</li>
+                @endif
+                @if($object->lighting)
+                    <li><span>освещение:</span> {{$object->lighting}}</li>
+                @endif
+                @if($object->fire_system)
+                    <li><span>система пожаротушения :</span> {{$object->fire_system}}</li>
+                @endif
             </ul>
         </div>
         <div class="map">
             <h3>Объект на карте</h3>
-            <div id="map"></div>
+            <div id="map" style="width: 100%; height: 500px"></div>
         </div>
     </div>
 </div>
+
+<script src="https://api-maps.yandex.ru/2.1?apikey={{config('ymaps.api_key')}}&load=package.full&lang=ru_RU">
+</script>
+<script type="text/javascript">
+    ymaps.ready(function () {
+        var map = new ymaps.Map("map", {
+            center: [55.591701, 37.635314],//сюда потом добавить широту и долготу с бд
+            zoom: 10
+        });
+
+        var placemark = new ymaps.Placemark([55.591701, 37.635314], {}, {
+            iconImageHref: '{{ asset('img/baloon.svg') }}',
+            iconImageSize: [60, 84],
+            iconImageOffset: [-5, -38],
+            iconLayout: 'default#image',
+            iconShape: {
+                type: 'Circle',
+                coordinates: [0, 0],
+                radius: 20
+            },
+        });
+
+        map.geoObjects.add(placemark);
+    });
+</script>
 @endsection

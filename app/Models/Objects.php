@@ -17,4 +17,17 @@ class Objects extends Model
             ->where('type_model', Objects::class)
             ->where('model_id',$id)->first();
     }
+
+    public function highway()
+    {
+        return $this->hasOne(HighWays::class, 'id', 'highway_id');
+    }
+    public function direction()
+    {
+        return $this->hasOne(Directions::class, 'id', 'direction_id');
+    }
+    public function region()
+    {
+        return $this->hasOne(Regions::class, 'id', 'region_id');
+    }
 }
