@@ -1,5 +1,6 @@
 .object {
     max-width: 1000px;
+    margin-bottom: 40px;
 
     h3 {
         font-size: 18px;
@@ -93,6 +94,12 @@
         span {
             color: #8c9092;
         }
+    }
+
+    .map {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
     }
 
     img {

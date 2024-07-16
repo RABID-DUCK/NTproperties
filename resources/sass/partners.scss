@@ -20,12 +20,14 @@
                 width: 100%;
                 object-fit: contain;
             }
+            p {
+                transition: all .3s ease;
+            }
         }
         .item:hover {
             p {
                 color: #ff6d12;
             }
-
         }
     }
 

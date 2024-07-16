@@ -52,6 +52,12 @@
                     object-fit: cover;
                     width: 100%;
                 }
+                transition: all .3s ease;
+                &:hover {
+                    .more {
+                        text-decoration: underline 1px #ff6d12 dotted;
+                    }
+                }
             }
         }
     }
