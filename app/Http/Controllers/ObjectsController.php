@@ -66,7 +66,7 @@ class ObjectsController extends Controller
             ->when($data['distance_max'], function ($query, $distance_max) {
                 return $query->where('distance_mkad', '<=', $distance_max);
             })
-            ->get();
+            ->paginate(12);
 
         return view('pages.objects', compact('objects', 'regions', 'directions', 'highways', 'news'));
     }
