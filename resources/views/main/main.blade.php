@@ -35,7 +35,7 @@
     <div class="news-wrapper">
         <div class="container">
         <a href="{{route('news')}}" class="text-center">Новости сферы недвижимости</a>
-            <div class="list">
+            <div class="list siema">
                  @if($news->isNotEmpty())
                     @foreach($news as $item)
                         <div class="news-content d-flex">
@@ -50,6 +50,8 @@
                     @endforeach
                 @endif
             </div>
+            <button class="prev">prev</button>
+            <button class="next">next</button>
         </div>
     </div>
 
@@ -74,4 +76,27 @@
             </div>
         </div>
     </div>
+
+    <script src="{{ asset('/js/siema.min.js') }}"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const mySiema = new Siema({
+                selector: '.siema',
+                duration: 200,
+                easing: 'ease-out',
+                perPage: 2,
+                startIndex: 0,
+                draggable: true,
+                multipleDrag: true,
+                threshold: 20,
+                loop: false,
+                rtl: false,
+                onInit: () => {},
+                onChange: () => {},
+            });
+
+            document.querySelector('.prev').addEventListener('click', () => mySiema.prev());
+            document.querySelector('.next').addEventListener('click', () => mySiema.next());
+        });
+    </script>
 @endsection
