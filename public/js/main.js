@@ -19,6 +19,15 @@ saleBtn.addEventListener('click', function() {
     rentBtn.classList.remove('active');
 });
 
+var inputSearch = document.getElementById("search")
+var blockSearch = document.querySelector(".search")
+
+console.log(inputSearch)
+inputSearch.addEventListener("click", () => {
+    blockSearch.classList.toggle("show")
+})
+
+
 
 var displayFlex = document.getElementById("fl");
 var displayGrid = document.getElementById("gr");
@@ -29,4 +38,5 @@ displayFlex.addEventListener("click", () =>  {
 displayGrid.addEventListener("click", () => {
     list.classList.remove("flex")
 })
+
 

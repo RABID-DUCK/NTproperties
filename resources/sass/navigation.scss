@@ -8,6 +8,39 @@ header {
         padding: 20px 0 0;
         display: flex;
         justify-content: space-between;
+
+        #search {
+            display: none;
+
+        }
+
+        #search + label {
+            display: none;
+        }
+        .show {
+            display: none !important;
+        }
+        .search {
+            position: absolute;
+            top: 114px;
+            width: 100%;
+            background: #ff6d12;
+            left: 0;
+            padding: 10px;
+            label {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                input {
+                    border-radius: 5px;
+                    padding: 10px;
+                    font-size: 16px;
+                    width: 100%;
+                }
+            }
+
+        }
+
         .right {
             display: flex;
             gap: 20px;
@@ -78,6 +111,12 @@ header {
             padding: 20px 0 20px;
             align-items: center;
             gap: 20px;
+            #search + label {
+                display: block !important;
+            }
+            .search {
+                top: 104px;
+            }
             .right {
                 .info {
                     #geo {
@@ -133,19 +172,6 @@ header {
                         margin-top: 8px;
                     }
 
-                    #menu-toggle:checked + .menu-button-container .menu-button::before {
-                        margin-top: 0px;
-                        transform: rotate(405deg);
-                    }
-
-                    #menu-toggle:checked + .menu-button-container .menu-button {
-                        background: rgb(255, 255, 255);
-                    }
-
-                    #menu-toggle:checked + .menu-button-container .menu-button::after {
-                        margin-top: 0px;
-                        transform: rotate(-405deg);
-                    }
 
                     .menu-button-container {
                         display: flex;
@@ -184,10 +210,6 @@ header {
                     .menu > a:not(:last-child) {
                         border-bottom: 1px solid #eee;
                     }
-
-
-
-
                 }
                 .navigation {
                     display: none;
@@ -202,6 +224,12 @@ header {
             padding: 20px 0 20px;
             align-items: center;
             gap: 20px;
+            #search + label {
+                display: block !important;
+            }
+            .search {
+                top: 104px;
+            }
             .right {
                 .info {
                     #geo {
@@ -332,6 +360,12 @@ header {
             flex-direction: column;
             align-items: center;
             gap: 20px;
+            #search + label {
+                display: block !important;
+            }
+            .search {
+                top: 156px;
+            }
             .right {
                 .info {
                     #geo {
