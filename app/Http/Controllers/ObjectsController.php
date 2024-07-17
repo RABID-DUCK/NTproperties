@@ -8,6 +8,7 @@ use App\Models\HighWays;
 use App\Models\News;
 use App\Models\Objects;
 use App\Models\Regions;
+use App\Models\Reviews;
 use Illuminate\Http\Request;
 
 class ObjectsController extends Controller
@@ -17,8 +18,10 @@ class ObjectsController extends Controller
         $regions = Regions::all();
         $directions = Directions::all();
         $highways = Highways::all();
+        $news = News::all();
+        $reviews = Reviews::all();
 
-        return view('pages.objects', compact('objects', 'regions', 'directions', 'highways'));
+        return view('pages.objects', compact('objects', 'regions', 'directions', 'highways', 'news', 'reviews'));
     }
 
     public function show(Objects $object){
@@ -31,6 +34,7 @@ class ObjectsController extends Controller
         $directions = Directions::all();
         $highways = Highways::all();
         $news = News::all();
+        $reviews = Reviews::all();
 
         $objects = Objects::query()
             ->when($data['price_type'], function ($query, $price_type) {
@@ -68,6 +72,6 @@ class ObjectsController extends Controller
             })
             ->paginate(12);
 
-        return view('pages.objects', compact('objects', 'regions', 'directions', 'highways', 'news'));
+        return view('pages.objects', compact('objects', 'regions', 'directions', 'highways', 'news', 'reviews'));
     }
 }

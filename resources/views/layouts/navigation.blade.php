@@ -53,7 +53,7 @@
             </a>
             <div class="right">
                 <div class="info">
-                    <a id="geo" href="#">
+                    <a id="geo" href="{{route('contacts')}}">
                         <svg fill="#ff6d12" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                              width="32px" height="32px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
                         <g>
@@ -78,7 +78,7 @@
                         </svg>
                         <span class="tel">8 495 223 35 53</span>
                     </a>
-                    <a href="#">
+                    <a href="mailto:komolikova@ntproperties.ru">
                         <svg width="32px" height="32px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="mail" class="icon glyph"><path d="M22,8.32V18a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V8.69L4,9.78l7.52,4.1A1,1,0,0,0,12,14a1,1,0,0,0,.5-.14L20,9.49Z" style="fill:#ff6d12"></path><path d="M22,6h0L20,7.18l-8,4.67L4,7.5,2,6.4V6A2,2,0,0,1,4,4H20A2,2,0,0,1,22,6Z" style="fill:#ff6d12"></path></svg>
                     </a>
                     <input type="checkbox" id="search"/>

@@ -18,6 +18,13 @@ class Objects extends Model
             ->where('model_id',$id)->first();
     }
 
+    public function allImages($id)
+    {
+        return Images::query()
+            ->where('type_model', Objects::class)
+            ->where('model_id', $id)->get();
+    }
+
     public function highway()
     {
         return $this->hasOne(HighWays::class, 'id', 'highway_id');

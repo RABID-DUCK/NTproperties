@@ -9,11 +9,11 @@
             <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5.77778 10.2222V18C5.77778 19.1046 6.67321 20 7.77778 20H12M5.77778 10.2222L11.2929 4.70711C11.6834 4.31658 12.3166 4.31658 12.7071 4.70711L17.5 9.5M5.77778 10.2222L4 12M18.2222 10.2222V18C18.2222 19.1046 17.3268 20 16.2222 20H12M18.2222 10.2222L20 12M18.2222 10.2222L17.5 9.5M17.5 9.5V6M12 20V15" stroke="#ff6d12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            </a><a href="#"> Главная <span>></span></a><a href="#"> Объекты <span>></span></a>
+            </a><a href="{{route('main-page')}}"> Главная <span>></span></a><a href="#"> Объекты <span>></span></a>
         </div>
         <h1>Объекты</h1>
 
-        <form class="filter-wrapper" action="{{route('object-list')}}">
+        <form class="filter-wrapper" action="{{route('object-list')}}" id="filterForm">
             <div class="filter-window">
                 <div class="filter-content">
                     <div class="filter-1 d-flex">
@@ -116,7 +116,7 @@
                         </div>
                     </div>
                     <div class="buttons">
-                      <button class="btn btn-apply-filter" type="submit">Показать</button><button class="btn reset">Очистить</button>
+                      <button class="btn btn-apply-filter" type="submit">Показать</button><button type="button" class="btn reset" id="clear_filter">Очистить</button>
                   </div>
                 </div>
             </div>
@@ -154,7 +154,9 @@
             @if($objects->isNotEmpty())
                 @foreach($objects as $object)
                     <a href="{{route('objects.show', $object->id)}}" class="item">
-                        <img src="{{asset('img/slider-1.jpg')}}"/>
+                        @if(!empty($object->getImages($object->id)))
+                            <img src="{{asset('storage/images/' . $object->getImages($object->id)->name)}}" alt="{{$object->title}}" />
+                        @endif
                         <div class="text ob">
                             <h2>
 
@@ -214,32 +216,48 @@
                 <button disabled>></button>
             @endif
         </div>
+
         <div class="news">
             <h2>Новости</h2>
             <div class="list">
-                <a href="#" class="item">
-                    <img src="{{asset('img/slider-1.jpg')}}"/>
-                     <div class="text">
-                         <p class="date">25.06.2024</p>
-                         <h3>Загаловоок</h3>
-                     </div>
-                </a>
+                @if($news->isNotEmpty())
+                    @foreach($news as $item)
+                        <a href="{{route('news-single', $item->id)}}" class="item">
+                            <img src="{{asset('storage/images/' . $item->image)}}" alt="{{$item->img}}" />
+                             <div class="text">
+                                 <p class="date">{{$item->created_at->format('m.d.y')}}</p>
+                                 <h3>{{$item->title}}</h3>
+                             </div>
+                        </a>
+                    @endforeach
+                @endif
             </div>
-            <a class="news_more" href="#">Все новости</a>
+            <a class="news_more" href="{{route('news')}}">Все новости</a>
         </div>
+
         <div class="news">
-            <h2>Новости</h2>
+            <h2>Обзоры</h2>
             <div class="list">
-                <a href="#" class="item">
-                    <img src="{{asset('img/slider-1.jpg')}}"/>
-                     <div class="text">
-                         <p class="date">25.06.2024</p>
-                         <h3>Загаловоок</h3>
-                     </div>
-                </a>
+                @if($reviews->isNotEmpty())
+                    @foreach($reviews as $review)
+                        <a href="{{route('reviews.single', $review->id)}}" class="item">
+                            <img src="{{asset('storage/images/' . $review->image)}}"/>
+                             <div class="text">
+                                 <p class="date">{{$review->created_at->format('m.d.y')}}</p>
+                                 <h3>{{$review->title}}</h3>
+                             </div>
+                        </a>
+                    @endforeach
+                @endif
             </div>
-            <a class="news_more" href="#">Все обзоры</a>
+            <a class="news_more" href="{{route('reviews')}}">Все обзоры</a>
         </div>
     </div>
 </div>
+
+<script>
+    document.getElementById('clear_filter').addEventListener('click', function() {
+        document.getElementById('filterForm').reset();
+    });
+</script>
 @endsection
