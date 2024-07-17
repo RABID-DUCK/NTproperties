@@ -112,23 +112,44 @@
     <div class="news-wrapper">
         <div class="container">
         <a href="{{route('news')}}" class="text-center">Новости сферы недвижимости</a>
-            <div class="list siema">
-                 @if($news->isNotEmpty())
-                    @foreach($news as $item)
-                        <div class="news-content d-flex">
-                            <div class="news-item">
-                                <img src="{{asset('storage/images/' . $item->image)}}" alt="{{$item->img}}">
-                                <span class="date">{{$item->created_at}}</span><br>
-                                <h4>{{$item->title}}</h4>
-                                <p>{!! substr(strip_tags($item->description), 0, 340) !!}...</p>
-                                <a href="{{route('news-single', $item->id)}}" class="more">Читать полностью</a>
-                            </div>
-                        </div>
-                    @endforeach
-                @endif
+            <div class="slider">
+                <button class="prev">
+
+                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(180)">
+
+                <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+
+                <g id="SVGRepo_iconCarrier"> <path d="M10 7L15 12L10 17" stroke="#c3d1d8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </g>
+
+                </svg>
+
+                </button>
+                <div class="list siema">
+                     @if($news->isNotEmpty())
+                        @foreach($news as $item)
+
+                                <div class="news-item">
+                                    <img src="{{asset('storage/images/' . $item->image)}}" alt="{{$item->img}}">
+                                    <div class="text">
+                                        <span class="date">{{$item->created_at}}</span><br>
+                                        <h4>{{$item->title}}</h4>
+                                    </div>
+                                    <p>{!! substr(strip_tags($item->description), 0, 150) !!}...</p>
+                                    <a href="{{route('news-single', $item->id)}}" class="more">Читать полностью</a>
+                                </div>
+                        @endforeach
+                    @endif
+                </div>
+                <button class="next">
+
+                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 7L15 12L10 17" stroke="#c3d1d8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                </button>
             </div>
-            <button class="prev">prev</button>
-            <button class="next">next</button>
         </div>
     </div>
 
@@ -157,23 +178,55 @@
     <script src="{{ asset('/js/siema.min.js') }}"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const mySiema = new Siema({
-                selector: '.siema',
-                duration: 200,
-                easing: 'ease-out',
-                perPage: 2,
-                startIndex: 0,
-                draggable: true,
-                multipleDrag: true,
-                threshold: 20,
-                loop: false,
-                rtl: false,
-                onInit: () => {},
-                onChange: () => {},
-            });
+            const createSiema = (perPage) => {
+                    return new Siema({
+                        selector: '.siema',
+                        duration: 200,
+                        easing: 'ease-out',
+                        perPage: perPage,
+                        startIndex: 0,
+                        draggable: true,
+                        multipleDrag: true,
+                        threshold: 20,
+                        loop: false,
+                        rtl: false,
+                        onInit: () => {},
+                        onChange: () => {},
+                    });
+                };
+                let mySiema = createSiema(4)
 
             document.querySelector('.prev').addEventListener('click', () => mySiema.prev());
             document.querySelector('.next').addEventListener('click', () => mySiema.next());
+
+            const updateSiemaPerPage = () => {
+                    const width = window.innerWidth;
+
+                    let perPage;
+                    if (width >= 320 && width <= 480) {
+                        perPage = 1;
+                    } else if (width >= 480 && width <= 768) {
+                        perPage = 2;
+                    } else if (width >= 768 && width <= 1024) {
+                        perPage = 3;
+                    } else {
+                        perPage = 4;
+                    }
+
+                    mySiema.destroy(true);
+
+
+                    mySiema = createSiema(perPage);
+
+
+                    document.querySelector('.prev').addEventListener('click', () => mySiema.prev());
+                    document.querySelector('.next').addEventListener('click', () => mySiema.next());
+                };
+
+                updateSiemaPerPage();
+
+
+                window.addEventListener("resize", updateSiemaPerPage);
         });
     </script>
 @endsection
