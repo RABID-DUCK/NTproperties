@@ -81,7 +81,7 @@
                     <a href="mailto:komolikova@ntproperties.ru">
                         <svg width="32px" height="32px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="mail" class="icon glyph"><path d="M22,8.32V18a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V8.69L4,9.78l7.52,4.1A1,1,0,0,0,12,14a1,1,0,0,0,.5-.14L20,9.49Z" style="fill:#ff6d12"></path><path d="M22,6h0L20,7.18l-8,4.67L4,7.5,2,6.4V6A2,2,0,0,1,4,4H20A2,2,0,0,1,22,6Z" style="fill:#ff6d12"></path></svg>
                     </a>
-                    <input type="checkbox" id="search"/>
+                    <input type="checkbox" id="search" />
                     <label for="search">
                         <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z" stroke="#ff6d12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -90,10 +90,12 @@
                     <div class="search show">
                         <div class="container">
                             <label>
-                                <input type="search" placeholder="Введите запрос"/>
-                                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
+                                <input type="search" placeholder="Введите запрос" name="title" id="searchInput" />
+                                <a href="{{route('search')}}">
+                                    <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
                             </label>
                         </div>
                     </div>
@@ -144,4 +146,12 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('searchInput').addEventListener('input', function() {
+            var searchValue = this.value;
+            var searchLink = document.querySelector('a[href="{{route('search')}}"]');
+            searchLink.href = "{{route('search')}}?title=" + encodeURIComponent(searchValue);
+        });
+    </script>
 </header>
