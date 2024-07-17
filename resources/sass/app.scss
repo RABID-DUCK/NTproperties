@@ -142,6 +142,11 @@ a{
         background: none;
         border: none;
         &:hover {
+            svg {
+                path  {
+                    stroke: #fff
+                };
+            }
             background: #ff6d12;
         }
     }
@@ -946,6 +951,9 @@ footer{
     }
 
     .news-wrapper {
+        a {
+            font-size: 28px;
+        }
         .list {
             display: flex;
             flex-direction: column;
