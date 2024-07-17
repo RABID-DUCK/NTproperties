@@ -143,23 +143,26 @@
                 @endif
             </ul>
         </div>
+        @if($object->x_coord !== null && $object->y_coord)
         <div class="map">
             <h3>Объект на карте</h3>
             <div id="map" style="width: 100%; height: 500px"></div>
         </div>
+        @endif
     </div>
 </div>
 
+@if($object->x_coord !== null && $object->y_coord)
 <script src="https://api-maps.yandex.ru/2.1?apikey={{config('ymaps.api_key')}}&load=package.full&lang=ru_RU">
 </script>
 <script type="text/javascript">
     ymaps.ready(function () {
         var map = new ymaps.Map("map", {
-            center: [55.591701, 37.635314],//сюда потом добавить широту и долготу с бд
+            center: [{{$object->x_coord}}, {{$object->y_coord}}],//сюда потом добавить широту и долготу с бд
             zoom: 16
         });
 
-        var placemark = new ymaps.Placemark([55.591701, 37.635314], {}, {
+        var placemark = new ymaps.Placemark([{{$object->x_coord}}, {{$object->y_coord}}], {}, {
             iconImageHref: '{{ asset('img/baloon.svg') }}',
             iconImageSize: [60, 84],
             iconImageOffset: [-5, -38],
@@ -174,6 +177,7 @@
         map.geoObjects.add(placemark);
     });
 </script>
+@endif
 
 <script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://snipp.ru/cdn/bxslider/4.2.14/dist/jquery.bxslider.min.js"></script>
