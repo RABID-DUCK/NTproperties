@@ -8,6 +8,25 @@
         line-height: 32px;
         font-weight: 400;
     }
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    form {
+        h2 {
+            margin: 0;
+        }
+        display: flex;
+        flex-direction: column;
+        width: max-content;
+        gap: 20px;
+        margin-bottom: 20px;
+        label {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+    }
     .text {
         display: flex;
         flex-direction: column;

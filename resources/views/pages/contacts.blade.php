@@ -42,6 +42,13 @@
 
                 komolikova@ntproperties.ru</a>
             </div>
+            <form>
+                <h2>Обратная связь</h2>
+                <label>Имя:<input/></label>
+                <label>Тема:<input/></label>
+                <label>Описание:<textarea></textarea></label>
+                <button class="btn btn-orange">Отправить</button>
+            </form>
             <h2>Схема проезда</h2>
 
             <div id="map"></div>
