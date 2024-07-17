@@ -64,7 +64,7 @@ Route::get('/reviews-single/{reviews:id}', [ReviewsController::class, 'show'])->
 Route::post('/feedback', [\App\Http\Controllers\FeedBackController::class, 'store'])->name('feedback');
 Route::post('/mailling', [\App\Http\Controllers\MaillingUserController::class, 'store'])->name('mailling');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'admin.email'])->group(function () {
     Route::group(['prefix' => 'admin'], function (){
         Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
 

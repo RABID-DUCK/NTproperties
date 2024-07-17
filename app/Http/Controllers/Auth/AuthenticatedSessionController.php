@@ -15,10 +15,10 @@ class AuthenticatedSessionController extends Controller
     /**
      * Display the login view.
      */
-    public function create(): View
+    public function create()
     {
-        if(auth()->user()->email == 'admin@gmail.com'){
-            redirect()->route('admin.dashboard');
+        if (auth()->check() && auth()->user()->email !== null) {
+            return redirect()->route('admin.dashboard');
         }
         return view('auth.login');
     }
