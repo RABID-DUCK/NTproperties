@@ -13,7 +13,13 @@
             </a><a href="{{route('main-page')}}"> Главная <span>></span></a><a href="{{route('objects')}}"> Объекты <span>></span></a><a href="#"> {{$object->title}} <span>></span></a>
         </div>
         <h1>{{$object->title}}</h1>
-        <img src="{{asset('img/slider-1.jpg')}}"/>
+
+        <div class="slider">
+        	<ul>
+        		<li><a href="#"><img src="{{asset('img/slider-1.jpg')}}" alt=""></a></li>
+        		<li><a href="#"><img src="{{asset('img/slider-2.jpg')}}" alt=""></a></li>
+        	</ul>
+        </div>
         <div class="info">
             <span class="data">{{$object->created_at->format('d.m.y')}}</span>
             <div class="text">
@@ -109,5 +115,20 @@
 
         map.geoObjects.add(placemark);
     });
+</script>
+
+<script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://snipp.ru/cdn/bxslider/4.2.14/dist/jquery.bxslider.min.js"></script>
+<script>
+$(document).ready(function(){
+	$('.slider ul').bxSlider({
+		pager: true,
+		controls: false,
+		auto: true,
+		pause: 10000,
+		minSlides: 1,
+		maxSlides: 1
+	});
+});
 </script>
 @endsection
