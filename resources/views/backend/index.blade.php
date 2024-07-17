@@ -107,6 +107,24 @@
                             </p>
                         </a>
                     </li>
+
+                    <li class="nav-item menu-open">
+                        <a href="{{route('admin.feedbacks')}}" class="nav-link {{ Request::is('admin/feedbacks') ? 'active' : '' }}">
+                            <i class="fa-solid fa-newspaper"></i>
+                            <p>
+                                Обратная связь
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item menu-open">
+                        <a href="{{route('admin.maillings')}}" class="nav-link {{ Request::is('admin/maillings') ? 'active' : '' }}">
+                            <i class="fa-solid fa-newspaper"></i>
+                            <p>
+                                Рассылка
+                            </p>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -119,7 +137,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Dashboard</h1>
+                        <h1 class="m-0">Админ панель</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->

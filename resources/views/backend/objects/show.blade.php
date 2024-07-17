@@ -128,10 +128,10 @@
                 <label for="recipient-name" class="col-form-label">Зум карты(в цифрах)</label>
                 <input type="number" class="form-control" name="zoom" value="{{$object->zoom}}">
 
-                <label for="recipient-name" class="col-form-label">Координата x</label>
+                <label for="recipient-name" class="col-form-label">Широта</label>
                 <input type="text" class="form-control" name="x_coord" value="{{$object->x_coord}}">
 
-                <label for="recipient-name" class="col-form-label">Координата y</label>
+                <label for="recipient-name" class="col-form-label">Долгота</label>
                 <input type="text" class="form-control" name="y_coord" value="{{$object->y_coord}}">
             </div>
 

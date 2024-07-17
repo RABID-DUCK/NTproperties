@@ -42,12 +42,26 @@
 
                 komolikova@ntproperties.ru</a>
             </div>
-            <form>
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <form action="{{route('feedback')}}" method="POST">
+                @csrf
+                @method('post')
+
                 <h2>Обратная связь</h2>
-                <label>Имя:<input/></label>
-                <label>Тема:<input/></label>
-                <label>Описание:<textarea rows="10"></textarea></label>
-                <button class="btn btn-orange">Отправить</button>
+                <label>Имя:<input name="name" /></label>
+                <label>Тема:<input name="title" /></label>
+                <label>Описание:<textarea name="description"  rows="10"></textarea></label>
+                <button type="submit" class="btn btn-orange">Отправить</button>
             </form>
             <h2>Схема проезда</h2>
 

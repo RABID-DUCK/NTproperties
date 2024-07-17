@@ -61,6 +61,9 @@ Route::get('/search', [SearchController::class, 'index'])->name('search');
 Route::get('/reviews', [ReviewsController::class, 'index'])->name('reviews');
 Route::get('/reviews-single/{reviews:id}', [ReviewsController::class, 'show'])->name('reviews.single');
 
+Route::post('/feedback', [\App\Http\Controllers\FeedBackController::class, 'store'])->name('feedback');
+Route::post('/mailling', [\App\Http\Controllers\MaillingUserController::class, 'store'])->name('mailling');
+
 Route::middleware('auth')->group(function () {
     Route::group(['prefix' => 'admin'], function (){
         Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
@@ -108,6 +111,16 @@ Route::middleware('auth')->group(function () {
             Route::post('/store', [\App\Http\Controllers\Admin\ObjectsController::class, 'store'])->name('admin.objects.store');
             Route::post('/update/{object:id}', [\App\Http\Controllers\Admin\ObjectsController::class, 'update'])->name('admin.objects.update');
             Route::delete('/destroy/{object:id}', [\App\Http\Controllers\Admin\ObjectsController::class, 'destroy'])->name('admin.objects.destroy');
+        });
+
+        Route::group(['prefix' => 'feedbacks'], function (){
+            Route::get('/', [\App\Http\Controllers\Admin\FeedBackController::class, 'index'])->name('admin.feedbacks');
+            Route::get('show/{feed_backs:id}', [\App\Http\Controllers\Admin\FeedBackController::class, 'show'])->name('admin.feedbacks.show');
+        });
+
+        Route::group(['prefix' => 'maillings'], function (){
+            Route::get('/', [\App\Http\Controllers\Admin\MaillingUserController::class, 'index'])->name('admin.maillings');
+//            Route::get('show/{mailling_users:id}', [\App\Http\Controllers\Admin\MaillingUserController::class, 'show'])->name('admin.maillings.show');
         });
 
         Route::delete('/images/delete/{image:id}', [ImagesController::class, 'delete'])->name('admin.objects-images.destroy');

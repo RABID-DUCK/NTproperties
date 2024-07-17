@@ -25,8 +25,8 @@
                 </div>
             </div>
             <div class="mailing-write d-flex">
-                <input type="text" class="form-control" placeholder="Ваш email">
-                <button class="btn btn-orange">Подписаться</button>
+                <input type="text" class="form-control" id="email_mailling" placeholder="Ваш email">
+                <button type="button" class="btn btn-orange" id="sub_mail">Подписаться</button>
             </div>
         </div>
     </div>
@@ -143,6 +143,10 @@
         </div>
     </div>
 
+    <div class="d-none" id="send_email_info" style="position:fixed; bottom: 0; right: 0; background-color: gray; color: white; padding: 10px">
+        <span></span>
+    </div>
+
     <script src="{{ asset('/js/siema.min.js') }}"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -195,6 +199,50 @@
 
 
                 window.addEventListener("resize", updateSiemaPerPage);
+
+            let email = document.getElementById('email_mailling');
+            let button = document.getElementById('sub_mail');
+            let modal = document.getElementById('send_email_info');
+            let modalMessage = modal.querySelector('span');
+
+            button.addEventListener('click', function() {
+                let emailValue = email.value;
+
+                fetch("{{ route('mailling') }}", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                    },
+                    body: JSON.stringify({ email: emailValue })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.message) {
+                            email.style.display = 'none';
+                            button.style.display = 'none';
+
+                            modal.classList.remove('d-none');
+                            modalMessage.textContent = data.message;
+
+                            setTimeout(function() {
+                                modal.classList.add('d-none');
+                                modalMessage.textContent = '';
+                            }, 2000);
+                        } else {
+                            modal.classList.remove('d-none');
+                            modalMessage.textContent = data.error;
+
+                            setTimeout(function() {
+                                modal.classList.add('d-none');
+                                modalMessage.textContent = '';
+                            }, 2000);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            });
         });
     </script>
 @endsection
