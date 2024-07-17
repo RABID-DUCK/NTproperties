@@ -20,7 +20,7 @@
                             <div class="text">
                                 <h3>{{$review->title}}</h3>
                                 {{Str::limit($review->description, 100)}}
-                                <button class="more">Читать полностью</button>
+                                <span class="more">Читать полностью</span>
                             </div>
                         </a>
                     @endforeach

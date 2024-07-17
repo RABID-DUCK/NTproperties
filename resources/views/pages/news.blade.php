@@ -22,7 +22,7 @@
                                 <p class="date">{{$item->created_at->format('d.m.Y')}}</p>
                                 <h3>{{$item->title}}</h3>
                                 <p>{!!   \Illuminate\Support\Str::limit($item->description, 100) !!}</p>
-                                <p class="more">Читать полностью</p>
+                                <span class="more">Читать полностью</span>
                             </div>
                         </a>
                     @endforeach

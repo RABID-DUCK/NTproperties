@@ -43,6 +43,13 @@
                 object-fit: cover;
                 width: 100%;
             }
+
+            &:hover {
+                span {
+                    text-decoration: underline 1px dotted #ff6d12;
+                }
+
+            }
         }
     }
     .pagination {

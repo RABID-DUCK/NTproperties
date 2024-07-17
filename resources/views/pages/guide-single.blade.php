@@ -29,7 +29,7 @@
                 <img src="{{asset('img/rykovod.jpg')}}"/>
             </div>
             <hr>
-            <a href="#">Назад</a>
+            <a id="cancel" href="#">Назад</a>
 
         </div>
     </div>
