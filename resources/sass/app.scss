@@ -959,6 +959,10 @@ footer{
             display: flex;
             flex-direction: column;
             gap: 20px;
+            .news-item {
+                max-width: 207px;
+                width: 100%;
+            }
         }
         .text-center {
             display: block;
@@ -1086,6 +1090,10 @@ footer{
             display: flex;
             flex-direction: column;
             gap: 20px;
+            .news-item {
+                max-width: 208px;
+                width: 100%;
+            }
         }
         .text-center {
             display: block;
