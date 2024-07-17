@@ -16,7 +16,7 @@ class MainController extends Controller
         $regions = Regions::all();
         $directions = Directions::all();
         $highways = Highways::all();
-        $news = News::all();
+        $news = News::query()->get()->sortByDesc('created_at');
         $objects = Objects::query()->latest()->take(4)->get();
 
         return view('main.main', compact('regions', 'directions', 'highways', 'news', 'objects'));

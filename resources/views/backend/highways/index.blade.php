@@ -19,6 +19,7 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Имя</th>
+                <th scope="col">Имя англ</th>
                 <th scope="col">Дата создания</th>
                 <th>Действия</th>
             </tr>
@@ -28,9 +29,10 @@
                 <tr>
                     <th scope="row">{{ $highWay->id }}</th>
                     <td>{{ $highWay->name }}</td>
+                    <td>{{ $highWay->eng_name }}</td>
                     <td>{{ $highWay->created_at }}</td>
                     <td class="d-flex">
-                        <i class="fa-solid fa-pen mr-2" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#highWayModal" data-bs-whatever="@mdo" data-action="{{route('admin.highways.update', $highWay->id)}}"></i>
+                        <i class="fa-solid fa-pen mr-2" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#highWayModal" data-bs-whatever="@mdo" data-action="{{route('admin.highways.update', $highWay->id)}}" data-name="{{ $highWay->name }}" data-eng-name="{{ $highWay->eng_name }}"></i>
                         <i class="fa-solid fa-circle-minus text-danger" style="cursor: pointer;" onclick="deleteRow_bd('{{ route('admin.highways.destroy', $highWay->id) }}', 'delete')"></i>
                     </td>
                 </tr>
@@ -58,6 +60,11 @@
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Название</label>
                             <input type="text" class="form-control" name="name">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Название англ</label>
+                            <input type="text" class="form-control" name="eng_name">
                         </div>
 
                         <div class="modal-footer">

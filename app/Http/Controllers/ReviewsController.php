@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ReviewsController extends Controller
 {
     public function index(){
-        $reviews = Reviews::query()->paginate(12);
+        $reviews = Reviews::query()->latest()->paginate(12);
 
         return view('pages.reviews', compact('reviews'));
     }

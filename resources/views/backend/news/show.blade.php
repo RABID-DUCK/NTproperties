@@ -15,9 +15,19 @@
                             <input type="text" class="form-control" name="title" value="{{$news->title}}">
                         </div>
 
+                        <div>
+                            <label for="recipient-name" class="col-form-label">Название англ</label>
+                            <input type="text" class="form-control" name="eng_title" value="{{$news->eng_title}}">
+                        </div>
+
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Описание</label>
                             <textarea id="summernote" name="description">{!! $news->description !!}</textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Описание англ</label>
+                            <textarea id="summernote2" name="eng_description">{!! $news->eng_description !!}</textarea>
                         </div>
 
                         <div class="custom-file">

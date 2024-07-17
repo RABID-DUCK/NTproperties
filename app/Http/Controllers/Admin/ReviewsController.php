@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class ReviewsController extends Controller
 {
     public function index(){
-        $reviews = Reviews::all();
+        $reviews = Reviews::query()->get()->sortByDesc('created_at');
 
         return view('backend.reviews.index', compact('reviews'));
     }

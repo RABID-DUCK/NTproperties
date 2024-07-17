@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 class AnalitickController extends Controller
 {
     public function index(){
-        $news = News::all();
-        $reviews = Reviews::all();
+        $news = News::query()->get()->sortByDesc('created_at');
+        $reviews = Reviews::query()->get()->sortByDesc('created_at');
 
         return view('pages.analitick', compact('news', 'reviews'));
     }

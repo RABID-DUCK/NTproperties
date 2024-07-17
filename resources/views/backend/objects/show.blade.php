@@ -15,9 +15,19 @@
                 <input type="text" class="form-control" name="title" value="{{$object->title}}">
             </div>
 
+            <div>
+                <label for="recipient-name" class="col-form-label">Название англ</label>
+                <input type="text" class="form-control" name="eng_title" value="{{$object->eng_title}}">
+            </div>
+
             <div class="mb-3">
                 <label for="recipient-name" class="col-form-label">Описание</label>
-                <textarea class="form-control" name="description">{{$object->description}}</textarea>
+                <textarea id="summernote" class="form-control" name="description">{!! \Illuminate\Support\Str::limit($object->description, 400) !!}</textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Описание англ</label>
+                <textarea id="summernote2" class="form-control" name="eng_description">{!! \Illuminate\Support\Str::limit($object->eng_description, 400) !!}</textarea>
             </div>
 
             <div>
@@ -44,6 +54,11 @@
             <div>
                 <label for="recipient-name" class="col-form-label">Город</label>
                 <input type="text" class="form-control" name="city" value="{{$object->city}}">
+            </div>
+
+            <div>
+                <label for="recipient-name" class="col-form-label">Город англ</label>
+                <input type="text" class="form-control" name="eng_city" value="{{$object->eng_city}}">
             </div>
 
             <div class="mb-3 mt-3 characteristick">
@@ -103,8 +118,14 @@
                 <label for="recipient-name" class="col-form-label">-освещение</label>
                 <input type="text" class="form-control" name="lighting" value="{{$object->lighting}}">
 
+                <label for="recipient-name" class="col-form-label">-освещение англ</label>
+                <input type="text" class="form-control" name="eng_lighting" value="{{$object->eng_lighting}}">
+
                 <label for="recipient-name" class="col-form-label">-система пожаротушения</label>
                 <input type="text" class="form-control" name="fire_system" value="{{$object->fire_system}}">
+
+                <label for="recipient-name" class="col-form-label">-система пожаротушения англ</label>
+                <input type="text" class="form-control" name="eng_fire_system" value="{{$object->eng_fire_system}}">
             </div>
 
             <div class="custom-file">

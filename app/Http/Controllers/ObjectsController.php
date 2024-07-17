@@ -14,12 +14,12 @@ use Illuminate\Http\Request;
 class ObjectsController extends Controller
 {
     public function index(){
-        $objects = Objects::query()->paginate(10);
+        $objects = Objects::query()->latest()->paginate(10);
         $regions = Regions::all();
         $directions = Directions::all();
         $highways = Highways::all();
-        $news = News::all();
-        $reviews = Reviews::all();
+        $news = News::query()->get()->sortByDesc('created_at');
+        $reviews = Reviews::query()->get()->sortByDesc('created_at');
 
         return view('pages.objects', compact('objects', 'regions', 'directions', 'highways', 'news', 'reviews'));
     }
@@ -33,8 +33,8 @@ class ObjectsController extends Controller
         $regions = Regions::all();
         $directions = Directions::all();
         $highways = Highways::all();
-        $news = News::all();
-        $reviews = Reviews::all();
+        $news = News::query()->get()->sortByDesc('created_at');
+        $reviews = Reviews::query()->get()->sortByDesc('created_at');
 
         $objects = Objects::query()
             ->when($data['price_type'], function ($query, $price_type) {
@@ -70,7 +70,7 @@ class ObjectsController extends Controller
             ->when($data['distance_max'], function ($query, $distance_max) {
                 return $query->where('distance_mkad', '<=', $distance_max);
             })
-            ->paginate(12);
+            ->latest()->paginate(12);
 
         return view('pages.objects', compact('objects', 'regions', 'directions', 'highways', 'news', 'reviews'));
     }

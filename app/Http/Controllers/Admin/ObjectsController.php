@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 class ObjectsController extends Controller
 {
     public function index(){
-        $objects = Objects::all();
+        $objects = Objects::query()->get()->sortByDesc('created_at');
         $directions = Directions::all();
         $highways = Highways::all();
         $regions = Regions::all();
@@ -58,14 +58,14 @@ class ObjectsController extends Controller
     public function update(Objects $object, ObjectRequest $request){
         $data = $request->validated();
 
+        $images = $request->file('images');
+        unset($data['images']);
+
+        $object = Objects::query()->where('id', $object['id'])->first();
+        $object->update($data);
+        $object->save();
+
         if($request->file('images')){
-            $images = $request->file('images');
-            unset($data['images']);
-
-            $object = Objects::query()->where('id', $object['id'])->first();
-            $object->update($data);
-            $object->save();
-
             foreach($images as $image){
                 $imageName = $image->getClientOriginalName();
                 $image->storeAs('images', $imageName, 'public');

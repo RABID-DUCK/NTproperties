@@ -3,6 +3,11 @@
 @section('content')
 
 <link rel="stylesheet" href="{{asset('css/object-single.css')}}">
+<style>
+    .bx-wrapper{
+        max-height: 563px;
+    }
+</style>
 <div class="container">
     <div class="object">
         <div class="bread">

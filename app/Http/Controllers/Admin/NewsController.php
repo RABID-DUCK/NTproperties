@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 class NewsController extends Controller
 {
     public function index(){
-        $news = News::all();
+        $news = News::query()->get()->sortByDesc('created_at');
 
         return view('backend.news.index', compact('news'));
     }

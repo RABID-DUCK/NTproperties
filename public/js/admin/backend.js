@@ -1,16 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
     $('#regionModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget)
-        var action = button.data('action')
-        var modal = $(this)
-        modal.find('#regionForm').attr('action', action)
-    })
+        var button = $(event.relatedTarget);
+        var action = button.data('action');
+        var name = button.data('name');
+        var engName = button.data('eng-name');
+        var modal = $(this);
+
+        modal.find('#regionForm').attr('action', action);
+        modal.find('input[name="name"]').val(name);
+        modal.find('input[name="eng_name"]').val(engName);
+    });
 
     $('#directionModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)
         var action = button.data('action')
         var modal = $(this)
         modal.find('#directionForm').attr('action', action)
+
+        var name = button.data('name');
+        var engName = button.data('eng-name');
+
+        modal.find('#directionForm').attr('action', action);
+        modal.find('input[name="name"]').val(name);
+        modal.find('input[name="eng_name"]').val(engName);
     })
 
     $('#highWayModal').on('show.bs.modal', function (event) {
@@ -18,9 +30,17 @@ document.addEventListener("DOMContentLoaded", () => {
         var action = button.data('action')
         var modal = $(this)
         modal.find('#highWayForm').attr('action', action)
+
+        var name = button.data('name');
+        var engName = button.data('eng-name');
+
+        modal.find('#highWayForm').attr('action', action);
+        modal.find('input[name="name"]').val(name);
+        modal.find('input[name="eng_name"]').val(engName);
     })
 
     $('#summernote').summernote();
+    $('#summernote2').summernote();
 
     $('#newModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)

@@ -30,7 +30,7 @@
                 <tr>
                     <th scope="row">{{ $object->id }}</th>
                     <td>{{ $object->title }}</td>
-                    <td>{{ \Illuminate\Support\Str::limit($object->description, 400) }}</td>
+                    <td>{!! \Illuminate\Support\Str::limit($object->description, 400) !!}</td>
                     <td>
                         @if ($image = $object->getImages($object?->id))
                             <img src="/storage/images/{{ $image->name }}" alt="{{ $object->image }}" width="100" height="70">
@@ -73,9 +73,19 @@
                             <input type="text" class="form-control" name="title">
                         </div>
 
+                        <div>
+                            <label for="recipient-name" class="col-form-label">Название англ</label>
+                            <input type="text" class="form-control" name="eng_title">
+                        </div>
+
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Описание</label>
-                            <textarea class="form-control" name="description"></textarea>
+                            <textarea id="summernote" name="description"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Описание англ</label>
+                            <textarea id="summernote2" name="eng_description"></textarea>
                         </div>
 
                         <div>
@@ -102,6 +112,11 @@
                         <div>
                             <label for="recipient-name" class="col-form-label">Город</label>
                             <input type="text" class="form-control" name="city">
+                        </div>
+
+                        <div>
+                            <label for="recipient-name" class="col-form-label">Город англ</label>
+                            <input type="text" class="form-control" name="eng_city">
                         </div>
 
                         <div class="mb-3 mt-3 characteristick">
@@ -161,8 +176,14 @@
                             <label for="recipient-name" class="col-form-label">-освещение</label>
                             <input type="text" class="form-control" name="lighting">
 
+                            <label for="recipient-name" class="col-form-label">-освещение англ</label>
+                            <input type="text" class="form-control" name="eng_lighting">
+
                             <label for="recipient-name" class="col-form-label">-система пожаротушения</label>
                             <input type="text" class="form-control" name="fire_system">
+
+                            <label for="recipient-name" class="col-form-label">-система пожаротушения англ</label>
+                            <input type="text" class="form-control" name="eng_fire_system">
                         </div>
 
                         <div class="custom-file">
