@@ -46,7 +46,7 @@
                 <h2>Обратная связь</h2>
                 <label>Имя:<input/></label>
                 <label>Тема:<input/></label>
-                <label>Описание:<textarea></textarea></label>
+                <label>Описание:<textarea rows="10"></textarea></label>
                 <button class="btn btn-orange">Отправить</button>
             </form>
             <h2>Схема проезда</h2>
