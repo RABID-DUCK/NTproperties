@@ -10,5 +10,5 @@ class Directions extends Model
     use HasFactory;
     protected $table = 'directions';
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'eng_name'];
 }

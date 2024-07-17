@@ -46,6 +46,12 @@ class ObjectRequest extends FormRequest
             'zoom' => 'nullable',
             'x_coord' => 'nullable',
             'y_coord' => 'nullable',
+
+            'eng_city' => 'nullable',
+            'eng_title' => 'nullable',
+            'eng_description' => 'nullable',
+            'eng_lighting' => 'nullable',
+            'eng_fire_system' => 'nullable',
         ];
     }
 }
