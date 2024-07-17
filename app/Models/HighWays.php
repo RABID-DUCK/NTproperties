@@ -10,5 +10,5 @@ class HighWays extends Model
     use HasFactory;
 
     protected $table = 'high_ways';
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'eng_name'];
 }

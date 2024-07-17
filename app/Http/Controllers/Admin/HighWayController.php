@@ -15,7 +15,7 @@ class HighWayController extends Controller
     }
 
     public function store(Request $request){
-        $data = $request->validate(['name' => 'required|unique:regions'], [
+        $data = $request->validate(['name' => 'required|unique:regions', 'eng_name' => 'nullable|string'], [
             'name.required' => 'Поле "Название" обязательно для заполнения.',
             'name.unique' => 'Регион с таким названием уже существует.'
         ]);
@@ -28,7 +28,7 @@ class HighWayController extends Controller
     }
 
     public function update(Request $request, $id){
-        $data = $request->validate(['name' => 'required|unique:regions']);
+        $data = $request->validate(['name' => 'required|unique:regions', 'eng_name' => 'nullable|string']);
 
         if($data){
             HighWays::query()->where('id', $id)->update($data);
