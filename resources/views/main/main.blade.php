@@ -40,7 +40,7 @@
                  @foreach($objects as $object)
                    <a href="{{route('objects.show', $object->id)}}" class="item">
                        @if(!empty($object->getImages($object->id)))
-                      <img src="{{asset('storage/images/' . $object->getImages($object->id)->name)}}" alt="{{app()->currentLocale() == 'ru' ? $object->title : $object->eng_title}}" />
+                      <img src="{{asset('storage/images/' . $object->getImages($object->id)->name)}}" alt="{{app()->currentLocale() == 'RU' ? $object->title : $object->eng_title}}" />
                        @endif
                            <div class="text ob">
                           <h2>
@@ -51,7 +51,7 @@
                            C78.201,23.044,65.581,10.417,50,10.417z M49.721,52.915c-7.677,0-13.895-6.221-13.895-13.895c0-7.673,6.218-13.895,13.895-13.895
                            s13.895,6.222,13.895,13.895C63.616,46.693,57.398,52.915,49.721,52.915z"/></g></svg>
 
-                              {{app()->currentLocale() == 'ru' ? $object->title : $object->eng_title}}</h2>
+                              {{app()->currentLocale() == 'RU' ? $object->title : $object->eng_title}}</h2>
                           <p>
 
                               <svg fill="#b1bbc5" width="16px" height="16px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -59,11 +59,11 @@
                               </svg>
 
 
-                              <strong>{{__('main.price_select_2')}}:</strong> {{$object->all_square}} {{app()->currentLocale() == 'ru' ? 'м²' : 'sq.m.'}}</p>
+                              <strong>{{__('main.price_select_2')}}:</strong> {{$object->all_square}} {{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
                           <hr>
                           <div class="price">
                               <h3>{{$object->type_room == 1 ? __('main.type_room_1') : __('main.type_room_2')}}</h3>
-                              <p>{{$object->price}} ₽/{{app()->currentLocale() == 'ru' ? 'м²' : 'sq.m.'}}</p>
+                              <p>{{$object->price}} ₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
                           </div>
                                   </div>
                   </a>
@@ -102,10 +102,10 @@
                                     <img src="{{asset('storage/images/' . $item->image)}}" alt="{{$item->img}}">
                                     <div class="text">
                                         <span class="date">{{$item->created_at->format('m.d.y')}}</span><br>
-                                        <h4>{{app()->currentLocale() == 'ru' ? $item->title : $item->eng_title}}</h4>
+                                        <h4>{{app()->currentLocale() == 'RU' ? $item->title : $item->eng_title}}</h4>
                                     </div>
-                                    <p>{!! substr(strip_tags(app()->currentLocale() == 'ru' ? $item->description : $item->eng_description), 0, 150) !!}...</p>
-                                    <a href="{{route('news-single', $item->id)}}" class="more">{{__('main.all_news')}}</a>
+                                    <p>{!! substr(strip_tags(app()->currentLocale() == 'RU' ? $item->description : $item->eng_description), 0, 150) !!}...</p>
+                                    <a href="{{route('news-single', $item->id)}}" class="more">{{__('main.read_all')}}</a>
                                 </div>
                         @endforeach
                     @endif
@@ -236,5 +236,28 @@
                     });
             });
         });
+
+        let rentBtn = document.getElementById('rentBtn');
+        let saleBtn = document.getElementById('saleBtn');
+
+        if(rentBtn  && saleBtn){
+            rentBtn.addEventListener('click', function() {
+                this.innerHTML = '<i class="fas fa-check" style="margin-right: 10px;"></i> {{__("main.type_room_1")}}';
+                saleBtn.innerHTML = '<i class="fas fa-times" style="margin-right: 10px;"></i> {{__("main.type_room_2")}}';
+                let but = document.getElementById('price_type');
+                but.setAttribute('value', '1')
+                this.classList.add('active');
+                saleBtn.classList.remove('active');
+            });
+
+            saleBtn.addEventListener('click', function() {
+                this.innerHTML = '<i class="fas fa-check" style="margin-right: 10px;"></i> {{__("main.type_room_1")}}';
+                rentBtn.innerHTML = '<i class="fas fa-times" style="margin-right: 10px;"></i> {{__("main.type_room_2")}}';
+                let but = document.getElementById('price_type');
+                but.setAttribute('value', '2')
+                this.classList.add('active');
+                rentBtn.classList.remove('active');
+            });
+        }
     </script>
 @endsection

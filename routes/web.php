@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ImagesController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\RegionController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewsController;
 use Illuminate\Support\Facades\Route;
@@ -33,36 +34,38 @@ use \App\Http\Controllers\SearchController;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\MainController::class, 'index'])->name('main-page');
+Route::get('/', [\App\Http\Controllers\MainController::class, 'index'])->name('main-page')->middleware('locale');
 
-Route::get('/services', [ServicesController::class, 'index'])->name('services');
+Route::get('/services', [ServicesController::class, 'index'])->name('services')->middleware('locale');
 
-Route::get('/analitick', [AnalitickController::class, 'index'])->name('analitick');
-Route::get('/analitick-single', [AnalitickController::class, 'show'])->name('analitick-single');
-Route::get('/analitic-overview', [AnaliticOverviewController::class, 'index'])->name('analitic-overview');
+Route::get('/analitick', [AnalitickController::class, 'index'])->name('analitick')->middleware('locale');
+Route::get('/analitick-single', [AnalitickController::class, 'show'])->name('analitick-single')->middleware('locale');
+Route::get('/analitic-overview', [AnaliticOverviewController::class, 'index'])->name('analitic-overview')->middleware('locale');
 
-Route::get('/company', [CompanyController::class, 'index'])->name('company');
-Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts');
+Route::get('/company', [CompanyController::class, 'index'])->name('company')->middleware('locale');
+Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts')->middleware('locale');
 
-Route::get('/guide', [GuideController::class, 'index'])->name('guide');
-Route::get('/guide-single', [GuideController::class, 'show'])->name('guide-single');
+Route::get('/guide', [GuideController::class, 'index'])->name('guide')->middleware('locale');
+Route::get('/guide-single', [GuideController::class, 'show'])->name('guide-single')->middleware('locale');
 
-Route::get('/news-single/{news:id}', [NewsSingleController::class, 'show'])->name('news-single');
-Route::get('/news', [NewsSingleController::class, 'index'])->name('news');
+Route::get('/news-single/{news:id}', [NewsSingleController::class, 'show'])->name('news-single')->middleware('locale');
+Route::get('/news', [NewsSingleController::class, 'index'])->name('news')->middleware('locale');
 
-Route::get('/object-single', [ObjectSingleController::class, 'index'])->name('object-single');
-Route::get('/objects', [ObjectsController::class, 'index'])->name('objects');
-Route::get('/objects/{object:id}', [ObjectsController::class, 'show'])->name('objects.show');
-Route::get('/object-list', [ObjectsController::class, 'list'])->name('object-list');
+Route::get('/object-single', [ObjectSingleController::class, 'index'])->name('object-single')->middleware('locale');
+Route::get('/objects', [ObjectsController::class, 'index'])->name('objects')->middleware('locale');
+Route::get('/objects/{object:id}', [ObjectsController::class, 'show'])->name('objects.show')->middleware('locale');
+Route::get('/object-list', [ObjectsController::class, 'list'])->name('object-list')->middleware('locale');
 
-Route::get('/partners', [PartnersController::class, 'index'])->name('partners');
-Route::get('/search', [SearchController::class, 'index'])->name('search');
+Route::get('/partners', [PartnersController::class, 'index'])->name('partners')->middleware('locale');
+Route::get('/search', [SearchController::class, 'index'])->name('search')->middleware('locale');
 
-Route::get('/reviews', [ReviewsController::class, 'index'])->name('reviews');
-Route::get('/reviews-single/{reviews:id}', [ReviewsController::class, 'show'])->name('reviews.single');
+Route::get('/reviews', [ReviewsController::class, 'index'])->name('reviews')->middleware('locale');
+Route::get('/reviews-single/{reviews:id}', [ReviewsController::class, 'show'])->name('reviews.single')->middleware('locale');
 
-Route::post('/feedback', [\App\Http\Controllers\FeedBackController::class, 'store'])->name('feedback');
-Route::post('/mailling', [\App\Http\Controllers\MaillingUserController::class, 'store'])->name('mailling');
+Route::post('/feedback', [\App\Http\Controllers\FeedBackController::class, 'store'])->name('feedback')->middleware('locale');
+Route::post('/mailling', [\App\Http\Controllers\MaillingUserController::class, 'store'])->name('mailling')->middleware('locale');
+
+Route::post('/language', [LanguageController::class, 'switchLang'])->name('language.switch');
 
 Route::middleware(['auth', 'admin.email'])->group(function () {
     Route::group(['prefix' => 'admin'], function (){

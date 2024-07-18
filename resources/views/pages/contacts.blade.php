@@ -26,7 +26,7 @@
                             s13.895,6.222,13.895,13.895C63.616,46.693,57.398,52.915,49.721,52.915z"/>
                        </g>
                       </svg>
-                {{app()->currentLocale() == 'ru' ? 'Москва, БЦ "Станколит", Складочная ул. 1, стр. 1' : 'Moscow, Stankolit OC, Skladochnaya street, bld.1 block 1'}}</p>
+                {{app()->currentLocale() == 'RU' ? 'Москва, БЦ "Станколит", Складочная ул. 1, стр. 1' : 'Moscow, Stankolit OC, Skladochnaya street, bld.1 block 1'}}</p>
                 <a href="tel:{{__('main.tel')}}">
                     <svg width="24px" height="24px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="si-glyph si-glyph-call">
                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -69,7 +69,7 @@
         </div>
     </div>
 
-<script src="https://api-maps.yandex.ru/2.1?apikey={{config('ymaps.api_key')}}&load=package.full&lang={{app()->currentLocale() == 'ru' ? 'ru_RU' : 'en_US'}}"></script>
+<script src="https://api-maps.yandex.ru/2.1?apikey={{config('ymaps.api_key')}}&load=package.full&lang={{app()->currentLocale() == 'RU' ? 'ru_RU' : 'en_US'}}"></script>
 <script type="text/javascript">
     ymaps.ready(function () {
         var map = new ymaps.Map("map", {

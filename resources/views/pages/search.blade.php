@@ -22,8 +22,8 @@
             @if($news->isNotEmpty())
                 @foreach($news as $item)
                     <a href="{{route('news-single', $item->id)}}" class="item">
-                        <h2>{{$item->title}}</h2>
-                        <p>{!! substr(strip_tags($item->description), 0, 300) !!}...</p>
+                        <h2>{{app()->currentLocale() == 'RU' ? $item->title : $item->eng_title}}</h2>
+                        <p>{!! substr(strip_tags(app()->currentLocale() == 'RU' ? $item->description : $item->eng_description), 0, 300) !!}...</p>
                     </a>
                 @endforeach
             @endif
@@ -31,14 +31,14 @@
             @if($objects->isNotEmpty())
                 @foreach($objects as $object)
                     <a href="{{route('objects.show', $object->id)}}" class="item">
-                        <h2>{{$object->title}}</h2>
-                        <p>{!! substr(strip_tags($object->description), 0, 300) !!}...</p>
+                        <h2>{{app()->currentLocale() == 'RU' ? $object->title : $object->eng_title}}</h2>
+                        <p>{!! substr(strip_tags(app()->currentLocale() == 'RU' ? $object->description : $object->eng_description), 0, 300) !!}...</p>
                     </a>
                 @endforeach
             @endif
 
             @if($news->isEmpty() && $objects->isEmpty())
-                <span class="mt-4">{{app()->currentLocale() == 'ru' ? 'Результатов по запросу' : 'There were no results'}} "{{$searchTerm}}" {{app()->currentLocale() == 'ru' ? 'не нашлось' : 'for the query'}}...</span>
+                <span class="mt-4">{{app()->currentLocale() == 'RU' ? 'Результатов по запросу' : 'There were no results'}} "{{$searchTerm}}" {{app()->currentLocale() == 'RU' ? 'не нашлось' : 'for the query'}}...</span>
             @endif
         </div>
     </div>

@@ -124,9 +124,9 @@
                           <a href="{{route('guide')}}">{{ __('main.guide') }}</a>
                         </ul>
 
-                    <select>
-                        <option @selected(app()->currentLocale() == 'ru')>RU</option>
-                        <option @selected(app()->currentLocale() == 'en')>EN</option>
+                    <select name="language" id="languageSelect">
+                        <option @selected(app()->currentLocale() == 'RU')>RU</option>
+                        <option @selected(app()->currentLocale() == 'EN')>EN</option>
                     </select>
                 </div>
                 <div class="navigation">
@@ -152,6 +152,28 @@
             var searchValue = this.value;
             var searchLink = document.querySelector('a[href="{{route('search')}}"]');
             searchLink.href = "{{route('search')}}?title=" + encodeURIComponent(searchValue);
+        });
+
+        document.getElementById('languageSelect').addEventListener('change', function () {
+            var language = this.value;
+            var url = '{{ route('language.switch') }}';
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify({ language: language })
+            }).then(function (response) {
+                if (response.ok) {
+                    location.reload();
+                } else {
+                    console.log('Error: ' + response.statusText);
+                }
+            }).catch(function (error) {
+                console.log('Error: ' + error);
+            });
         });
     </script>
 </header>

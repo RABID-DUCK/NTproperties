@@ -52,7 +52,7 @@
                 <select class="form-select" name="region" id="" @if($regions->isEmpty()) disabled @endif>
                     @if($regions->isNotEmpty())
                         @foreach($regions as $region)
-                            <option value="{{$region->id}}">{{app()->currentLocale() == 'ru' ? $region->name : $region->eng_name}}</option>
+                            <option value="{{$region->id}}">{{app()->currentLocale() == 'RU' ? $region->name : $region->eng_name}}</option>
                         @endforeach
 
                     @else
@@ -64,7 +64,7 @@
                     <option value="">{{__('main.all_directions')}}</option>
                     @if($directions->isNotEmpty())
                         @foreach($directions as $direction)
-                            <option value="{{$direction->id}}">{{app()->currentLocale() == 'ru' ? $direction->name : $direction->eng_name}}</option>
+                            <option value="{{$direction->id}}">{{app()->currentLocale() == 'RU' ? $direction->name : $direction->eng_name}}</option>
                         @endforeach
 
                     @else
@@ -76,7 +76,7 @@
                     <option value="">{{__('main.all_highways')}}</option>
                     @if($highways->isNotEmpty())
                         @foreach($highways as $highway)
-                            <option value="{{$highway->id}}">{{app()->currentLocale() == 'ru' ? $highway->name : $highway->eng_name}}</option>
+                            <option value="{{$highway->id}}">{{app()->currentLocale() == 'RU' ? $highway->name : $highway->eng_name}}</option>
                         @endforeach
                         <option value="">{{__('main.all_highways')}}</option>
                     @else

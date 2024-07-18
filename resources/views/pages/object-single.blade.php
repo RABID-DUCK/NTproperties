@@ -15,9 +15,9 @@
             <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5.77778 10.2222V18C5.77778 19.1046 6.67321 20 7.77778 20H12M5.77778 10.2222L11.2929 4.70711C11.6834 4.31658 12.3166 4.31658 12.7071 4.70711L17.5 9.5M5.77778 10.2222L4 12M18.2222 10.2222V18C18.2222 19.1046 17.3268 20 16.2222 20H12M18.2222 10.2222L20 12M18.2222 10.2222L17.5 9.5M17.5 9.5V6M12 20V15" stroke="#ff6d12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            </a></a><a href="{{route('main-page')}}"> {{__('main.main')}} <span>></span></a><a href="{{route('objects')}}"> {{__('main.object')}} <span>></span></a><a href="#"> {{\Illuminate\Support\Str::limit(app()->currentLocale() == 'ru' ? $object->title : $object->eng_title, 30)}} <span>></span></a>
+            </a></a><a href="{{route('main-page')}}"> {{__('main.main')}} <span>></span></a><a href="{{route('objects')}}"> {{__('main.object')}} <span>></span></a><a href="#"> {{\Illuminate\Support\Str::limit(app()->currentLocale() == 'RU' ? $object->title : $object->eng_title, 30)}} <span>></span></a>
         </div>
-        <h1>{{app()->currentLocale() == 'ru' ? $object->title : $object->eng_title}}</h1>
+        <h1>{{app()->currentLocale() == 'RU' ? $object->title : $object->eng_title}}</h1>
 
         @if(!empty($object->allImages($object->id)))
         <div class="slider">
@@ -25,7 +25,7 @@
                 @foreach($object->allImages($object->id) as $image)
                     <li>
                         <a href="#">
-                            <img src="{{asset('storage/images/' . $image->name)}}" alt="{{app()->currentLocale() == 'ru' ? $object->title : $object->eng_title}}" />
+                            <img src="{{asset('storage/images/' . $image->name)}}" alt="{{app()->currentLocale() == 'RU' ? $object->title : $object->eng_title}}" />
                         </a>
                     </li>
                 @endforeach
@@ -49,7 +49,7 @@
                     </g>
                     </svg>
 
-                    {{app()->currentLocale() == 'ru' ? $object->title : $object->eng_title}}</h3>
+                    {{app()->currentLocale() == 'RU' ? $object->title : $object->eng_title}}</h3>
                     <p>
 
                     <svg width="18px" height="18px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -77,7 +77,7 @@
                         </g>
                     </svg>
 
-                    {{app()->currentLocale() == 'ru' ? $object->highway->name : $object->highway->eng_name}}</p>
+                    {{app()->currentLocale() == 'RU' ? $object->highway->name : $object->highway->eng_name}}</p>
                     <div class="tech">
                         <p>
 
@@ -91,29 +91,29 @@
                         </svg>
 
 
-                        {{$object->all_square}} {{app()->currentLocale() == 'ru' ? 'м²' : 'sq.m.'}}</p>
+                        {{$object->all_square}} {{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
                     </div>
                 </div>
                 <div class="price">
                     <span>{{$object->price_type == 1 ? __('main.type_room_1') : __('main.type_room_2')}}</span>
-                    <p>{{$object->price}} &#8381;/{{app()->currentLocale() == 'ru' ? 'м²' : 'sq.m.'}}</p>
+                    <p>{{$object->price}} &#8381;/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
                 </div>
             </div>
         </div>
         <div class="description">
             <h3>{{__('main.description')}}</h3>
-            <p>{!! app()->currentLocale() == 'ru' ? $object->description : $object->eng_description !!}</p>
+            <p>{!! app()->currentLocale() == 'RU' ? $object->description : $object->eng_description !!}</p>
         </div>
         <div class="feature">
             <h3>{{__('main.specifications')}}</h3>
             @if($object->region)
-                <p><span>Регион:</span> {{app()->currentLocale() == 'ru' ? $object->region->name : $object->region->eng_name}}</p>
+                <p><span>{{app()->currentLocale() == 'RU' ? 'Регион' : 'Region'}}:</span> {{app()->currentLocale() == 'RU' ? $object->region->name : $object->region->eng_name}}</p>
             @endif
             @if($object->direction)
-                <p><span>Направление:</span> {{app()->currentLocale() == 'ru' ? $object->direction->name : $object->direction->eng_name}}</p>
+                <p><span>{{app()->currentLocale() == 'RU' ? 'Направление' : 'Direction'}}:</span> {{app()->currentLocale() == 'RU' ? $object->direction->name : $object->direction->eng_name}}</p>
             @endif
             @if($object->highway)
-                <p><span>Шоссе:</span> {{app()->currentLocale() == 'ru' ? $object->highway->name : $object->highway->eng_name}}</p>
+                <p><span>{{app()->currentLocale() == 'RU' ? 'Шоссе' : 'Highway'}}:</span> {{app()->currentLocale() == 'RU' ? $object->highway->name : $object->highway->eng_name}}</p>
             @endif
             @if($object->distance_mkad)
                 <p><span>{{__('main.distance_mkad')}}, {{__('main.km')}}:</span> {{$object->distance_mkad}}</p>
@@ -122,29 +122,29 @@
                 <p><span>{{__('main.class_house')}} :</span> {{$object->class_house}}</p>
             @endif
             @if($object->all_square)
-                <p><span>{{__('main.class_house')}}, {{app()->currentLocale() == 'ru' ? 'м²' : 'sq.m.'}} :</span> {{$object->all_square}}</p>
+                <p><span>{{__('main.class_house')}}, {{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}} :</span> {{$object->all_square}}</p>
             @endif
             @if($object->free_square)
-                <p><span>{{__('main.all_square')}}, {{app()->currentLocale() == 'ru' ? 'м²' : 'sq.m.'}} :</span> {{$object->free_square}}</p>
+                <p><span>{{__('main.all_square')}}, {{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}} :</span> {{$object->free_square}}</p>
             @endif
             @if($object->min_square)
-                <p><span>{{__('main.min_block')}}, {{app()->currentLocale() == 'ru' ? 'м²' : 'sq.m.'}} :</span> {{$object->min_square}}</p>
+                <p><span>{{__('main.min_block')}}, {{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}} :</span> {{$object->min_square}}</p>
             @endif
             <ul>
                 @if($object->height)
-                    <li><span>{{__('main.min_block')}}, {{app()->currentLocale() == 'ru' ? 'м' : 'm'}}:</span> {{$object->height}}</li>
+                    <li><span>{{__('main.height')}}, {{app()->currentLocale() == 'RU' ? 'м' : 'm'}}:</span> {{$object->height}}</li>
                 @endif
                 @if($object->column_pitch)
-                    <li><span>{{__('main.height')}}, {{app()->currentLocale() == 'ru' ? 'м' : 'm'}} :</span> {{$object->column_pitch}}</li>
+                    <li><span>{{__('main.pitch_column')}}, {{app()->currentLocale() == 'RU' ? 'м' : 'm'}} :</span> {{$object->column_pitch}}</li>
                 @endif
                 @if($object->floor_load)
-                    <li><span>{{__('main.pitch_column')}}, {{app()->currentLocale() == 'ru' ? 'т.кв м' : 'sq.m.'}} :</span> {{$object->floor_load}}</li>
+                    <li><span>{{__('main.floor_power')}}, {{app()->currentLocale() == 'RU' ? 'т.кв м' : 'sq.m.'}} :</span> {{$object->floor_load}}</li>
                 @endif
                 @if($object->lighting)
-                    <li><span>{{__('main.floor_power')}}:</span> {{$object->lighting}}</li>
+                    <li><span>{{__('main.lighting')}}:</span> {{app()->currentLocale() == 'RU' ? $object->lighting : $object->eng_lighting}}</li>
                 @endif
                 @if($object->fire_system)
-                    <li><span>{{__('main.lighting')}} :</span> {{$object->fire_system}}</li>
+                    <li><span>{{__('main.fire_system')}} :</span> {{app()->currentLocale() == 'RU' ? $object->fire_system : $object->eng_fire_system}}</li>
                 @endif
             </ul>
         </div>
@@ -158,7 +158,7 @@
 </div>
 
 @if($object->x_coord !== null && $object->y_coord)
-<script src="https://api-maps.yandex.ru/2.1?apikey={{config('ymaps.api_key')}}&load=package.full&lang=ru_RU">
+<script src="https://api-maps.yandex.ru/2.1?apikey={{config('ymaps.api_key')}}&load=package.full&lang={{app()->currentLocale() == 'RU' ? 'ru_RU' : 'en_US'}}">
 </script>
 <script type="text/javascript">
     ymaps.ready(function () {

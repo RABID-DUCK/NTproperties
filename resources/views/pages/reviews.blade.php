@@ -18,8 +18,8 @@
                         <a href="{{route('reviews.single', $review->id)}}" class="item">
                             <img src="{{asset('storage/images/' . $review->image)}}"/>
                             <div class="text">
-                                <h3>{{app()->currentLocale() == 'ru' ? $review->title : $review->eng_title}}</h3>
-                                <p>{!! substr(strip_tags(app()->currentLocale() == 'ru' ? $review->description : $review->eng_description), 0, 350) !!}...</p>
+                                <h3>{{app()->currentLocale() == 'RU' ? $review->title : $review->eng_title}}</h3>
+                                <p>{!! substr(strip_tags(app()->currentLocale() == 'RU' ? $review->description : $review->eng_description), 0, 350) !!}...</p>
                                 <span class="more">{{__('main.read_all')}}</span>
                             </div>
                         </a>

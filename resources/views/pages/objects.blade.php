@@ -66,7 +66,7 @@
                         <select class="form-select" name="region" id="" @if($regions->isEmpty()) disabled @endif>
                             @if($regions->isNotEmpty())
                                 @foreach($regions as $region)
-                                    <option value="{{$region->id}}">{{app()->currentLocale() == 'ru' ? $region->name : $region->eng_name}}</option>
+                                    <option value="{{$region->id}}">{{app()->currentLocale() == 'RU' ? $region->name : $region->eng_name}}</option>
                                 @endforeach
 
                             @else
@@ -75,10 +75,10 @@
                         </select>
 
                         <select class="form-select" name="direction" id="" @if($directions->isEmpty()) disabled @endif>
-                            <option value="">Все направления</option>
+                            <option value="">{{__('main.all_directions')}}</option>
                             @if($directions->isNotEmpty())
                                 @foreach($directions as $direction)
-                                    <option value="{{$direction->id}}">{{app()->currentLocale() == 'ru' ? $direction->name : $direction->eng_name}}</option>
+                                    <option value="{{$direction->id}}">{{app()->currentLocale() == 'RU' ? $direction->name : $direction->eng_name}}</option>
                                 @endforeach
 
                             @else
@@ -87,10 +87,10 @@
                         </select>
 
                         <select class="form-select" name="highway" id="" @if($highways->isEmpty()) disabled @endif>
-                            <option value="">Все шоссе</option>
+                            <option value="">{{__('main.all_highways')}}</option>
                             @if($highways->isNotEmpty())
                                 @foreach($highways as $highway)
-                                    <option value="{{$highway->id}}">{{app()->currentLocale() == 'ru' ? $highway->name : $highway->eng_name}}</option>
+                                    <option value="{{$highway->id}}">{{app()->currentLocale() == 'RU' ? $highway->name : $highway->eng_name}}</option>
                                 @endforeach
                                     <option value="">{{__('main.all_highways')}}</option>
                             @else
@@ -124,7 +124,7 @@
         </form>
 
         <div class="group">
-            <p>{{app()->currentLocale() == 'ru' ? 'Найдено '. $objects->count() . ' предложений' : $objects->count() . ' offers found'}}</p>
+            <p>{{app()->currentLocale() == 'RU' ? 'Найдено '. $objects->count() . ' предложений' : $objects->count() . ' offers found'}}</p>
             <div>
                 <input id="sort" type="checkbox"/>
                 <label for="sort" class="sort">
@@ -155,7 +155,7 @@
                 @foreach($objects as $object)
                     <a href="{{route('objects.show', $object->id)}}" class="item">
                         @if(!empty($object->getImages($object->id)))
-                            <img src="{{asset('storage/images/' . $object->getImages($object->id)->name)}}" alt="{{app()->currentLocale() == 'ru' ? $object->title : $object->eng_title}}" />
+                            <img src="{{asset('storage/images/' . $object->getImages($object->id)->name)}}" alt="{{app()->currentLocale() == 'RU' ? $object->title : $object->eng_title}}" />
                         @endif
                         <div class="text ob">
                             <h2>
@@ -170,7 +170,7 @@
                      </g>
                      </svg>
 
-                                {{app()->currentLocale() == 'ru' ? $object->title : $object->eng_title}}</h2>
+                                {{app()->currentLocale() == 'RU' ? $object->title : $object->eng_title}}</h2>
                             <p>
 
                                 <svg fill="#b1bbc5" width="16px" height="16px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -181,8 +181,8 @@
                                 <strong>{{__('main.price_select_2')}}:</strong> {{$object->all_square}} м²</p>
                             <hr>
                             <div class="price">
-                                <h3>{{$object->type_room == 1 ? 'Аренда' : 'Продажа'}}</h3>
-                                <p>{{$object->price}} ₽/{{app()->currentLocale() == 'ru' ? 'м²' : 'sq.m.'}}</p>
+                                <h3>{{$object->type_room == 1 ? __("main.type_room_1") : __("main.type_room_2")}}</h3>
+                                <p>{{$object->price}} ₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
                             </div>
                         </div>
                     </a>
@@ -225,17 +225,17 @@
                             <img src="{{asset('storage/images/' . $item->image)}}" alt="{{$item->img}}" />
                              <div class="text">
                                  <p class="date">{{$item->created_at->format('m.d.y')}}</p>
-                                 <h3>{{app()->currentLocale() == 'ru' ? $item->title : $item->eng_title}}</h3>
+                                 <h3>{{app()->currentLocale() == 'RU' ? $item->title : $item->eng_title}}</h3>
                              </div>
                         </a>
                     @endforeach
                 @endif
             </div>
-            <a class="news_more" href="{{route('news')}}">{{__('main.show_all')}}</a>
+            <a class="news_more" href="{{route('news')}}">{{__('main.all_news')}}</a>
         </div>
 
         <div class="news">
-            <h2>{{__('main.object')}}</h2>
+            <h2>{{__('main.reviews')}}</h2>
             <div class="list">
                 @if($reviews->isNotEmpty())
                     @foreach($reviews as $review)
@@ -243,13 +243,13 @@
                             <img src="{{asset('storage/images/' . $review->image)}}"/>
                              <div class="text">
                                  <p class="date">{{$review->created_at->format('m.d.y')}}</p>
-                                 <h3>{{app()->currentLocale() == 'ru' ? $review->title : $review->eng_title}}</h3>
+                                 <h3>{{app()->currentLocale() == 'RU' ? $review->title : $review->eng_title}}</h3>
                              </div>
                         </a>
                     @endforeach
                 @endif
             </div>
-            <a class="news_more" href="{{route('reviews')}}">{{__('main.show_all')}}</a>
+            <a class="news_more" href="{{route('reviews')}}">{{__('main.all_reviews')}}</a>
         </div>
     </div>
 </div>
@@ -258,5 +258,28 @@
     document.getElementById('clear_filter').addEventListener('click', function() {
         document.getElementById('filterForm').reset();
     });
+
+    let rentBtn = document.getElementById('rentBtn');
+    let saleBtn = document.getElementById('saleBtn');
+
+    if(rentBtn  && saleBtn){
+        rentBtn.addEventListener('click', function() {
+            this.innerHTML = '<i class="fas fa-check" style="margin-right: 10px;"></i> {{__("main.type_room_1")}}';
+            saleBtn.innerHTML = '<i class="fas fa-times" style="margin-right: 10px;"></i> {{__("main.type_room_2")}}';
+            let but = document.getElementById('price_type');
+            but.setAttribute('value', '1')
+            this.classList.add('active');
+            saleBtn.classList.remove('active');
+        });
+
+        saleBtn.addEventListener('click', function() {
+            this.innerHTML = '<i class="fas fa-check" style="margin-right: 10px;"></i> {{__("main.type_room_1")}}';
+            rentBtn.innerHTML = '<i class="fas fa-times" style="margin-right: 10px;"></i> {{__("main.type_room_2")}}';
+            let but = document.getElementById('price_type');
+            but.setAttribute('value', '2')
+            this.classList.add('active');
+            rentBtn.classList.remove('active');
+        });
+    }
 </script>
 @endsection
