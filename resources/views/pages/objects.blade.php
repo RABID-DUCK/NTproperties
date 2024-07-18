@@ -127,7 +127,7 @@
             <p>{{app()->currentLocale() == 'RU' ? 'Найдено '. $objects->count() . ' предложений' : $objects->count() . ' offers found'}}</p>
             <div>
                 <input id="sort" type="checkbox"/>
-                <label for="sort" class="sort">
+                <label for="sort" class="sort" id="sortIcon" data-sort-direction="asc">
                     <svg width="28px" height="28px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M7.00002 5C7.00002 4.44772 6.5523 4 6.00002 4C5.44773 4 5.00002 4.44772 5.00002 5V16.5858L3.7071 15.2929C3.31658 14.9024 2.68341 14.9024 2.29289 15.2929C1.90237 15.6834 1.90237 16.3166 2.2929 16.7071L5.29291 19.7071C5.68344 20.0976 6.3166 20.0976 6.70713 19.7071L9.70713 16.7071C10.0977 16.3166 10.0977 15.6834 9.70713 15.2929C9.3166 14.9024 8.68344 14.9024 8.29291 15.2929L7.00002 16.5858V5ZM13 6C12.4477 6 12 6.44772 12 7C12 7.55228 12.4477 8 13 8H14C14.5523 8 15 7.55228 15 7C15 6.44772 14.5523 6 14 6H13ZM13 11C12.4477 11 12 11.4477 12 12C12 12.5523 12.4477 13 13 13H17C17.5523 13 18 12.5523 18 12C18 11.4477 17.5523 11 17 11H13ZM13 16C12.4477 16 12 16.4477 12 17C12 17.5523 12.4477 18 13 18H21C21.5523 18 22 17.5523 22 17C22 16.4477 21.5523 16 21 16H13Z" fill="#ff6d12"/>
                     </svg>
@@ -150,10 +150,10 @@
         </div>
 
 
-        <div id="list" class="list">
+        <div id="list" class="list list-objects">
             @if($objects->isNotEmpty())
                 @foreach($objects as $object)
-                    <a href="{{route('objects.show', $object->id)}}" class="item">
+                    <a href="{{route('objects.show', $object->id)}}" class="item item-object" data-price="{{ $object->price }}">
                         @if(!empty($object->getImages($object->id)))
                             <img src="{{asset('storage/images/' . $object->getImages($object->id)->name)}}" alt="{{app()->currentLocale() == 'RU' ? $object->title : $object->eng_title}}" />
                         @endif
@@ -281,5 +281,30 @@
             rentBtn.classList.remove('active');
         });
     }
+
+    document.getElementById('sortIcon').addEventListener('click', function () {
+        var sortDirection = this.getAttribute('data-sort-direction') || 'asc';
+        var newSortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+        this.setAttribute('data-sort-direction', newSortDirection);
+
+        // Поворачиваем иконку
+        this.querySelector('svg').style.transform = sortDirection === 'asc' ? 'rotate(180deg)' : 'rotate(0deg)';
+
+        var container = document.querySelector('.list-objects');
+        var items = Array.from(container.querySelectorAll('.item-object'));
+        items.sort(function (a, b) {
+            var priceA = parseFloat(a.getAttribute('data-price'));
+            var priceB = parseFloat(b.getAttribute('data-price'));
+            if (sortDirection === 'asc') {
+                return priceA - priceB;
+            } else {
+                return priceB - priceA;
+            }
+        });
+
+        items.forEach(function (item) {
+            container.appendChild(item);
+        });
+    });
 </script>
 @endsection
