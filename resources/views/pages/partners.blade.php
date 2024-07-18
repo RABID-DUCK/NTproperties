@@ -30,19 +30,19 @@
                 <p>{{__('partners.p4')}}</p>
             </a>
             <a href="https://mega-stroy.su/" class="item">
-                <img src="{{asset('img/mega.jpg')}}"/>
+                <img src="{{app()->currentLocale() == 'RU' ? asset('img/mega.jpg') : asset('img/psn_eng.jpg')}}"/>
                 <p>{{__('partners.p5')}}</p>
             </a>
             <a href="https://mlprussia.com/" class="item">
-                <img src="{{asset('img/mlp.jpg')}}"/>
+                <img src="{{app()->currentLocale() == 'RU' ? asset('img/mlp.jpg') : asset('img/wesp_eng.jpg')}}"/>
                 <p>{{__('partners.p6')}}</p>
             </a>
             <a href="https://pltpm.ru/" class="item">
-                <img src="{{asset('img/plt.jpg')}}"/>
+                <img src="{{app()->currentLocale() == 'RU' ? asset('img/plt.jpg') : asset('img/alyans_eng.jpg')}}"/>
                 <p>{{__('partners.p7')}}</p>
             </a>
             <a href="https://parametr.space/" class="item">
-                <img src="{{asset('img/parametr.jpg')}}"/>
+                <img src="{{app()->currentLocale() == 'RU' ? asset('img/parametr.jpg') : asset('img/rusich_eng.jpg')}}"/>
                 <p>{{__('partners.p8')}}</p>
             </a>
         </div>
