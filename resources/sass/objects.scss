@@ -69,9 +69,11 @@
             }
         }
         #fl {
-
+            cursor: pointer !important;
             label {
+                cursor: pointer !important;
                 svg {
+                    cursor: pointer !important;
                     path {
                         cursor: pointer !important;
                         stroke: #9da3a8;
@@ -80,6 +82,7 @@
             }
             &:checked + label {
                 svg {
+                    cursor: pointer !important;
                     path {
                         cursor: pointer !important;
                         stroke: #ff6d12;
@@ -91,8 +94,9 @@
         #gr {
             cursor: pointer;
             label {
-
+                cursor: pointer !important;
                 svg {
+                    cursor: pointer !important;
                     fill: #9da3a8;
                 }
             }
@@ -103,7 +107,15 @@
             }
         }
     }
-
+    .fll {
+        cursor: pointer !important;
+    }
+    .grl {
+        cursor: pointer !important;
+    }
+    .sort {
+        cursor: pointer !important;
+    }
     .list {
         width: 100%;
         display: grid;
