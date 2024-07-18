@@ -75,6 +75,7 @@ return [
     'all_reviews' => 'Все обзоры',
     'search_placeholder' => 'Введите запрос',
     'search_title' => 'Поиск по сайту',
-    'search_button' => 'Искать'
+    'search_button' => 'Искать',
+    'success_sub' => 'Вы подписались на рассылку новостей компании'
 
 ];

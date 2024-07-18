@@ -78,5 +78,6 @@ return [
     'all_reviews' => 'All reviews',
     'search_placeholder' => 'Enter a request',
     'search_title' => 'Site search',
-    'search_button' => 'Search'
+    'search_button' => 'Search',
+    'success_sub' => "You have subscribed to the company's newsletter"
 ];
