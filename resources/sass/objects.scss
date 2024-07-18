@@ -121,6 +121,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 40px;
+        transition: all .3s ease;
         .item {
             color: #3c3c3c;
             border-radius: 5px;
@@ -189,6 +190,7 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+        transition: all .3s ease;
         .item {
             display: flex;
             flex-direction: row;
