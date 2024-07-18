@@ -53,8 +53,8 @@ return [
     'clear' => 'Clear',
     'news' => 'News',
     'description' => 'Description',
-    'specifications' => 'Характеристики',
-    'class_house' => 'Класс помещений',
+    'specifications' => 'Specifications',
+    'class_house' => 'Room class',
     'all_square' => 'All square',
 
     'min_block' => 'Minimum block',
@@ -69,5 +69,14 @@ return [
     'title_email' => 'The subject of the letter',
     'send' => 'Send',
     'scheme_drive' => 'Driving directions',
-    'name_user' => 'Имя',
+    'name_user' => 'Your name',
+
+    'back' => 'Back',
+    'analitick_news_reviews' => 'Analytics: news and reviews',
+    'all_news' => 'All news',
+    'reviews' => 'Reviews',
+    'all_reviews' => 'All reviews',
+    'search_placeholder' => 'Enter a request',
+    'search_title' => 'Site search',
+    'search_button' => 'Search'
 ];

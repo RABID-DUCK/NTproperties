@@ -105,7 +105,7 @@
                                         <h4>{{app()->currentLocale() == 'ru' ? $item->title : $item->eng_title}}</h4>
                                     </div>
                                     <p>{!! substr(strip_tags(app()->currentLocale() == 'ru' ? $item->description : $item->eng_description), 0, 150) !!}...</p>
-                                    <a href="{{route('news-single', $item->id)}}" class="more">{{__('main.read_all')}}</a>
+                                    <a href="{{route('news-single', $item->id)}}" class="more">{{__('main.all_news')}}</a>
                                 </div>
                         @endforeach
                     @endif

@@ -68,4 +68,13 @@ return [
     'scheme_drive' => 'Схема проезда',
     'name_user' => 'Имя',
 
+    'back' => 'Назад',
+    'analitick_news_reviews' => 'Аналитика: новости и обзоры',
+    'all_news' => 'Все новости',
+    'reviews' => 'Обзоры',
+    'all_reviews' => 'Все обзоры',
+    'search_placeholder' => 'Введите запрос',
+    'search_title' => 'Поиск по сайту',
+    'search_button' => 'Искать'
+
 ];
