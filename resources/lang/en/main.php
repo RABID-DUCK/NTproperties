@@ -8,7 +8,7 @@ return [
     'analitick' => 'About us',
     'company' => 'Contacts',
     'guide' => 'Guide',
-    'address' => 'Moscow, Stankolit OC, Skladochnaya street, bld.1 block 1',
+    'address' => 'Moscow, Stankolit OC,<br> Skladochnaya street, bld.1 block 1',
     'number' => '+7 495 223 35 53',
     'tel' => '+74952233553',
     'main' => 'Main',
@@ -65,4 +65,9 @@ return [
     'fire_system' => 'fire system',
     'object_map' => 'Object on map',
 
+    'feedback' => 'Feedback',
+    'title_email' => 'The subject of the letter',
+    'send' => 'Send',
+    'scheme_drive' => 'Driving directions',
+    'name_user' => 'Имя',
 ];
