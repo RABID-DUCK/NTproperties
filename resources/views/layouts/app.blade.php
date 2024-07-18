@@ -34,25 +34,25 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                         <ul class="navbar-nav mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="{{route('services')}}">УСЛУГИ</a>
+                                <a class="nav-link active" aria-current="page" href="{{route('services')}}">{{ __('main.services') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('objects')}}">ОБЪЕКТЫ</a>
+                                <a class="nav-link" href="{{route('objects')}}">{{ __('main.object') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('contacts')}}">КОНТАКТЫ</a>
+                                <a class="nav-link" href="{{route('contacts')}}">{{ __('main.contacts') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('partners')}}">ПАРТНЕРЫ</a>
+                                <a class="nav-link" href="{{route('partners')}}">{{ __('main.partners') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('analitick')}}">АНАЛИТИКА</a>
+                                <a class="nav-link" href="{{route('analitick')}}">{{ __('main.analitick') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('company')}}">КОМПАНИЯ</a>
+                                <a class="nav-link" href="{{route('company')}}">{{ __('main.company') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('guide')}}">РУКОВОДСТВО</a>
+                                <a class="nav-link" href="{{route('guide')}}">{{ __('main.guide') }}</a>
                             </li>
                         </ul>
                     </div>
@@ -63,7 +63,7 @@
 
         <div class="bottom_block pdd">
             <div class="container">
-                <div class="copy">© 2018-{{now()->year}} NT Properties. Все права защищены.</div>
+                <div class="copy">© 2018-{{now()->year}} {{__('main.copyright')}}</div>
                 <div class="clear"></div>
             </div>
         </div>

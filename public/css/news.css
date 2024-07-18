@@ -1,0 +1,113 @@
+.news {
+  margin-bottom: 20px;
+}
+.news h2 {
+  font-size: 32px;
+  line-height: 32px;
+  margin-bottom: 30px;
+}
+.news .list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.news .list .item {
+  display: flex;
+  gap: 20px;
+}
+.news .list .item .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #393632;
+}
+.news .list .item .text .date {
+  font-size: 14px;
+  color: #969ba1;
+  font-weight: 400;
+}
+.news .list .item .text h3 {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: bold;
+  margin: 0;
+}
+.news .list .item .text p {
+  font-size: 14px;
+  line-height: 22px;
+  margin: 0;
+}
+.news .list .item .text .more {
+  margin-left: 28px;
+}
+.news .list .item img {
+  max-width: 170px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+.news .list .item:hover span {
+  -webkit-text-decoration: underline 1px dotted #ff6d12;
+          text-decoration: underline 1px dotted #ff6d12;
+}
+.news .pagination {
+  margin: 30px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.news .pagination button {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+}
+.news .pagination button:hover {
+  text-align: center;
+  color: white;
+  background: #ff6d12;
+}
+.news .pagination a {
+  background: none;
+  color: #c3d1d8;
+  padding: 0;
+  margin: 5px;
+  text-decoration: none;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -khtml-border-radius: 20px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+.news .pagination a:hover {
+  border-radius: 50%;
+  background: #ff6d12;
+  color: white;
+}
+.news .pagination .active {
+  background: #c3d1d8;
+  color: #fff;
+  padding: 0px;
+  margin: 5px;
+  text-decoration: none;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -khtml-border-radius: 20px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}

@@ -1,0 +1,273 @@
+@charset "UTF-8";
+.object {
+  max-width: 1000px;
+  margin-bottom: 40px;
+  /* Пагинация */
+}
+.object h3 {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: normal;
+  font-weight: 600;
+}
+.object .info {
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f7f8;
+  padding: 30px;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.object .info p {
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: 400;
+  color: #676a6b;
+  margin-bottom: 0;
+}
+.object .info .data {
+  font-size: 16px;
+  color: #676a6b;
+}
+.object .info .text {
+  display: flex;
+  justify-content: space-between;
+}
+.object .info .text .geo {
+  max-width: -moz-max-content;
+  max-width: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.object .info .text .geo h3 {
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  margin-bottom: 0;
+}
+.object .info .text .geo .tech {
+  display: flex;
+  gap: 10px;
+}
+.object .info .text .price {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 5px;
+}
+.object .info .text .price span {
+  text-align: end;
+  color: #8c9092;
+  font-size: 22px;
+}
+.object .info .text .price p {
+  text-align: end;
+  color: #ff6d12;
+  font-size: 36px;
+  line-height: 36px;
+}
+.object .description {
+  margin-bottom: 20px;
+}
+.object .feature {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.object .feature h3 {
+  margin-bottom: 10px;
+}
+.object .feature p {
+  margin-bottom: 0;
+}
+.object .feature ul {
+  list-style-type: none;
+  padding-left: 0px;
+}
+.object .feature ul li {
+  padding: 0 0 5px 10px;
+}
+.object .feature ul li:before {
+  content: "-";
+  margin-right: 10px;
+}
+.object .feature span {
+  color: #8c9092;
+}
+.object .map {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.object img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.object .slider {
+  overflow: hidden;
+  margin: 0;
+}
+.object .slider ul li {
+  padding: 0;
+}
+.object .slider ul {
+  margin: 0;
+  padding: 0;
+}
+.object .slider .bx-wrapper {
+  position: relative;
+}
+.object .slider .bx-controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.object .slider .bx-pager {
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+  text-align: center;
+}
+.object .slider .bx-pager-item {
+  display: inline-block;
+  margin: 0 4px;
+  position: relative;
+  z-index: 100;
+}
+.object .slider .bx-pager-item a {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  text-indent: 999px;
+  background: #fff;
+  border-radius: 50%;
+  border: 1px solid #999;
+}
+.object .slider .bx-pager-item a.active {
+  background: #ff6d12;
+}
+.object .slider .bx-pager-item a:hover {
+  background: #ececec;
+}
+
+@media (min-device-width: 481px) and (max-device-width: 768px) {
+  .object {
+    max-width: 480px;
+  }
+  .object h3 {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: normal;
+    font-weight: 600;
+  }
+  .object .info {
+    padding: 10px;
+  }
+  .object .info .text {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .object .info .text .geo {
+    max-width: -moz-max-content;
+    max-width: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .object .info .text .geo h3 {
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 0;
+  }
+  .object .info .text .geo .tech {
+    display: flex;
+    gap: 10px;
+  }
+  .object .info .text .price {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 5px;
+  }
+  .object .info .text .price span {
+    text-align: end;
+    color: #8c9092;
+    font-size: 18px;
+  }
+  .object .info .text .price p {
+    text-align: end;
+    color: #ff6d12;
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+@media (min-device-width: 320px) and (max-device-width: 480px) {
+  .object {
+    max-width: 320px;
+  }
+  .object img {
+    height: 200px;
+  }
+  .object h3 {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: normal;
+    font-weight: 600;
+  }
+  .object .info {
+    padding: 10px;
+  }
+  .object .info .text {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .object .info .text .geo {
+    max-width: -moz-max-content;
+    max-width: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .object .info .text .geo h3 {
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 0;
+  }
+  .object .info .text .geo .tech {
+    display: flex;
+    gap: 10px;
+  }
+  .object .info .text .price {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 5px;
+  }
+  .object .info .text .price span {
+    text-align: end;
+    color: #8c9092;
+    font-size: 18px;
+  }
+  .object .info .text .price p {
+    text-align: end;
+    color: #ff6d12;
+    font-size: 28px;
+    line-height: 36px;
+  }
+}

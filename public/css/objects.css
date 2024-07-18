@@ -1,0 +1,331 @@
+.objects {
+  margin-bottom: 40px;
+}
+.objects .filter-wrapper {
+  position: static;
+  transform: none;
+  margin-bottom: 40px;
+}
+.objects .filter-wrapper .filter-window {
+  position: static;
+  max-width: 100%;
+}
+.objects .filter-wrapper .filter-window .filter-content {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 20px;
+  background: #f5f7f8;
+  border-radius: 2px;
+}
+.objects .filter-wrapper .filter-window .filter-content .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.objects .filter-wrapper .filter-window .btn-apply-filter {
+  position: static;
+}
+.objects .filter-wrapper .filter-window .reset {
+  background: #b1bbc5;
+  padding: 15px 40px 18px 40px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  white-space: nowrap;
+  -webkit-appearance: none;
+  border-style: solid;
+  border-width: 3px;
+}
+.objects .filter-wrapper .filter-window:after {
+  display: none;
+}
+.objects .group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.objects .group p {
+  color: #8c9092;
+  font-size: 20px;
+}
+.objects .group input {
+  display: none;
+}
+.objects .group #sort {
+  cursor: pointer !important;
+}
+.objects .group #sort label {
+  cursor: pointer !important;
+}
+.objects .group #fl {
+  cursor: pointer !important;
+}
+.objects .group #fl label {
+  cursor: pointer !important;
+}
+.objects .group #fl label svg {
+  cursor: pointer !important;
+}
+.objects .group #fl label svg path {
+  cursor: pointer !important;
+  stroke: #9da3a8;
+}
+.objects .group #fl:checked + label svg {
+  cursor: pointer !important;
+}
+.objects .group #fl:checked + label svg path {
+  cursor: pointer !important;
+  stroke: #ff6d12;
+}
+.objects .group #gr {
+  cursor: pointer;
+}
+.objects .group #gr label {
+  cursor: pointer !important;
+}
+.objects .group #gr label svg {
+  cursor: pointer !important;
+  fill: #9da3a8;
+}
+.objects .group #gr:checked + label svg {
+  fill: #ff6d12;
+}
+.objects .fll {
+  cursor: pointer !important;
+}
+.objects .grl {
+  cursor: pointer !important;
+}
+.objects .sort {
+  cursor: pointer !important;
+}
+.objects .list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  transition: all 0.3s ease;
+}
+.objects .list .item {
+  color: #3c3c3c;
+  border-radius: 5px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.objects .list .item img {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.objects .list .item .text {
+  position: relative;
+  padding: 20px;
+}
+.objects .list .item .text h2 {
+  display: flex;
+  gap: 10px;
+  font-size: 16px;
+  line-height: 18px;
+}
+.objects .list .item .text p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #676a6b;
+  font-size: 15px;
+}
+.objects .list .item .text hr {
+  margin-top: 60px;
+}
+.objects .list .item .text .price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.objects .list .item .text .price h3 {
+  color: #8c9092;
+  font-size: 15px;
+}
+.objects .list .item .text .price p {
+  color: #ff6d12;
+  font-size: 18px;
+}
+.objects .list .item .text:before {
+  content: "";
+  position: absolute;
+  top: -7.5px;
+  left: 30px;
+  width: 15px;
+  height: 15px;
+  transform: rotate(45deg);
+  background: white;
+}
+.objects .list .item:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.objects .flex {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+.objects .flex .item {
+  display: flex;
+  flex-direction: row;
+}
+.objects .flex .item .text {
+  width: 100%;
+}
+.objects .flex .item .text h2 {
+  margin-bottom: 10px;
+}
+.objects .flex .item .list .ob:before {
+  display: none;
+}
+.objects .flex .item .text:before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: -8px;
+  width: 15px;
+  height: 15px;
+  transform: rotate(45deg);
+  background: white;
+}
+.objects .flex .item img {
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 3px;
+  max-width: 300px;
+}
+.objects .flex .item .price {
+  justify-content: space-between;
+}
+.objects .pagination {
+  margin: 30px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.objects .pagination button {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+}
+.objects .pagination button:hover {
+  text-align: center;
+  color: white;
+  background: #ff6d12;
+}
+.objects .pagination a {
+  background: none;
+  color: #c3d1d8;
+  padding: 0;
+  margin: 5px;
+  text-decoration: none;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -khtml-border-radius: 20px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+.objects .pagination a:hover {
+  border-radius: 50%;
+  background: #ff6d12;
+  color: white;
+}
+.objects .pagination .active {
+  background: #c3d1d8;
+  color: #fff;
+  padding: 0px;
+  margin: 5px;
+  text-decoration: none;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -khtml-border-radius: 20px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+.objects .news h2 {
+  margin-bottom: 30px;
+}
+.objects .news .news_more {
+  display: inline-block;
+  color: #ff6d12;
+  padding: 5px 10px;
+  border: #ff6d12 2px solid;
+  border-radius: 2px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+}
+.objects .news .news_more:hover {
+  color: white;
+  background: #ff6d12;
+}
+.objects .news .list .item .text {
+  align-items: flex-start;
+}
+
+@media (min-device-width: 481px) and (max-device-width: 768px) {
+  .objects .filter-wrapper .filter-window .filter-content .buttons {
+    flex-direction: column;
+  }
+  .objects .filter-wrapper .filter-window .filter-content .reset {
+    font-size: 14px;
+  }
+  .objects .group p {
+    font-size: 16px;
+  }
+  .objects .group .gflex, .objects .group .ggrid {
+    display: none;
+  }
+  .objects .list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-device-width: 320px) and (max-device-width: 480px) {
+  .objects .filter-wrapper .filter-window .filter-content .buttons {
+    flex-direction: column;
+  }
+  .objects .filter-wrapper .filter-window .filter-content .reset {
+    font-size: 14px;
+  }
+  .objects .group p {
+    font-size: 16px;
+  }
+  .objects .group .gflex, .objects .group .ggrid {
+    display: none;
+  }
+  .objects .list {
+    grid-template-columns: 1fr;
+  }
+}

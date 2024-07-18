@@ -1,0 +1,68 @@
+<?php
+
+return [
+    'services' => 'Services',
+    'object' => 'Properties',
+    'contacts' => 'Management',
+    'partners' => 'Partners',
+    'analitick' => 'About us',
+    'company' => 'Contacts',
+    'guide' => 'Guide',
+    'address' => 'Moscow, Stankolit OC, Skladochnaya street, bld.1 block 1',
+    'number' => '+7 495 223 35 53',
+    'tel' => '+74952233553',
+    'main' => 'Main',
+    'email' => 'info@ntproperties.ru',
+    'copyright' => 'NT Properties. All rights reserved.',
+    'subscribe_email' => 'Подписка на рассылку',
+    'subscribe_email_text' => 'Feel free to subscribe in case you are willing to be kept up to date with fresh news and beneficial offers',
+    'placeholder_email' => 'Your Email',
+    'subscribe_button' => 'Subscribe',
+    'type_room_1' => 'Lease',
+    'type_room_2' => 'Sale',
+    'type_room_3' => 'Industrial land',
+    'type_room_4' => 'Warehouse',
+    'price' => 'Price',
+    'price_select_1' => 'per sq.m.',
+    'price_select_2' => 'Total',
+    'square' => 'Area',
+    'stellage' => 'with racks',
+    'all_directions' => 'Any directions',
+    'all_highways' => 'Any highways',
+    'no_select' => 'not selected',
+    'distance_mkad' => 'Distance from MKAD',
+    'km' => 'km',
+    'show_results' => 'SHOW RESULTS',
+    'last_objects' => 'Last objects',
+    'show_all' => 'Show all',
+    'title_news' => 'Real Estate news',
+    'read_all' => 'Read completely',
+    'about_main' => '<p>
+                    NT Properties is an independent consulting company which is providing professional advisory serviceson the commercial and residential real estate markets.
+                </p><br>
+                <p>
+                    NT Properties brings together top level real estate market professionals who are unique knowledge holders with years of experience in their specialization.
+                </p><br>
+                <p>
+                    Our clients always receive complete support with property selection and its commercial utilization.
+                </p><br>
+                <p>
+                    NT Properties does its business according to international standards of RICS – Real Estate Agency and Brokerage Standards (REABS).
+                </p><br>',
+    'show' => 'Show',
+    'clear' => 'Clear',
+    'news' => 'News',
+    'description' => 'Description',
+    'specifications' => 'Характеристики',
+    'class_house' => 'Класс помещений',
+    'all_square' => 'All square',
+
+    'min_block' => 'Minimum block',
+    'height' => 'height',
+    'pitch_column' => 'column pitch',
+    'floor_power' => 'floor load',
+    'lighting' => 'lighting',
+    'fire_system' => 'fire system',
+    'object_map' => 'Object on map',
+
+];

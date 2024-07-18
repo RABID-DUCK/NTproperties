@@ -9,28 +9,28 @@
             <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5.77778 10.2222V18C5.77778 19.1046 6.67321 20 7.77778 20H12M5.77778 10.2222L11.2929 4.70711C11.6834 4.31658 12.3166 4.31658 12.7071 4.70711L17.5 9.5M5.77778 10.2222L4 12M18.2222 10.2222V18C18.2222 19.1046 17.3268 20 16.2222 20H12M18.2222 10.2222L20 12M18.2222 10.2222L17.5 9.5M17.5 9.5V6M12 20V15" stroke="#ff6d12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            </a><a href="{{route('main-page')}}"> Главная <span>></span></a><a href="#"> Объекты <span>></span></a>
+            </a><a href="{{route('main-page')}}"> {{__('main.main')}} <span>></span></a><a href="#"> {{__('main.object')}} <span>></span></a>
         </div>
-        <h1>Объекты</h1>
+        <h1>{{__('main.object')}}</h1>
 
         <form class="filter-wrapper" action="{{route('object-list')}}" id="filterForm">
             <div class="filter-window">
                 <div class="filter-content">
                     <div class="filter-1 d-flex">
                         <div class="button">
-                            <button type="button" class="btn d-flex align-items-center active" id="rentBtn"><i class="fas fa-check" style="margin-right: 10px;"></i> Аренда</button>
-                            <button type="button" class="btn d-flex align-items-center" id="saleBtn" style="margin-left: 10px; margin-right: 10px"><i class="fas fa-times" style="margin-right: 10px;"></i> Продажа</button>
+                            <button type="button" class="btn d-flex align-items-center active" id="rentBtn"><i class="fas fa-check" style="margin-right: 10px;"></i> {{__('main.type_room_1')}}</button>
+                            <button type="button" class="btn d-flex align-items-center" id="saleBtn" style="margin-left: 10px; margin-right: 10px"><i class="fas fa-times" style="margin-right: 10px;"></i> {{__('main.type_room_2')}}</button>
                         </div>
                         <input type="hidden" name="price_type" id="price_type">
                         <select class="form-select" name="type_room" id="">
-                            <option value="1">Складские помещения</option>
-                            <option value="2">Промышленные участки</option>
+                            <option value="1">{{__('main.type_room_3')}}</option>
+                            <option value="2">{{__('main.type_room_4')}}</option>
                         </select>
                     </div>
 
                     <div class="input-group mt-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Цена</span>
+                            <span class="input-group-text" id="basic-addon1">{{__('main.price')}}</span>
                         </div>
                         <div class="button">
                             <input type="number" class="form-control" name="price_min" placeholder="10 000">
@@ -41,15 +41,15 @@
                         </div>
                         <div class="input-group-append">
                             <select class="form-select" id="inputGroupSelect01">
-                                <option selected>за м&sup2; в год</option>
-                                <option value="1">Общая</option>
+                                <option selected>{!! __('main.price_select_1') !!}</option>
+                                <option value="1">{{__('main.price_select_2')}}</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="filter-3 d-flex mt-3 input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Площадь</span>
+                            <span class="input-group-text" id="basic-addon1">{{__('main.square')}}</span>
                         </div>
                         <div class="button">
                             <input type="number" class="form-control" placeholder="6300" name="square_min">
@@ -59,18 +59,18 @@
                             <input type="number" style="border-right: 1px solid #ced4da;border-radius: .25rem;" class="form-control" placeholder="700 000" name="square_max">
                         </div>
                         <input type="checkbox" id="isHave"></input>
-                        <label class="btn" for="isHave">Наличие стеллажей</label>
+                        <label class="btn" for="isHave">{{__('main.stellage')}}</label>
                     </div>
 
                     <div class="filter-4 d-flex mt-3">
                         <select class="form-select" name="region" id="" @if($regions->isEmpty()) disabled @endif>
                             @if($regions->isNotEmpty())
                                 @foreach($regions as $region)
-                                    <option value="{{$region->id}}">{{$region->name}}</option>
+                                    <option value="{{$region->id}}">{{app()->currentLocale() == 'ru' ? $region->name : $region->eng_name}}</option>
                                 @endforeach
 
                             @else
-                                <option value="empty">Не выбрано</option>
+                                <option value="empty">{{ __('main.no_select') }}</option>
                             @endif
                         </select>
 
@@ -78,11 +78,11 @@
                             <option value="">Все направления</option>
                             @if($directions->isNotEmpty())
                                 @foreach($directions as $direction)
-                                    <option value="{{$direction->id}}">{{$direction->name}}</option>
+                                    <option value="{{$direction->id}}">{{app()->currentLocale() == 'ru' ? $direction->name : $direction->eng_name}}</option>
                                 @endforeach
 
                             @else
-                                <option value="empty">Не выбрано</option>
+                                <option value="empty">{{ __('main.no_select') }}</option>
                             @endif
                         </select>
 
@@ -90,18 +90,18 @@
                             <option value="">Все шоссе</option>
                             @if($highways->isNotEmpty())
                                 @foreach($highways as $highway)
-                                    <option value="{{$highway->id}}">{{$highway->name}}</option>
+                                    <option value="{{$highway->id}}">{{app()->currentLocale() == 'ru' ? $highway->name : $highway->eng_name}}</option>
                                 @endforeach
-                                <option value="">Все шоссе</option>
+                                    <option value="">{{__('main.all_highways')}}</option>
                             @else
-                                <option value="empty">Не выбрано</option>
+                                <option value="empty">{{ __('main.no_select') }}</option>
                             @endif
                         </select>
                     </div>
 
                     <div class="input-group mb-3 mt-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">Расстояние от МКАД</span>
+                                <span class="input-group-text" id="basic-addon1">{{__('main.distance_mkad')}}</span>
                             </div>
                         <div class="button">
                             <input type="number" class="form-control" placeholder="4" name="distance_min">
@@ -112,11 +112,11 @@
 
                         </div>
                         <div class="input-group-append">
-                            <span class="input-group-text">км</span>
+                            <span class="input-group-text">{{__('main.km')}}</span>
                         </div>
                     </div>
                     <div class="buttons">
-                      <button class="btn btn-apply-filter" type="submit">Показать</button><button type="button" class="btn reset" id="clear_filter">Очистить</button>
+                      <button class="btn btn-apply-filter" type="submit">{{__('main.show')}}</button><button type="button" class="btn reset" id="clear_filter">{{__('main.clear')}}</button>
                   </div>
                 </div>
             </div>
@@ -124,7 +124,7 @@
         </form>
 
         <div class="group">
-            <p>Найдено {{$objects->count()}} предложений</p>
+            <p>{{app()->currentLocale() == 'ru' ? 'Найдено '. $objects->count() . ' предложений' : $objects->count() . ' offers found'}}</p>
             <div>
                 <input id="sort" type="checkbox"/>
                 <label for="sort" class="sort">
@@ -155,11 +155,10 @@
                 @foreach($objects as $object)
                     <a href="{{route('objects.show', $object->id)}}" class="item">
                         @if(!empty($object->getImages($object->id)))
-                            <img src="{{asset('storage/images/' . $object->getImages($object->id)->name)}}" alt="{{$object->title}}" />
+                            <img src="{{asset('storage/images/' . $object->getImages($object->id)->name)}}" alt="{{app()->currentLocale() == 'ru' ? $object->title : $object->eng_title}}" />
                         @endif
                         <div class="text ob">
                             <h2>
-
                                 <svg fill="#ff6d12" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                      width="18px" height="18px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
                      <g>
@@ -171,7 +170,7 @@
                      </g>
                      </svg>
 
-                                {{$object->title}}</h2>
+                                {{app()->currentLocale() == 'ru' ? $object->title : $object->eng_title}}</h2>
                             <p>
 
                                 <svg fill="#b1bbc5" width="16px" height="16px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -179,11 +178,11 @@
                                 </svg>
 
 
-                                <strong>Общая:</strong> {{$object->all_square}} м²</p>
+                                <strong>{{__('main.price_select_2')}}:</strong> {{$object->all_square}} м²</p>
                             <hr>
                             <div class="price">
                                 <h3>{{$object->type_room == 1 ? 'Аренда' : 'Продажа'}}</h3>
-                                <p>{{$object->price}} ₽/м²</p>
+                                <p>{{$object->price}} ₽/{{app()->currentLocale() == 'ru' ? 'м²' : 'sq.m.'}}</p>
                             </div>
                         </div>
                     </a>
@@ -218,7 +217,7 @@
         </div>
 
         <div class="news">
-            <h2>Новости</h2>
+            <h2>{{__('main.news')}}</h2>
             <div class="list">
                 @if($news->isNotEmpty())
                     @foreach($news as $item)
@@ -226,17 +225,17 @@
                             <img src="{{asset('storage/images/' . $item->image)}}" alt="{{$item->img}}" />
                              <div class="text">
                                  <p class="date">{{$item->created_at->format('m.d.y')}}</p>
-                                 <h3>{{$item->title}}</h3>
+                                 <h3>{{app()->currentLocale() == 'ru' ? $item->title : $item->eng_title}}</h3>
                              </div>
                         </a>
                     @endforeach
                 @endif
             </div>
-            <a class="news_more" href="{{route('news')}}">Все новости</a>
+            <a class="news_more" href="{{route('news')}}">{{__('main.show_all')}}</a>
         </div>
 
         <div class="news">
-            <h2>Обзоры</h2>
+            <h2>{{__('main.object')}}</h2>
             <div class="list">
                 @if($reviews->isNotEmpty())
                     @foreach($reviews as $review)
@@ -244,13 +243,13 @@
                             <img src="{{asset('storage/images/' . $review->image)}}"/>
                              <div class="text">
                                  <p class="date">{{$review->created_at->format('m.d.y')}}</p>
-                                 <h3>{{$review->title}}</h3>
+                                 <h3>{{app()->currentLocale() == 'ru' ? $review->title : $review->eng_title}}</h3>
                              </div>
                         </a>
                     @endforeach
                 @endif
             </div>
-            <a class="news_more" href="{{route('reviews')}}">Все обзоры</a>
+            <a class="news_more" href="{{route('reviews')}}">{{__('main.show_all')}}</a>
         </div>
     </div>
 </div>

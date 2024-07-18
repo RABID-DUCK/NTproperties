@@ -15,9 +15,9 @@
             <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5.77778 10.2222V18C5.77778 19.1046 6.67321 20 7.77778 20H12M5.77778 10.2222L11.2929 4.70711C11.6834 4.31658 12.3166 4.31658 12.7071 4.70711L17.5 9.5M5.77778 10.2222L4 12M18.2222 10.2222V18C18.2222 19.1046 17.3268 20 16.2222 20H12M18.2222 10.2222L20 12M18.2222 10.2222L17.5 9.5M17.5 9.5V6M12 20V15" stroke="#ff6d12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            </a><a href="{{route('main-page')}}"> Главная <span>></span></a><a href="{{route('objects')}}"> Объекты <span>></span></a><a href="#"> {{\Illuminate\Support\Str::limit($object->title, 30)}} <span>></span></a>
+            </a></a><a href="{{route('main-page')}}"> {{__('main.main')}} <span>></span></a><a href="#"> {{__('main.object')}} <span>></span></a><a href="#"> {{\Illuminate\Support\Str::limit(app()->currentLocale() == 'ru' ? $object->title : $object->eng_title, 30)}} <span>></span></a>
         </div>
-        <h1>{{$object->title}}</h1>
+        <h1>{{app()->currentLocale() == 'ru' ? $object->title : $object->eng_title}}</h1>
 
         @if(!empty($object->allImages($object->id)))
         <div class="slider">
@@ -25,7 +25,7 @@
                 @foreach($object->allImages($object->id) as $image)
                     <li>
                         <a href="#">
-                            <img src="{{asset('storage/images/' . $image->name)}}" alt="{{$object->title}}" />
+                            <img src="{{asset('storage/images/' . $image->name)}}" alt="{{app()->currentLocale() == 'ru' ? $object->title : $object->eng_title}}" />
                         </a>
                     </li>
                 @endforeach
@@ -49,7 +49,7 @@
                     </g>
                     </svg>
 
-                    {{$object->title}}</h3>
+                    {{app()->currentLocale() == 'ru' ? $object->title : $object->eng_title}}</h3>
                     <p>
 
                     <svg width="18px" height="18px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -77,13 +77,13 @@
                         </g>
                     </svg>
 
-                    {{$object->highway->name}}</p>
+                    {{app()->currentLocale() == 'ru' ? $object->highway->name : $object->highway->eng_name}}</p>
                     <div class="tech">
                         <p>
 
                         <svg fill="#b1bbc5" width="18px" height="18px" viewBox="0 0 64 64" data-name="Layer 1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"><title/><path d="M53.94,54.93H10.06a2,2,0,0,1-2-2V30.6a2,2,0,0,1,2-2H53.94a2,2,0,0,1,2,2V52.93A2,2,0,0,1,53.94,54.93Zm-41.88-4H51.94V32.6H12.06Z"/><path d="M49.94,32.6H14.06a2,2,0,0,1-2-2V19.83a2,2,0,0,1,2-2H49.94a2,2,0,0,1,2,2V30.6A2,2,0,0,1,49.94,32.6Zm-33.88-4H47.94V21.83H16.06Z"/><path d="M45.6,21.83H18.4a2,2,0,0,1-2-2V11.06a2,2,0,0,1,2-2H45.6a2,2,0,0,1,2,2v8.77A2,2,0,0,1,45.6,21.83Zm-25.2-4H43.6V13.06H20.4Z"/></svg>
 
-                             {{$object->type_room == 1 ? 'Складские помещения' : 'Промышленные участки'}}</p>
+                             {{$object->type_room == 1 ? __('main.type_room_3') : __('main.type_room_4')}}</p>
                         <p>
 
                         <svg fill="#b1bbc5" width="18px" height="18px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -91,66 +91,66 @@
                         </svg>
 
 
-                        {{$object->all_square}} м²</p>
+                        {{$object->all_square}} {{app()->currentLocale() == 'ru' ? 'м²' : 'sq.m.'}}</p>
                     </div>
                 </div>
                 <div class="price">
-                    <span>{{$object->price_type == 1 ? 'Аренда (в год)' : 'Продажа'}}</span>
-                    <p>{{$object->price}} &#8381;/м²</p>
+                    <span>{{$object->price_type == 1 ? __('main.type_room_1') : __('main.type_room_2')}}</span>
+                    <p>{{$object->price}} &#8381;/{{app()->currentLocale() == 'ru' ? 'м²' : 'sq.m.'}}</p>
                 </div>
             </div>
         </div>
         <div class="description">
-            <h3>Описание</h3>
-            <p>{{$object->description}}</p>
+            <h3>{{__('main.description')}}</h3>
+            <p>{!! app()->currentLocale() == 'ru' ? $object->description : $object->eng_description !!}</p>
         </div>
         <div class="feature">
-            <h3>Характеристики</h3>
+            <h3>{{__('main.specifications')}}</h3>
             @if($object->region)
-                <p><span>Регион:</span> {{$object->region->name}}</p>
+                <p><span>Регион:</span> {{app()->currentLocale() == 'ru' ? $object->region->name : $object->region->eng_name}}</p>
             @endif
             @if($object->direction)
-                <p><span>Направление:</span> {{$object->direction->name}}</p>
+                <p><span>Направление:</span> {{app()->currentLocale() == 'ru' ? $object->direction->name : $object->direction->eng_name}}</p>
             @endif
             @if($object->highway)
-                <p><span>Шоссе:</span> {{$object->highway->name}}</p>
+                <p><span>Шоссе:</span> {{app()->currentLocale() == 'ru' ? $object->highway->name : $object->highway->eng_name}}</p>
             @endif
             @if($object->distance_mkad)
-                <p><span>Удаленность от МКАД, км:</span> {{$object->distance_mkad}}</p>
+                <p><span>{{__('main.distance_mkad')}}, {{__('main.km')}}:</span> {{$object->distance_mkad}}</p>
             @endif
             @if($object->class_house)
-                <p><span>Класс помещений :</span> {{$object->class_house}}</p>
+                <p><span>{{__('main.class_house')}} :</span> {{$object->class_house}}</p>
             @endif
             @if($object->all_square)
-                <p><span>Общая площадь, кв. м :</span> {{$object->all_square}}</p>
+                <p><span>{{__('main.class_house')}}, {{app()->currentLocale() == 'ru' ? 'м²' : 'sq.m.'}} :</span> {{$object->all_square}}</p>
             @endif
             @if($object->free_square)
-                <p><span>Свободная площадь, кв. м :</span> {{$object->free_square}}</p>
+                <p><span>{{__('main.all_square')}}, {{app()->currentLocale() == 'ru' ? 'м²' : 'sq.m.'}} :</span> {{$object->free_square}}</p>
             @endif
             @if($object->min_square)
-                <p><span>Минимальный блок, кв. м :</span> {{$object->min_square}}</p>
+                <p><span>{{__('main.min_block')}}, {{app()->currentLocale() == 'ru' ? 'м²' : 'sq.m.'}} :</span> {{$object->min_square}}</p>
             @endif
             <ul>
                 @if($object->height)
-                    <li><span>высота, м:</span> {{$object->height}}</li>
+                    <li><span>{{__('main.min_block')}}, {{app()->currentLocale() == 'ru' ? 'м' : 'm'}}:</span> {{$object->height}}</li>
                 @endif
                 @if($object->column_pitch)
-                    <li><span>шаг колонн, м :</span> {{$object->column_pitch}}</li>
+                    <li><span>{{__('main.height')}}, {{app()->currentLocale() == 'ru' ? 'м' : 'm'}} :</span> {{$object->column_pitch}}</li>
                 @endif
                 @if($object->floor_load)
-                    <li><span>нагрузка на пол, т/кв. м :</span> {{$object->floor_load}}</li>
+                    <li><span>{{__('main.pitch_column')}}, {{app()->currentLocale() == 'ru' ? 'т.кв м' : 'sq.m.'}} :</span> {{$object->floor_load}}</li>
                 @endif
                 @if($object->lighting)
-                    <li><span>освещение:</span> {{$object->lighting}}</li>
+                    <li><span>{{__('main.floor_power')}}:</span> {{$object->lighting}}</li>
                 @endif
                 @if($object->fire_system)
-                    <li><span>система пожаротушения :</span> {{$object->fire_system}}</li>
+                    <li><span>{{__('main.lighting')}} :</span> {{$object->fire_system}}</li>
                 @endif
             </ul>
         </div>
         @if($object->x_coord !== null && $object->y_coord)
         <div class="map">
-            <h3>Объект на карте</h3>
+            <h3>{{__('main.object_map')}}</h3>
             <div id="map" style="width: 100%; height: 500px"></div>
         </div>
         @endif

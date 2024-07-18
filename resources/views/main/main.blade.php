@@ -20,13 +20,13 @@
             <div class="mailing-text d-flex align-items-start">
                 <i class="fa-regular fa-envelope" style="color: #ff6d12; margin-right: 15px;"></i>
                 <div>
-                    <h2>Подписка на рассылку</h2>
-                    <p>Подпишитесь на нашу рассылку чтобы своевременно получать уведомления об акциях и выгодных предложениях</p>
+                    <h2>{{__('main.subscribe_email')}}</h2>
+                    <p>{{__('main.subscribe_email_text')}})</p>
                 </div>
             </div>
             <div class="mailing-write d-flex">
-                <input type="text" class="form-control" id="email_mailling" placeholder="Ваш email">
-                <button type="button" class="btn btn-orange" id="sub_mail">Подписаться</button>
+                <input type="text" class="form-control" id="email_mailling" placeholder="{{__('main.placeholder_email')}}">
+                <button type="button" class="btn btn-orange" id="sub_mail">{{__('main.subscribe_button')}}</button>
             </div>
         </div>
     </div>
@@ -34,13 +34,13 @@
 {{--    Конец секции подписки на рассылку--}}
 <div class="container">
     <div class="main_object">
-         <h2>Последние обьекты</h2>
+         <h2>{{__('main.last_objects')}}</h2>
          <div class="list">
              @if($objects->isNotEmpty())
                  @foreach($objects as $object)
                    <a href="{{route('objects.show', $object->id)}}" class="item">
                        @if(!empty($object->getImages($object->id)))
-                      <img src="{{asset('storage/images/' . $object->getImages($object->id)->name)}}" alt="{{$object->title}}" />
+                      <img src="{{asset('storage/images/' . $object->getImages($object->id)->name)}}" alt="{{app()->currentLocale() == 'ru' ? $object->title : $object->eng_title}}" />
                        @endif
                            <div class="text ob">
                           <h2>
@@ -51,7 +51,7 @@
                            C78.201,23.044,65.581,10.417,50,10.417z M49.721,52.915c-7.677,0-13.895-6.221-13.895-13.895c0-7.673,6.218-13.895,13.895-13.895
                            s13.895,6.222,13.895,13.895C63.616,46.693,57.398,52.915,49.721,52.915z"/></g></svg>
 
-                              {{$object->title}}</h2>
+                              {{app()->currentLocale() == 'ru' ? $object->title : $object->eng_title}}</h2>
                           <p>
 
                               <svg fill="#b1bbc5" width="16px" height="16px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -59,11 +59,11 @@
                               </svg>
 
 
-                              <strong>Общая:</strong> {{$object->all_square}} м²</p>
+                              <strong>{{__('main.price_select_2')}}:</strong> {{$object->all_square}} {{app()->currentLocale() == 'ru' ? 'м²' : 'sq.m.'}}</p>
                           <hr>
                           <div class="price">
-                              <h3>{{$object->type_room == 1 ? 'Аренда' : 'Продажа'}}</h3>
-                              <p>{{$object->price}} ₽/м²</p>
+                              <h3>{{$object->type_room == 1 ? __('main.type_room_1') : __('main.type_room_2')}}</h3>
+                              <p>{{$object->price}} ₽/{{app()->currentLocale() == 'ru' ? 'м²' : 'sq.m.'}}</p>
                           </div>
                                   </div>
                   </a>
@@ -71,7 +71,7 @@
          @endif
 
          </div>
-         <a href="{{route('objects')}}" class="news_more">Показать все</a>
+         <a href="{{route('objects')}}" class="news_more">{{__('main.show_all')}}</a>
     </div>
 </div>
 
@@ -79,7 +79,7 @@
 
     <div class="news-wrapper">
         <div class="container">
-        <a href="{{route('news')}}" class="text-center">Новости сферы недвижимости</a>
+        <a href="{{route('news')}}" class="text-center">{{__('main.title_news')}}</a>
             <div class="slider">
                 <button class="prev">
 
@@ -102,10 +102,10 @@
                                     <img src="{{asset('storage/images/' . $item->image)}}" alt="{{$item->img}}">
                                     <div class="text">
                                         <span class="date">{{$item->created_at->format('m.d.y')}}</span><br>
-                                        <h4>{{$item->title}}</h4>
+                                        <h4>{{app()->currentLocale() == 'ru' ? $item->title : $item->eng_title}}</h4>
                                     </div>
-                                    <p>{!! substr(strip_tags($item->description), 0, 150) !!}...</p>
-                                    <a href="{{route('news-single', $item->id)}}" class="more">Читать полностью</a>
+                                    <p>{!! substr(strip_tags(app()->currentLocale() == 'ru' ? $item->description : $item->eng_description), 0, 150) !!}...</p>
+                                    <a href="{{route('news-single', $item->id)}}" class="more">{{__('main.read_all')}}</a>
                                 </div>
                         @endforeach
                     @endif
@@ -127,17 +127,9 @@
 
             <div class="txt std">
                 <h1>NT Properties</h1>
+                {!! __('main.about_main') !!}
                 <p>
-                    Компания NT Properties является независимой консалтинговой компанией, предоставляющей профессиональные услуги на рынке коммерческой и жилой недвижимости.
-                </p>
-                <p>
-                    Мы объединяем специалистов и брокеров, являющихся носителями уникальных знаний и компетенций с многолетним опытом работы в недвижимости. Наши клиенты получают полное сопровождение в процессе подбора или реализации объектов недвижимости.
-                </p>
-                <p>
-                    Компания работает в соответствии с международными стандартами предоставления агентских и брокерских услуг RICS – Real Estate Agency and Brokerage Standards (REABS).
-                </p>
-                <p>
-                    <a class="more" href="{{route('company')}}">Читать полностью</a>
+                    <a class="more" href="{{route('company')}}">{{__('main.read_all')}}</a>
                 </p>
             </div>
         </div>

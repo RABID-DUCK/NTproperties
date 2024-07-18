@@ -1,0 +1,33 @@
+.guide {
+  margin-bottom: 20px;
+}
+.guide .info {
+  display: flex;
+  gap: 10px;
+}
+.guide .info .text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.guide #cancel {
+  color: #ff6d12;
+}
+
+@media (min-device-width: 481px) and (max-device-width: 768px) {
+  .guide .info {
+    display: flex;
+    gap: 10px;
+  }
+  .guide .info img {
+    height: 270px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+@media (min-device-width: 320px) and (max-device-width: 480px) {
+  .guide .info {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
