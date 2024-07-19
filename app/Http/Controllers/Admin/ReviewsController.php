@@ -23,6 +23,14 @@ class ReviewsController extends Controller
             $imageName = $data['image']->getClientOriginalName();
             $data['image']->storeAs('images', $imageName, 'public');
             $data['image'] = $imageName;
+
+            if($request->file('file')){
+                $data['file'] = $request->file('file');
+                $fileName = $data['file']->getClientOriginalName();
+                $data['file']->storeAs('files', $fileName, 'public');
+                $data['file'] = $fileName;
+            }
+
             Reviews::query()->create($data);
         }
 
@@ -40,6 +48,13 @@ class ReviewsController extends Controller
                 $data['image'] = $imageName;
             }else{
                 $data['image'] = $reviews->image;
+            }
+
+            if($request->file('file')){
+                $data['file'] = $request->file('file');
+                $fileName = $data['file']->getClientOriginalName();
+                $data['file']->storeAs('files', $fileName, 'public');
+                $data['file'] = $fileName;
             }
 
             Reviews::query()->where('id', $reviews->id)->update($data);

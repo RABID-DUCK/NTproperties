@@ -30,11 +30,24 @@
                             <textarea id="summernote2" name="eng_description">{!! $reviews->eng_description !!}</textarea>
                         </div>
 
-                        <div class="custom-file">
+                        <div class="custom-file mb-3">
                             <input type="file" class="custom-file-input" id="customFile" name="image" value="{{$reviews->image}}">
-                            <label class="custom-file-label" for="customFile">Выберите файл</label>
+                            <label class="custom-file-label" for="customFile">Выберите изображение</label>
                         </div>
-                        <img src="{{'/storage/images/' . $reviews->image}}" alt="фото новости" width="400" height="200">
+
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile" name="file">
+                            <label class="custom-file-label" for="customFile">Выберите файл(если нужен)</label>
+                        </div>
+
+                        <div class="d-flex flex-column mt-3">
+                            <img src="{{'/storage/images/' . $reviews->image}}" alt="фото новости" width="400" height="200">
+                            @if($reviews->file !== null)
+                                <a class="mt-3" href="{{'/storage/files/' . $reviews->file}}" style="font-size: 40px" download>
+                                    <i class="fa-solid fa-file-powerpoint"></i>
+                                </a>
+                            @endif
+                        </div>
 
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Редактировать</button>

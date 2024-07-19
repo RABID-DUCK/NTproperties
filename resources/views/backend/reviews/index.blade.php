@@ -81,7 +81,12 @@
 
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="customFile" name="image">
-                            <label class="custom-file-label" for="customFile">Выберите файл</label>
+                            <label class="custom-file-label" for="customFile">Выберите изображение</label>
+                        </div>
+
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile" name="file">
+                            <label class="custom-file-label" for="customFile">Выберите файл(если нужен)</label>
                         </div>
 
                         <div class="modal-footer">
