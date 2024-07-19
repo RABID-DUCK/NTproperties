@@ -354,6 +354,13 @@
         .list{
             grid-template-columns: 1fr 1fr;
         }
+        .flex {
+            .item {
+                img {
+                    max-width: 200px;
+                }
+            }
+        }
     }
 }
 @media (min-device-width: 320px) and (max-device-width: 480px) {
@@ -381,6 +388,11 @@
 
         .list{
             grid-template-columns: 1fr;
+        }
+        .flex {
+            .item {
+                flex-direction: column;
+            }
         }
     }
 }
