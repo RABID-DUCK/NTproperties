@@ -7,6 +7,15 @@
         }
     </style>
     <div class="p-3">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <form id="objectForm" method="POST" action="{{route('admin.objects.update', $object->id)}}" enctype="multipart/form-data">
             @csrf
 

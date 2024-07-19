@@ -77,7 +77,7 @@
                         </g>
                     </svg>
 
-                    {{app()->currentLocale() == 'RU' ? $object->highway->name : $object->highway->eng_name}}</p>
+                    {{app()->currentLocale() == 'RU' ? $object->direction->name : $object->direction->eng_name}}</p>
                     <div class="tech">
                         <p>
 
