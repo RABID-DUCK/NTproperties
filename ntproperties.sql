@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 19 2024 г., 21:42
+-- Время создания: Июл 19 2024 г., 23:31
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -145,11 +145,21 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`id`, `name`, `type_model`, `model_id`, `created_at`, `updated_at`) VALUES
-(6, '7day_logo.jpg', 'App\\Models\\Objects', 2, '2024-07-14 15:24:16', '2024-07-14 15:24:16'),
-(7, 'ck_v1.PNG', 'App\\Models\\Objects', 2, '2024-07-14 15:34:10', '2024-07-14 15:34:10'),
-(9, '251d1cs-960.jpg', 'App\\Models\\Objects', 5, '2024-07-17 19:02:23', '2024-07-17 19:02:23'),
-(10, 'about_bg.jpg', 'App\\Models\\Objects', 5, '2024-07-17 19:02:23', '2024-07-17 19:02:23'),
-(12, 'baloon.png', 'App\\Models\\Objects', 5, '2024-07-17 19:22:57', '2024-07-17 19:22:57');
+(16, 'ob2_slide5.jpg', 'App\\Models\\Objects', 2, '2024-07-19 19:35:31', '2024-07-19 19:35:31'),
+(17, 'ob2_slide4.jpg', 'App\\Models\\Objects', 2, '2024-07-19 19:35:31', '2024-07-19 19:35:31'),
+(19, 'ob1_slide1.jpg', 'App\\Models\\Objects', 2, '2024-07-19 19:35:31', '2024-07-19 19:35:31'),
+(23, 'ob4_slide2.jpg', 'App\\Models\\Objects', 3, '2024-07-19 19:53:23', '2024-07-19 19:53:23'),
+(24, 'ob4_slide1.jpg', 'App\\Models\\Objects', 3, '2024-07-19 19:53:23', '2024-07-19 19:53:23'),
+(25, 'ob2_slide33.jpg', 'App\\Models\\Objects', 2, '2024-07-19 19:55:13', '2024-07-19 19:55:13'),
+(26, 'ob2_slide22.jpg', 'App\\Models\\Objects', 2, '2024-07-19 19:55:13', '2024-07-19 19:55:13'),
+(27, 'nikol_2.jpg', 'App\\Models\\Objects', 4, '2024-07-19 19:56:32', '2024-07-19 19:56:32'),
+(28, 'nikol_1.jpg', 'App\\Models\\Objects', 4, '2024-07-19 19:56:32', '2024-07-19 19:56:32'),
+(29, '1_3.jpg', 'App\\Models\\Objects', 5, '2024-07-19 19:57:30', '2024-07-19 19:57:30'),
+(30, '1_2.jpg', 'App\\Models\\Objects', 5, '2024-07-19 19:57:30', '2024-07-19 19:57:30'),
+(31, '1_1.jpg', 'App\\Models\\Objects', 5, '2024-07-19 19:57:30', '2024-07-19 19:57:30'),
+(32, '1_1_3.jpg', 'App\\Models\\Objects', 6, '2024-07-19 20:29:27', '2024-07-19 20:29:27'),
+(33, '1_1_2.jpg', 'App\\Models\\Objects', 6, '2024-07-19 20:29:27', '2024-07-19 20:29:27'),
+(34, '1_1_1.jpg', 'App\\Models\\Objects', 6, '2024-07-19 20:29:27', '2024-07-19 20:29:27');
 
 -- --------------------------------------------------------
 
@@ -246,22 +256,22 @@ INSERT INTO `news` (`id`, `image`, `title`, `description`, `created_at`, `update
 CREATE TABLE `objects` (
   `id` bigint UNSIGNED NOT NULL,
   `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `city` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `city` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `type_room` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `column_pitch` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `lighting` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lighting` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `fire_system` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'null',
   `price_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` int NOT NULL,
-  `all_square` int NOT NULL,
-  `free_square` int NOT NULL,
-  `min_square` int NOT NULL,
+  `all_square` int DEFAULT NULL,
+  `free_square` int DEFAULT NULL,
+  `min_square` int DEFAULT NULL,
   `class_house` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'null',
-  `height` int NOT NULL,
+  `height` double DEFAULT NULL,
   `distance_mkad` int DEFAULT NULL,
-  `floor_load` int NOT NULL,
+  `floor_load` int DEFAULT NULL,
   `zoom` int DEFAULT NULL,
   `x_coord` double DEFAULT NULL,
   `y_coord` double DEFAULT NULL,
@@ -282,10 +292,11 @@ CREATE TABLE `objects` (
 --
 
 INSERT INTO `objects` (`id`, `address`, `city`, `title`, `description`, `type_room`, `column_pitch`, `lighting`, `fire_system`, `price_type`, `price`, `all_square`, `free_square`, `min_square`, `class_house`, `height`, `distance_mkad`, `floor_load`, `zoom`, `x_coord`, `y_coord`, `region_id`, `highway_id`, `direction_id`, `created_at`, `updated_at`, `eng_city`, `eng_title`, `eng_description`, `eng_lighting`, `eng_fire_system`) VALUES
-(2, NULL, 'Москоу4', 'название1', 'описание2', '1', '235x235', 'Светодиодно', 'Спринклерная1', '1', 1234, 123, 342, 545, 'D6', 11112, 2135, 26, 23, NULL, NULL, 19, 17, 20, '2024-07-14 15:24:16', '2024-07-14 15:34:10', NULL, NULL, NULL, NULL, NULL),
-(3, NULL, 'Москоу4', 'название2', 'описание2', '1', '235x235', 'Светодиодно', 'Спринклерная1', '1', 1, 123, 342, 545, 'D6', 11112, 2135, 26, 23, 214.12, 23.45, 19, 17, 20, '2024-07-14 15:23:16', '2024-07-14 15:34:10', NULL, NULL, NULL, NULL, NULL),
-(4, NULL, 'Москоу5', 'название3', 'описание3', '1', '235', 'Светодиодно', 'Спринклерная1', '1', 5600, 123, 342, 545, 'D6', 11112, 2135, 26, 23, 214.12, 23.45, 15, 17, 19, '2024-07-14 15:24:16', '2024-07-14 15:34:10', NULL, NULL, NULL, NULL, NULL),
-(5, NULL, 'Москоу2', 'унисекс2', '<p>opisanie2</p>', '2', '253', 'Светодиодное2', 'kapec2', '1', 30003, 100003, 80003, 3223, 'B2', 5003, 2334, 454, 15, 213.1133, 23.444, 17, 17, 19, '2024-07-17 19:02:23', '2024-07-17 19:22:42', 'Moscow2', 'unisex2', '<p>description2</p>', 'Svet2', 'Kobz2');
+(2, NULL, 'Москва', 'Ступино Крылова 14', '<span style=\"color: rgb(60, 60, 60); font-family: \"Open Sans\", Tahoma, Helvetica, sans-serif;\">В аренду предлагается производственно-складское помещение, расположенное в Ступинском районе. Площадь склада 6 300 кв. м, с возможностью увеличения до 12 000 кв.м. Возможно деление на блоки от 3 000 кв. м. Помещение свободно и доступно на аренду.</span>', '1', '6х30', 'Светодиодное', 'Спринклерная', '1', 12000, 6300, 6300, 6300, 'B', 9.5, 92, 8, 15, 54.899576, 38.060163, 16, 18, 23, '2024-07-14 15:24:16', '2024-07-19 19:33:09', NULL, NULL, NULL, NULL, NULL),
+(3, NULL, NULL, 'М-10 Радумля', '<span style=\"color: rgb(60, 60, 60); font-family: \"Open Sans\", Tahoma, Helvetica, sans-serif;\">Склад расположен на пересечении Ленинградского шоссе и А-107 (\"бетонка\"). Возможна аренда блоков от 10 000 кв. м. Доступ - октябрь 2024 г.</span>', '1', '12x24', 'Светодиодное', NULL, '1', 16800, 21293, 17173, 17173, 'A', 12, 32, 8, 15, 56.07331, 37.133592, 16, 20, 19, '2024-07-14 15:23:16', '2024-07-19 19:53:23', NULL, NULL, NULL, NULL, NULL),
+(4, NULL, NULL, 'ИП Никольское', '<span style=\"color: rgb(60, 60, 60); font-family: \"Open Sans\", Tahoma, Helvetica, sans-serif;\">Склад расположен на севере Московской области недалеко от ЦКАД. В аренду предлагается площади от 10 000 кв. м. Доступ - август 2024 г.</span>', '1', '12x24', 'Светодиодное', NULL, '1', 14000, 123, 52728, 52728, 'A', 12.5, 35, 8, 15, 56.144781, 37.375455, 16, 17, 19, '2024-07-14 15:24:16', '2024-07-19 19:59:35', NULL, NULL, NULL, NULL, NULL),
+(5, NULL, 'Москва', 'Подольских Курсантов', '<p><span style=\"color: rgb(60, 60, 60); font-family: \"Open Sans\", Tahoma, Helvetica, sans-serif;\">Объект общей площадью - 15 754, 5 кв. м расположен на южном направлении, внутри МКАД.К продаже предлагается готовый стабильный арендный бизнес - реновированный городской склад. Склад полностью сдан в аренду.остью сдан в аренду.</span></p>', '1', '12х18', 'Светодиодное', 'Гидрантная/ Спринклерная', '2', 70000, 15754, 15754, 15754, 'A', 11, 0, 8, 15, 55.595755, 37.627831, 15, 23, 23, '2024-07-17 19:02:23', '2024-07-19 19:16:06', NULL, NULL, '<p><br></p>', NULL, NULL),
+(6, NULL, NULL, NULL, NULL, '1', '30x6', NULL, NULL, '1', 2500, NULL, NULL, NULL, NULL, 12.4, NULL, 6, 15, 55.612319, 36.842775, 16, 22, 25, '2024-07-19 20:29:27', '2024-07-19 20:31:26', NULL, 'Chascy Logistic Park', NULL, NULL, 'Sprinkler');
 
 -- --------------------------------------------------------
 
@@ -527,7 +538,7 @@ ALTER TABLE `high_ways`
 -- AUTO_INCREMENT для таблицы `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT для таблицы `mailling_users`
@@ -551,7 +562,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT для таблицы `objects`
 --
 ALTER TABLE `objects`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `personal_access_tokens`

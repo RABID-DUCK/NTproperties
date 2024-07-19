@@ -22,8 +22,8 @@ class ObjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required',
-            'description' => 'required',
+            'title' => 'nullable',
+            'description' => 'nullable',
             'city' => 'nullable',
             'type_room' => 'required',
             'column_pitch' => 'nullable',
