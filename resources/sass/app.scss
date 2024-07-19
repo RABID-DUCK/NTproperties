@@ -703,6 +703,11 @@ footer{
         display: flex;
     }
 }
+
+
+.nav-link {
+    text-transform: uppercase !important;
+}
 @media (min-device-width: 1025px) and (max-device-width: 1399px) {
 
     .filter-wrapper {
