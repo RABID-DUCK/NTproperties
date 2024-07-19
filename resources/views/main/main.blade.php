@@ -101,7 +101,7 @@
                                 <div class="news-item">
                                     <img src="{{asset('storage/images/' . $item->image)}}" alt="{{$item->img}}">
                                     <div class="text">
-                                        <span class="date">{{$item->created_at->format('m.d.y')}}</span><br>
+                                        <span class="date">{{$item->created_at->format('m.d.y')}}</span>
                                         <h4>{{app()->currentLocale() == 'RU' ? $item->title : $item->eng_title}}</h4>
                                     </div>
                                     <p>{!! substr(strip_tags(app()->currentLocale() == 'RU' ? $item->description : $item->eng_description), 0, 150) !!}...</p>
