@@ -25,7 +25,13 @@
             @if($reviews->file !== null)
                 <a href="{{asset('/storage/files/'.$reviews->file)}}" style="font-size: 40px; color: darkorange;" download>
                     <i class="fa-solid fa-file-powerpoint"></i>
+                    {{app()->currentLocale() == 'RU' ? preg_replace('/\s*\(.*\)$/', '', $reviews->title) : preg_replace('/\s*\(.*\)$/', '', $reviews->eng_title)}}
                 </a>
+
+                @if($humanReadableFileSize !== null)
+                    <span style="font-size: 12px; color: gray">{{ $humanReadableFileSize }}</span>
+                @endif
+
             @endif
                  <hr>
                  <a href="{{route('reviews')}}">{{__('main.back')}}</a>
