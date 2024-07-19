@@ -311,6 +311,9 @@
   .objects .list {
     grid-template-columns: 1fr 1fr;
   }
+  .objects .flex .item img {
+    max-width: 200px;
+  }
 }
 @media (min-device-width: 320px) and (max-device-width: 480px) {
   .objects .filter-wrapper .filter-window .filter-content .buttons {
@@ -327,5 +330,8 @@
   }
   .objects .list {
     grid-template-columns: 1fr;
+  }
+  .objects .flex .item {
+    flex-direction: column;
   }
 }

@@ -18,6 +18,7 @@
             <div class="list">
                 @if(isset($news) && $news->isNotEmpty())
                     @foreach($news as $item)
+                        @if(app()->currentLocale() == 'RU')
                         <a href="{{route('news-single', $item->id)}}" class="item">
                             <img src="{{asset('/storage/images/'.$item->image)}}"/>
                             <div class="text">
@@ -27,6 +28,17 @@
                                 <span class="more">{{__('main.read_all')}}</span>
                             </div>
                         </a>
+                        @elseif(app()->currentLocale() == 'EN' && $item->eng_title !== null)
+                            <a href="{{route('news-single', $item->id)}}" class="item">
+                                <img src="{{asset('/storage/images/'.$item->image)}}"/>
+                                <div class="text">
+                                    <p class="date">{{$item->created_at->format('d.m.Y')}}</p>
+                                    <h3>{{app()->currentLocale() == 'RU' ? $item->title : $item->eng_title}}</h3>
+                                    <p>{!! substr(strip_tags(app()->currentLocale() == 'RU' ? $item->description : $item->eng_description), 0, 400) !!}...</p>
+                                    <span class="more">{{__('main.read_all')}}</span>
+                                </div>
+                            </a>
+                        @endif
                     @endforeach
                 @endif
             </div>
@@ -39,6 +51,8 @@
             @if($reviews->isNotEmpty())
             <div class="list">
                 @foreach($reviews as $review)
+                    @if(app()->currentLocale() == 'RU')
+
                     <a href="{{route('reviews.single', $review->id)}}" class="item">
                         <img src="{{asset('storage/images/' . $review->image)}}"/>
                         <div class="text">
@@ -47,6 +61,16 @@
                             <span class="more">{{__('main.read_all')}}</span>
                         </div>
                     </a>
+                    @elseif(app()->currentLocale() == 'EN' && $item->eng_title !== null)
+                        <a href="{{route('reviews.single', $review->id)}}" class="item">
+                            <img src="{{asset('storage/images/' . $review->image)}}"/>
+                            <div class="text">
+                                <h3>{{app()->currentLocale() == 'RU' ? $review->title : $review->eng_title}}</h3>
+                                <p>{!! substr(strip_tags(app()->currentLocale() == 'RU' ? $review->description : $review->eng_description), 0, 350) !!}...</p>
+                                <span class="more">{{__('main.read_all')}}</span>
+                            </div>
+                        </a>
+                    @endif
                 @endforeach
             </div>
             @endif

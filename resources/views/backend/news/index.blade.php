@@ -30,7 +30,7 @@
                 <tr>
                     <th scope="row">{{ $new->id }}</th>
                     <td>{{ $new->title }}</td>
-                    <td>{!! \Illuminate\Support\Str::limit($new->description, 400) !!}</td>
+                    <td>{!! substr(strip_tags($new->description), 0, 150) !!}</td>
                     <td><img src="/storage/images/{{ $new->image }}" alt="{{ $new->image }}" width="100" height="70"></td>
                     <td>{{ $new->created_at }}</td>
                     <td class="d-flex">

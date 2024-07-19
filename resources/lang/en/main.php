@@ -14,7 +14,7 @@ return [
     'main' => 'Main',
     'email' => 'info@ntproperties.ru',
     'copyright' => 'NT Properties. All rights reserved.',
-    'subscribe_email' => 'Подписка на рассылку',
+    'subscribe_email' => 'Subscribe to the newsletter',
     'subscribe_email_text' => 'Feel free to subscribe in case you are willing to be kept up to date with fresh news and beneficial offers',
     'placeholder_email' => 'Your Email',
     'subscribe_button' => 'Subscribe',

@@ -431,7 +431,6 @@ a {
 }
 .news-wrapper .news-item {
   width: 350px;
-  height: 510px;
 }
 .news-wrapper .news-item h4, .news-wrapper .news-item p {
   font-size: 14px;
@@ -558,6 +557,10 @@ footer .navbar-nav li a:hover {
 }
 .filter-wrapper .button {
   display: flex;
+}
+
+.nav-link {
+  text-transform: uppercase !important;
 }
 
 @media (min-device-width: 1025px) and (max-device-width: 1399px) {
@@ -824,7 +827,7 @@ footer .navbar-nav li a:hover {
     grid-template-columns: 1fr;
   }
   .carousel {
-    height: 700px;
+    height: 750px;
   }
   .filter-wrapper .filter-2 .form-control {
     border-right: 1px solid #ced4da;
