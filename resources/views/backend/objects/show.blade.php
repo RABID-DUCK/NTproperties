@@ -142,7 +142,7 @@
                 <label class="custom-file-label" for="customFile">Выберите файлы</label>
             </div>
             @if($images->isNotEmpty())
-                <div class="d-flex">
+                <div class="d-flex flex-wrap">
                     @foreach($images as $image)
                         <div class="position-relative" style="width: 200px; margin-right: 10px;">
                             <img src="/storage/images/{{$image->name}}" alt="Изображение объекта" width="200" height="100">
@@ -167,7 +167,7 @@
 
             <div class="modal-footer">
                 <a class="btn btn-danger" href="{{route('admin.objects')}}">Назад</a>
-                <button type="submit" class="btn btn-primary">Создать</button>
+                <button type="submit" class="btn btn-primary">Редактировать</button>
             </div>
         </form>
     </div>

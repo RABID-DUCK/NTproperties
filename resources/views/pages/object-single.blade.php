@@ -96,7 +96,7 @@
                 </div>
                 <div class="price">
                     <span>{{$object->price_type == 1 ? __('main.type_room_1') : __('main.type_room_2')}}</span>
-                    <p>{{$object->price}} &#8381;/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
+                    <p>{{ number_format($object->price, 0, '', ' ') }} &#8381;/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
                 </div>
             </div>
         </div>
@@ -122,13 +122,13 @@
                 <p><span>{{__('main.class_house')}} :</span> {{$object->class_house}}</p>
             @endif
             @if($object->all_square)
-                <p><span>{{__('main.class_house')}}, {{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}} :</span> {{$object->all_square}}</p>
+                <p><span>{{__('main.class_house')}}, {{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}} :</span> {{ number_format($object->all_square, 0, '', ' ') }}</p>
             @endif
             @if($object->free_square)
-                <p><span>{{__('main.all_square')}}, {{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}} :</span> {{$object->free_square}}</p>
+                <p><span>{{__('main.all_square')}}, {{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}} :</span> {{ number_format($object->free_square, 0, '', ' ')}}</p>
             @endif
             @if($object->min_square)
-                <p><span>{{__('main.min_block')}}, {{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}} :</span> {{$object->min_square}}</p>
+                <p><span>{{__('main.min_block')}}, {{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}} :</span> {{ number_format($object->min_square, 0, '', ' ')}}</p>
             @endif
             <ul>
                 @if($object->height)
@@ -164,7 +164,7 @@
     ymaps.ready(function () {
         var map = new ymaps.Map("map", {
             center: [{{$object->x_coord}}, {{$object->y_coord}}],//сюда потом добавить широту и долготу с бд
-            zoom: 16
+            zoom: {{$object->zoom}}
         });
 
         var placemark = new ymaps.Placemark([{{$object->x_coord}}, {{$object->y_coord}}], {}, {

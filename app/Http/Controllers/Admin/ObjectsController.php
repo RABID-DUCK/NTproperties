@@ -47,7 +47,7 @@ class ObjectsController extends Controller
     }
 
     public function show(Objects $object){
-        $images = Images::query()->where('model_id', $object['id'])->where('type_model', Objects::class)->get();
+        $images = Images::query()->where('model_id', $object['id'])->where('type_model', Objects::class)->get()->sortByDesc('id');
         $directions = Directions::all();
         $highways = Highways::all();
         $regions = Regions::all();
