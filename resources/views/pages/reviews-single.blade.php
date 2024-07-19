@@ -21,6 +21,12 @@
                         </p>
                     </div>
                  </div>
+
+            @if($reviews->file !== null)
+                <a href="{{asset('/storage/files/'.$reviews->file)}}" style="font-size: 40px; color: darkorange;" download>
+                    <i class="fa-solid fa-file-powerpoint"></i>
+                </a>
+            @endif
                  <hr>
                  <a href="{{route('reviews')}}">{{__('main.back')}}</a>
         </div>
