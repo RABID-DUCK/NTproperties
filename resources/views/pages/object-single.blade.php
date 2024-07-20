@@ -20,12 +20,12 @@
         <h1>{{app()->currentLocale() == 'RU' ? $object->title : $object->eng_title}}</h1>
 
         @if(!empty($object->allImages($object->id)))
-        <div class="slider">
-        	<ul>
+        <div id="open" class="slider">
+        	<ul id="slider-1">
                 @foreach($object->allImages($object->id) as $image)
                     <li>
                         <a href="#">
-                            <img src="{{asset('storage/images/' . $image->name)}}" alt="{{app()->currentLocale() == 'RU' ? $object->title : $object->eng_title}}" />
+                            <img class="myImage" src="{{asset('storage/images/' . $image->name)}}" alt="{{app()->currentLocale() == 'RU' ? $object->title : $object->eng_title}}" />
                         </a>
                     </li>
                 @endforeach
@@ -154,6 +154,27 @@
             <div id="map" style="width: 100%; height: 500px"></div>
         </div>
         @endif
+
+        @if(!empty($object->allImages($object->id)))
+        <div id="modal" class='show'>
+            <span class="close">&times;</span>
+            <button id="slider-prev"></button>
+            <div class="slider" >
+
+                <ul id="slider-2">
+                    @foreach($object->allImages($object->id) as $image)
+                        <li>
+                            <a href="#">
+                                <img class="myImage" src="{{asset('storage/images/' . $image->name)}}" alt="{{app()->currentLocale() == 'RU' ? $object->title : $object->eng_title}}" />
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+
+            </div>
+            <button id="slider-next"></button>
+        </div>
+        @endif
     </div>
 </div>
 
@@ -183,12 +204,54 @@
     });
 </script>
 @endif
-
 <script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://snipp.ru/cdn/bxslider/4.2.14/dist/jquery.bxslider.min.js"></script>
 <script>
+   var open = document.getElementById("open")
+   var modal = document.getElementById("modal")
+
+
+    open.addEventListener("click", () => {
+          modal.classList.remove("show")
+          if(modal.classList.length === 0) {
+
+          $('#slider-2').bxSlider({
+            pager: false,
+            controls: true,
+            auto: false,
+            minSlides: 1,
+            maxSlides: 1,
+            nextSelector: '#slider-next',
+              prevSelector: '#slider-prev',
+              nextText:   `
+                <svg width="32px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 7L15 12L10 17" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              `,
+                prevText: `
+                    <svg width="32px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(180)">
+
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+
+                    <g id="SVGRepo_iconCarrier"> <path d="M10 7L15 12L10 17" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </g>
+
+                    </svg>
+
+
+                `
+        });
+        }
+    })
+    var span = document.getElementsByClassName("close")[0];
+    span.onclick = function() {
+        modal.classList.add("show");
+    }
+</script>
+<script>
 $(document).ready(function(){
-	$('.slider ul').bxSlider({
+	$('#slider-1').bxSlider({
 		pager: true,
 		controls: false,
 		auto: true,

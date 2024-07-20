@@ -36,7 +36,6 @@
           text-decoration: underline dotted #ff6d12;
   text-underline-offset: 3px;
 }
-
 @media (min-device-width: 320px) and (max-device-width: 480px) {
   .news-single {
     padding: 0 0 50px;

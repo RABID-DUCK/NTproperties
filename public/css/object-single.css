@@ -124,6 +124,7 @@
 }
 .object .slider .bx-controls {
   position: absolute;
+  z-index: 1;
   top: 0;
   left: 0;
   right: 0;
@@ -156,6 +157,45 @@
 }
 .object .slider .bx-pager-item a:hover {
   background: #ececec;
+}
+.object .show {
+  display: none !important;
+}
+.object #modal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.object #modal #slider-next, .object #modal #slider-prev {
+  border: none;
+  background: none;
+  color: white;
+}
+.object #modal #slider-next a, .object #modal #slider-prev a {
+  color: white;
+}
+.object #modal .slider {
+  width: 80%;
+}
+.object #modal .slider .bx-wrapper {
+  height: 100%;
+}
+.object .close {
+  position: absolute;
+  z-index: 100000;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 @media (min-device-width: 481px) and (max-device-width: 768px) {
