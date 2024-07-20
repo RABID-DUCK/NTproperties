@@ -3,11 +3,11 @@
 @section('content')
     <div id="carouselExampleInterval" class="carousel slide position-relative" data-bs-ride="carousel">
         <div class="carousel-inner h-100">
-            <div class="carousel-item active h-100" data-bs-interval="100000000000000000000">
+            <div class="carousel-item active h-100" data-bs-interval="10000">
                 <img src="{{asset('img/slider-1.jpg')}}" class="d-block w-100 h-100" alt="слайдер 1">
                 @include('components.UI.filter-window')
             </div>
-            <div class="carousel-item h-100" data-bs-interval="10000000000000000000000">
+            <div class="carousel-item h-100" data-bs-interval="10000">
                 <img src="{{asset('img/slider-2.jpg')}}" class="d-block w-100 h-100" alt="слайдер 2">
                 @include('components.UI.filter-window', compact('regions', 'directions', 'highways'))
             </div>
