@@ -422,6 +422,25 @@ a {
   -webkit-transform: rotate(45deg);
 }
 
+footer .icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+footer .icons svg {
+  transition: all 0.3s ease;
+}
+footer #vk:hover svg {
+  fill: #0077FF;
+}
+footer #inst:hover svg {
+  fill: #833AB4;
+}
+footer #facebook:hover svg {
+  fill: #0165E1;
+}
+
 .news-wrapper {
   margin-top: 60px;
 }
