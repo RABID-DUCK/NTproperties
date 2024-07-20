@@ -153,7 +153,7 @@
         <div id="list" class="list list-objects">
             @if($objects->isNotEmpty())
                 @foreach($objects as $object)
-                    @if(app()->currentLocale() == 'RU')
+                    @if(app()->currentLocale() == 'RU' && $object->title !== null)
                     <a href="{{route('objects.show', $object->id)}}" class="item item-object" data-price="{{ $object->price }}">
                         @if(!empty($object->getImages($object->id)))
                             <img src="{{asset('storage/images/' . $object->getImages($object->id)->name)}}" alt="{{app()->currentLocale() == 'RU' ? $object->title : $object->eng_title}}" />
@@ -258,7 +258,7 @@
             <div class="list">
                 @if($news->isNotEmpty())
                     @foreach($news as $item)
-                        @if(app()->currentLocale() == 'RU')
+                        @if(app()->currentLocale() == 'RU' && $item->title !== null)
                         <a href="{{route('news-single', $item->id)}}" class="item">
                             <img src="{{asset('storage/images/' . $item->image)}}" alt="{{$item->img}}" />
                              <div class="text">
@@ -287,7 +287,7 @@
             <div class="list">
                 @if($reviews->isNotEmpty())
                     @foreach($reviews as $review)
-                        @if(app()->currentLocale() == 'RU')
+                        @if(app()->currentLocale() == 'RU' && $review->title !== null)
                         <a href="{{route('reviews.single', $review->id)}}" class="item">
                             <img src="{{asset('storage/images/' . $review->image)}}"/>
                              <div class="text">

@@ -38,7 +38,7 @@
          <div class="list">
              @if($objects->isNotEmpty())
                  @foreach($objects as $object)
-                   @if(app()->currentLocale() == 'RU')
+                   @if(app()->currentLocale() == 'RU' && $object->title !== null)
                          <a href="{{route('objects.show', $object->id)}}" class="item">
                              @if(!empty($object->getImages($object->id)))
                                  <img src="{{asset('storage/images/' . $object->getImages($object->id)->name)}}" alt="{{app()->currentLocale() == 'RU' ? $object->title : $object->eng_title}}" />

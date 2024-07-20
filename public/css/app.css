@@ -930,4 +930,7 @@ footer .navbar-nav li a:hover {
     gap: 10px;
     text-align: center;
   }
+  footer .nav-logo {
+    width: 100%;
+  }
 }

@@ -14,7 +14,13 @@ use Illuminate\Http\Request;
 class ObjectsController extends Controller
 {
     public function index(){
-        $objects = Objects::query()->latest()->paginate(10);
+        $objects = Objects::query()->latest();
+
+        if (app()->currentLocale() == 'EN') {
+            $objects = $objects->where('eng_title', '<>', '')->latest();
+        }
+
+        $objects = $objects->paginate(12);
         $regions = Regions::all();
         $directions = Directions::all();
         $highways = Highways::all();
@@ -69,6 +75,9 @@ class ObjectsController extends Controller
             })
             ->when($data['distance_max'], function ($query, $distance_max) {
                 return $query->where('distance_mkad', '<=', $distance_max);
+            })
+            ->when(app()->currentLocale() == 'EN', function ($query) {
+                return $query->where('eng_title', '<>', '');
             })
             ->latest()->paginate(12);
 
