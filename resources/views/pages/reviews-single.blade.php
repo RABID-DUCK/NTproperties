@@ -23,7 +23,7 @@
                  </div>
 
             @if($reviews->file !== null)
-                <a href="{{asset('/storage/files/'.$reviews->file)}}" style="font-size: 40px; color: darkorange;" download>
+                <a href="{{asset('/storage/files/'.$reviews->file)}}" class="files" download>
                     <i class="fa-solid fa-file-powerpoint"></i>
                     {{app()->currentLocale() == 'RU' ? preg_replace('/\s*\(.*\)$/', '', $reviews->title) : preg_replace('/\s*\(.*\)$/', '', $reviews->eng_title)}}
                 </a>
