@@ -5,13 +5,16 @@
   position: static;
   transform: none;
   margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
 }
 .objects .filter-wrapper .filter-window {
   position: static;
   max-width: 100%;
 }
 .objects .filter-wrapper .filter-window .filter-content {
-  width: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
   padding: 20px;
   background: #f5f7f8;
   border-radius: 2px;
