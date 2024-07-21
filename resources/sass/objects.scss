@@ -324,9 +324,18 @@
     }
 }
 
-//@media (min-device-width: 1025px) and (max-device-width: 1200px) {
-//
-//}
+@media (min-device-width: 700px) and (max-device-width: 1400px) {
+    .objects {
+        .filter-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            .filter-window {
+                max-width: 100%;
+            }
+        }
+    }
+}
 //
 //@media (min-device-width: 769px) and (max-device-width: 1024px) {
 //

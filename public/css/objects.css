@@ -297,6 +297,16 @@
   align-items: flex-start;
 }
 
+@media (min-device-width: 700px) and (max-device-width: 1400px) {
+  .objects .filter-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .objects .filter-wrapper .filter-window {
+    max-width: 100%;
+  }
+}
 @media (min-device-width: 481px) and (max-device-width: 768px) {
   .objects .filter-wrapper .filter-window .filter-content .buttons {
     flex-direction: column;
