@@ -11,8 +11,7 @@
   max-width: 100%;
 }
 .objects .filter-wrapper .filter-window .filter-content {
-  width: -moz-fit-content;
-  width: fit-content;
+  width: 100%;
   padding: 20px;
   background: #f5f7f8;
   border-radius: 2px;
