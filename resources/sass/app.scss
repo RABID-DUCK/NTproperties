@@ -365,6 +365,17 @@ a{
     top: 15%;
     left: 30%;
 
+    .form-select {
+        &:focus {
+            border-color: #ff6d12 !important;
+            outline: 0!important;
+            box-shadow: 0 0 0 .25rem rgba(255, 109, 18, .25) !important;
+        }
+        option::selection {
+            background: #ff6d12;
+        }
+    }
+
     #basic-addon2 {
         background: white;
         border-left: none;
@@ -1053,7 +1064,11 @@ footer{
     .carousel {
         height: 750px;
     }
+
+
     .filter-wrapper {
+
+
         .filter-2 {
             .form-control {
                 border-right: 1px solid #ced4da;

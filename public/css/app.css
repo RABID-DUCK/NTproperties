@@ -270,6 +270,17 @@ a {
   top: 15%;
   left: 30%;
 }
+.filter-wrapper .form-select:focus {
+  border-color: #ff6d12 !important;
+  outline: 0 !important;
+  box-shadow: 0 0 0 0.25rem rgba(255, 109, 18, 0.25) !important;
+}
+.filter-wrapper .form-select option::-moz-selection {
+  background: #ff6d12;
+}
+.filter-wrapper .form-select option::selection {
+  background: #ff6d12;
+}
 .filter-wrapper #basic-addon2 {
   background: white;
   border-left: none;
