@@ -910,6 +910,9 @@ footer .navbar-nav li a:hover {
   .mailing-wrapper .mailing-content .mailing-write button {
     margin-left: 0;
   }
+  .news-wrapper {
+    margin-top: 0px;
+  }
   .news-wrapper a {
     font-size: 24px;
   }

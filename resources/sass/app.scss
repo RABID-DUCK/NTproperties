@@ -1059,6 +1059,7 @@ footer{
 
     .main_object {
         .list {
+            //width: 100%;
             grid-template-columns: 1fr;
         }
     }
@@ -1129,6 +1130,7 @@ footer{
     }
 
     .news-wrapper {
+        margin-top: 0px;
         a {
             font-size: 24px;
         }
