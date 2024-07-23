@@ -18,6 +18,7 @@
 .bread {
   padding: 30px 0 10px;
   display: flex;
+  flex-wrap: wrap;
   align-items: end;
   gap: 10px;
 }
