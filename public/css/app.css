@@ -855,6 +855,7 @@ footer .navbar-nav li a:hover {
     max-width: 320px;
   }
   .main_object .list {
+    width: 100%;
     grid-template-columns: 1fr;
   }
   .carousel {
