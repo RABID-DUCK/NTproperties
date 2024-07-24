@@ -40,16 +40,16 @@
                         line-height: 22px;
                         margin: 0;
                     }
-                    p:not(.date) {
-                        height: 190px;
-                    }
+                    //p:not(.date) {
+                    //    height: 190px;
+                    //}
                     .more {
                         margin-left: 28px;
                     }
                 }
                 img {
                     max-width: 170px;
-                    object-fit: cover;
+                    object-fit: contain;
                     width: 100%;
                 }
                 transition: all .3s ease;

@@ -42,8 +42,8 @@
 }
 .news .list .item img {
   max-width: 170px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
   width: 100%;
 }
 .news .list .item:hover span {
