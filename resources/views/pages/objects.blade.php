@@ -215,7 +215,7 @@
 
                                     <strong>{{__('main.price_select_2')}}:</strong> {{ number_format($object->all_square, 0, '', ' ') }} {{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
                                 <hr>
-                                <div class="price">
+                                <div class="price price-object">
                                     <h3>{{$object->type_room == 1 ? __("main.type_room_1") : __("main.type_room_2")}}</h3>
                                     <p>{{ number_format($object->price, 0, '', ' ') }} ₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
                                 </div>
@@ -373,23 +373,24 @@
 
         priceInputs.forEach(function(priceInput) {
             const priceElement = priceInput.querySelector('p');
-
-            const priceText = priceElement.textContent;
-            const price = parseInt(priceText);
-            const square = priceElement.dataset.square;
-            const price_object = parseInt(priceElement.dataset.price);
-
-            let result;
-            if (selectedValue === 'main') {
-                result = price * square;
-            } else {
-                result = price_object;
-            }
-
-            const currency = '₽';
             const appLocale = `{{app()->currentLocale()}}`;
-            const unit = selectedValue === 'main' ? (appLocale === 'RU' ? 'общая' : 'total') : (appLocale === 'RU' ? 'м²' : 'sq.m.');
-            priceElement.innerHTML = `${result.toLocaleString()} ${currency}/${unit}`;
+
+            if(appLocale === 'RU'){
+                const price = parseInt(priceElement.dataset.price);
+                const square = priceElement.dataset.square;
+                const price_object = parseInt(priceElement.dataset.price);
+
+                let result;
+                if (selectedValue === 'main') {
+                    result = price * square;
+                } else {
+                    result = price_object;
+                }
+
+                const currency = '₽';
+                const unit = selectedValue === 'main' ? (appLocale === 'RU' ? 'общая' : 'total') : (appLocale === 'RU' ? 'м²' : 'sq.m.');
+                priceElement.innerHTML = `${result.toLocaleString()} ${currency}/${unit}`;
+            }
         });
     });
 </script>
