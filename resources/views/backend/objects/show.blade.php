@@ -25,6 +25,11 @@
             </div>
 
             <div>
+                <label for="recipient-name" class="col-form-label">Дата создания</label>
+                <input type="datetime-local" class="form-control" name="date" value="{{$object->created_at}}">
+            </div>
+
+            <div>
                 <label for="recipient-name" class="col-form-label">Название англ</label>
                 <input type="text" class="form-control" name="eng_title" value="{{$object->eng_title}}">
             </div>

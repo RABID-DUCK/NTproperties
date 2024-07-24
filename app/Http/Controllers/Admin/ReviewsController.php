@@ -19,10 +19,12 @@ class ReviewsController extends Controller
         $data = $request->validated();
 
         if($data){
-            $data['image'] = $request->file('image');
-            $imageName = $data['image']->getClientOriginalName();
-            $data['image']->storeAs('images', $imageName, 'public');
-            $data['image'] = $imageName;
+            if($request->file('image')){
+                $data['image'] = $request->file('image');
+                $imageName = $data['image']->getClientOriginalName();
+                $data['image']->storeAs('images', $imageName, 'public');
+                $data['image'] = $imageName;
+            }
 
             if($request->file('file')){
                 $data['file'] = $request->file('file');
@@ -30,6 +32,13 @@ class ReviewsController extends Controller
                 $data['file']->storeAs('files', $fileName, 'public');
                 $data['file'] = $fileName;
             }
+
+            if($data['date'] !== null){
+                $data['created_at'] = $data['date'];
+            }else{
+                $data['created_at'] = now();
+            }
+            unset($data['date']);
 
             Reviews::query()->create($data);
         }
@@ -56,6 +65,13 @@ class ReviewsController extends Controller
                 $data['file']->storeAs('files', $fileName, 'public');
                 $data['file'] = $fileName;
             }
+
+            if($data['date'] !== null){
+                $data['created_at'] = $data['date'];
+            }else{
+                $data['created_at'] = now();
+            }
+            unset($data['date']);
 
             Reviews::query()->where('id', $reviews->id)->update($data);
         }

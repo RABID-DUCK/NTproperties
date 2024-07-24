@@ -24,12 +24,23 @@ class ObjectsController extends Controller
 
     public function store(ObjectRequest $request){
         $data = $request->validated();
+        $images = null;
+
+        if($data['date'] !== null){
+            $data['created_at'] = $data['date'];
+        }else{
+            $data['created_at'] = now();
+        }
+
         if($request->file('images')){
             $images = $request->file('images');
-            unset($data['images']);
+        }
+        unset($data['date'], $data['images']);
 
-            $object = Objects::create($data);
+        $object = Objects::create($data);
+        $id = $object->id;
 
+        if($request->file('images')){
             foreach($images as $image){
                 $imageName = $image->getClientOriginalName();
                 $image->storeAs('images', $imageName, 'public');
@@ -37,10 +48,9 @@ class ObjectsController extends Controller
                 Images::create([
                     'name' => $imageName,
                     'type_model' => Objects::class,
-                    'model_id' => $object['id'],
+                    'model_id' => $id,
                 ]);
             }
-
         }
 
         return redirect()->route('admin.objects');
@@ -61,6 +71,13 @@ class ObjectsController extends Controller
         $images = $request->file('images');
         unset($data['images']);
 
+        if($data['date'] !== null){
+            $data['created_at'] = $data['date'];
+        }else{
+            $data['created_at'] = now();
+        }
+        unset($data['date']);
+
         $object = Objects::query()->where('id', $object['id'])->first();
         $object->update($data);
         $object->save();
@@ -76,7 +93,6 @@ class ObjectsController extends Controller
                     'model_id' => $object['id'],
                 ]);
             }
-
         }
 
         return redirect()->route('admin.objects');

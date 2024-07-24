@@ -28,6 +28,7 @@ class NewsRequest extends FormRequest
             'eng_title' => 'nullable',
             'eng_description' => 'nullable',
             'file' => 'nullable|file',
+            'date' => 'nullable|date',
         ];
     }
 }

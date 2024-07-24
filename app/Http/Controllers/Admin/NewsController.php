@@ -20,10 +20,19 @@ class NewsController extends Controller
         $data = $request->validated();
 
         if($data){
-            $data['image'] = $request->file('image');
-            $imageName = $data['image']->getClientOriginalName();
-            $data['image']->storeAs('images', $imageName, 'public');
-            $data['image'] = $imageName;
+            if($request->file('image')){
+                $data['image'] = $request->file('image');
+                $imageName = $data['image']->getClientOriginalName();
+                $data['image']->storeAs('images', $imageName, 'public');
+                $data['image'] = $imageName;
+            }
+
+            if($data['date'] !== null){
+                $data['created_at'] = $data['date'];
+            }else{
+                $data['created_at'] = now();
+            }
+
             News::query()->create($data);
         }
 
@@ -42,6 +51,13 @@ class NewsController extends Controller
             }else{
                 $data['image'] = $news->image;
             }
+
+            if($data['date'] !== null){
+                $data['created_at'] = $data['date'];
+            }else{
+                $data['created_at'] = now();
+            }
+            unset($data['date']);
 
             News::query()->where('id', $news->id)->update($data);
         }
