@@ -19,6 +19,7 @@ return [
     'placeholder_email' => 'Your Email',
     'subscribe_button' => 'Subscribe',
     'type_room_1' => 'Lease',
+    'type_room_1_1' => 'Lease per year',
     'type_room_2' => 'Sale',
     'type_room_3' => 'Industrial land',
     'type_room_4' => 'Warehouse',
@@ -56,6 +57,7 @@ return [
     'specifications' => 'Specifications',
     'class_house' => 'Room class',
     'all_square' => 'All square',
+    'free_square' => 'Free square',
 
     'min_block' => 'Minimum block',
     'height' => 'height',

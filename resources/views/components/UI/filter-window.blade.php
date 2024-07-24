@@ -25,9 +25,9 @@
                     <input type="number" class="form-control" placeholder="20 000" name="price_max">
                 </div>
                 <div class="input-group-append">
-                    <select class="form-select" id="inputGroupSelect01">
-                        <option selected>{!! __('main.price_select_1') !!}</option>
-                        <option value="1">{{__('main.price_select_2')}}</option>
+                    <select class="form-select" id="inputGroupSelect01" name="price_type2">
+                        <option value="metr" selected>{!! __('main.price_select_1') !!}</option>
+                        <option value="main">{{__('main.price_select_2')}}</option>
                     </select>
                 </div>
             </div>

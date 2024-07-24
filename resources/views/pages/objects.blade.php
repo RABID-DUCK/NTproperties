@@ -21,7 +21,7 @@
                             <button type="button" class="btn d-flex align-items-center active" id="rentBtn"><i class="fas fa-check" style="margin-right: 10px;"></i> {{__('main.type_room_1')}}</button>
                             <button type="button" class="btn d-flex align-items-center" id="saleBtn" style="margin-left: 10px; margin-right: 10px"><i class="fas fa-times" style="margin-right: 10px;"></i> {{__('main.type_room_2')}}</button>
                         </div>
-                        <input type="hidden" name="price_type" id="price_type">
+                        <input type="hidden" name="price_type" id="price_type" value="1">
                         <select class="form-select" name="type_room" id="">
                             <option value="1">{{__('main.type_room_3')}}</option>
                             <option value="2">{{__('main.type_room_4')}}</option>
@@ -37,12 +37,12 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon2">-</span>
                             </div>
-                            <input type="number" class="form-control" placeholder="20 000" name="price_max">
+                            <input type="number" class="form-control" placeholders="20 000" name="price_max">
                         </div>
                         <div class="input-group-append">
-                            <select class="form-select" id="inputGroupSelect01">
-                                <option selected>{!! __('main.price_select_1') !!}</option>
-                                <option value="1">{{__('main.price_select_2')}}</option>
+                            <select class="form-select" id="inputGroupSelect01" name="price_type2">
+                                <option value="metr" selected>{!! __('main.price_select_1') !!}</option>
+                                <option value="main">{{__('main.price_select_2')}}</option>
                             </select>
                         </div>
                     </div>
@@ -120,7 +120,6 @@
                   </div>
                 </div>
             </div>
-
         </form>
 
         <div class="group">
@@ -182,7 +181,7 @@
                                 <strong>{{__('main.price_select_2')}}:</strong> {{ number_format($object->all_square, 0, '', ' ') }} {{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
                             <hr>
                             <div class="price">
-                                <h3>{{$object->type_room == 1 ? __("main.type_room_1") : __("main.type_room_2")}}</h3>
+                                <h3>{{$object->type_room == 1 ? __("main.type_room_1_1") : __("main.type_room_2")}}</h3>
                                 <p>{{ number_format($object->price, 0, '', ' ') }} ₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
                             </div>
                         </div>
