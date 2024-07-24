@@ -19,6 +19,7 @@ return [
     'placeholder_email' => 'Ваш email',
     'subscribe_button' => 'Подписаться',
     'type_room_1' => 'Аренда',
+    'type_room_1_1' => 'Аренда (в год)',
     'type_room_2' => 'Продажа',
     'type_room_3' => 'Складские помещения',
     'type_room_4' => 'Промышленные участки',
@@ -53,6 +54,7 @@ return [
     'specifications' => 'Характеристики',
     'class_house' => 'Класс помещений',
     'all_square' => 'Общая площадь',
+    'free_square' => 'Свободная площадь',
 
     'min_block' => 'Минимальный блок',
     'height' => 'высота',

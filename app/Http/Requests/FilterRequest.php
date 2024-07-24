@@ -23,6 +23,7 @@ class FilterRequest extends FormRequest
     {
         return [
             'price_type' => 'nullable',
+            'price_type2' => 'nullable',
             'type_room' => 'nullable|integer',
             'price_min' => 'nullable|integer',
             'price_max' => 'nullable|integer',

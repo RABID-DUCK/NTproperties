@@ -43,6 +43,16 @@ class ObjectsController extends Controller
         $reviews = Reviews::query()->get()->sortByDesc('created_at');
 
         $objects = Objects::query()
+            ->when($data['price_type2'], function ($query) use ($data) {
+                if($data['price_min'] !== null || $data['price_max'] !== null){
+                    if($data['price_type2'] == 'metr'){
+                        return $query->where('price_type', 1)->where('price', '>=', $data['price_min'])->where('price', '<=', $data['price_max']);
+                    }else{
+                        return $query->where('price_type', 2)->where('price', '>=', $data['price_min'])->where('price', '<=', $data['price_max']);
+                    }
+                }
+
+            })
             ->when($data['price_type'], function ($query, $price_type) {
                 return $query->where('price_type', $price_type);
             })
