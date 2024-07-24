@@ -2,12 +2,12 @@
 
 return [
     'services' => 'Services',
-    'object' => 'Objects',
+    'object' => 'Properties',
     'contacts' => 'Contacts',
     'partners' => 'Partners',
     'analitick' => 'Analytics',
     'company' => 'About us',
-    'guide' => 'Guide',
+    'guide' => 'Management',
     'address' => 'Moscow, Stankolit OC,<br> Skladochnaya street, bld.1 block 1',
     'number' => '+7 495 223 35 53',
     'tel' => '+74952233553',

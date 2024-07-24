@@ -11,7 +11,7 @@
             </svg>
             </a><a href="{{route('main-page')}}"> {{__('main.main')}} <span>></span></a><a href="#"> {{__('main.object')}} <span>></span></a>
         </div>
-        <h1>{{__('main.object')}}</h1>
+        <h1>{{ app()->currentLocale() == 'EN' ? 'Objects' : 'Объекты' }}</h1>
 
         <form class="filter-wrapper" action="{{route('object-list')}}" id="filterForm">
             <div class="filter-window">
