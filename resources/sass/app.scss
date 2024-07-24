@@ -76,6 +76,7 @@ h4 {
 .container {
     max-width: 1200px;
     width: 100%;
+    padding: 0;
 }
 
 .btn-orange{
@@ -270,6 +271,10 @@ a{
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
+    h2 {
+        text-align: center;
+        width: 100%;
+    }
     .list {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -563,6 +568,18 @@ a{
 }
 
 footer {
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    ul {
+        gap: 10px;
+        li {
+            padding: 0;
+        }
+    }
     .icons {
         display: flex;
         align-items: center;
@@ -617,6 +634,7 @@ footer {
         }
     }
 }
+
 
 .about-blog{
     position: relative;
@@ -798,6 +816,13 @@ footer{
         }
     }
 }
+//@media (min-device-width: 320px)  and (max-device-width: 1080px){
+//    footer {
+//        .navbar {
+//            display: none !important;
+//        }
+//    }
+//}
 @media (min-device-width: 769px) and (max-device-width: 1024px) {
     .bread {
         a {
@@ -918,6 +943,9 @@ footer{
         }
 
     }
+    #vk {
+        display: none;
+    }
     h1 {
         font-size: 24px;
         line-height: 26px;
@@ -926,15 +954,18 @@ footer{
     .main_object {
         .list {
             grid-template-columns: 1fr;
+            width: 100%;
         }
     }
     .container {
-        max-width: 480px;
+        //max-width: 480px;
     }
     .carousel {
-        height: 700px;
+        height: 750px;
     }
     .filter-wrapper {
+
+        width: 100%;
         .filter-2 {
             .form-control {
                 border-right: 1px solid #ced4da;
@@ -952,7 +983,7 @@ footer{
             font-weight: 500;
         }
         .filter-window {
-            max-width: 480px;
+            //max-width: 320px;
 
             .filter-1 {
                 display: flex;
@@ -964,7 +995,7 @@ footer{
             top: 91%;
         }
         .btn-apply-filter {
-            left: 3%;
+            left: 23%;
             bottom: -35px;
             font-size: 14px;
         }
@@ -1028,6 +1059,14 @@ footer{
             text-align: center;
         }
     }
+    footer {
+        .icons {
+            justify-content: center;
+        }
+        .nav-logo {
+            //width: 100%;
+        }
+    }
 
 }
 
@@ -1035,6 +1074,22 @@ footer{
     .filter-wrapper {
         .btn-apply-filter {
             left: 17%;
+        }
+    }
+
+}
+@media (max-device-width: 480px) and (min-device-width: 451px) {
+    .filter-wrapper {
+        .btn-apply-filter {
+            left: 25% !important;
+        }
+    }
+
+}
+@media (max-device-width: 450px) and (min-device-width: 410px) {
+    .filter-wrapper {
+        .btn-apply-filter {
+            left: 20% !important;
         }
     }
 
@@ -1052,9 +1107,12 @@ footer{
         line-height: 26px;
         margin-bottom: 20px;
     }
+    #vk {
+        display: none;
+    }
 
     .container {
-        max-width: 320px;
+
     }
 
     .main_object {
@@ -1070,7 +1128,7 @@ footer{
 
     .filter-wrapper {
 
-
+        width: 100%;
         .filter-2 {
             .form-control {
                 border-right: 1px solid #ced4da;
@@ -1088,7 +1146,7 @@ footer{
             font-weight: 500;
         }
         .filter-window {
-            max-width: 320px;
+            //max-width: 320px;
 
             .filter-1 {
                 display: flex;
@@ -1100,7 +1158,7 @@ footer{
             top: 91%;
         }
         .btn-apply-filter {
-            left: 5%;
+            left: 10%;
             bottom: -35px;
             font-size: 14px;
         }
@@ -1130,7 +1188,7 @@ footer{
     }
 
     .news-wrapper {
-        margin-top: 0px;
+        margin-top: 30px;
         a {
             font-size: 24px;
         }
@@ -1139,7 +1197,6 @@ footer{
             flex-direction: column;
             gap: 20px;
             .news-item {
-                max-width: 208px;
                 width: 100%;
             }
         }
@@ -1166,8 +1223,12 @@ footer{
         }
     }
     footer {
+        .icons {
+            width: 100% ;
+            justify-content: center;
+        }
         .nav-logo {
-            width: 100%;
+            //width: 100%;
         }
     }
 }

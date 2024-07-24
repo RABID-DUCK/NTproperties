@@ -64,6 +64,7 @@ h1 {
 .container {
   max-width: 1200px;
   width: 100%;
+  padding: 0;
 }
 
 .btn-orange {
@@ -177,6 +178,10 @@ a {
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
+}
+.main_object h2 {
+  text-align: center;
+  width: 100%;
 }
 .main_object .list {
   display: grid;
@@ -434,6 +439,18 @@ a {
   -webkit-transform: rotate(45deg);
 }
 
+footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+footer ul {
+  gap: 10px;
+}
+footer ul li {
+  padding: 0;
+}
 footer .icons {
   display: flex;
   align-items: center;
@@ -740,6 +757,9 @@ footer .navbar-nav li a:hover {
   .bread a {
     font-size: 12px;
   }
+  #vk {
+    display: none;
+  }
   h1 {
     font-size: 24px;
     line-height: 26px;
@@ -747,12 +767,13 @@ footer .navbar-nav li a:hover {
   }
   .main_object .list {
     grid-template-columns: 1fr;
-  }
-  .container {
-    max-width: 480px;
+    width: 100%;
   }
   .carousel {
-    height: 700px;
+    height: 750px;
+  }
+  .filter-wrapper {
+    width: 100%;
   }
   .filter-wrapper .filter-2 .form-control {
     border-right: 1px solid #ced4da;
@@ -767,9 +788,6 @@ footer .navbar-nav li a:hover {
     font-size: 12px;
     font-weight: 500;
   }
-  .filter-wrapper .filter-window {
-    max-width: 480px;
-  }
   .filter-wrapper .filter-window .filter-1 {
     display: flex;
     flex-direction: column;
@@ -779,7 +797,7 @@ footer .navbar-nav li a:hover {
     top: 91%;
   }
   .filter-wrapper .btn-apply-filter {
-    left: 3%;
+    left: 23%;
     bottom: -35px;
     font-size: 14px;
   }
@@ -836,10 +854,23 @@ footer .navbar-nav li a:hover {
     gap: 10px;
     text-align: center;
   }
+  footer .icons {
+    justify-content: center;
+  }
 }
 @media (max-device-width: 768px) and (min-device-width: 560px) {
   .filter-wrapper .btn-apply-filter {
     left: 17%;
+  }
+}
+@media (max-device-width: 480px) and (min-device-width: 451px) {
+  .filter-wrapper .btn-apply-filter {
+    left: 25% !important;
+  }
+}
+@media (max-device-width: 450px) and (min-device-width: 410px) {
+  .filter-wrapper .btn-apply-filter {
+    left: 20% !important;
   }
 }
 @media (min-device-width: 320px) and (max-device-width: 480px) {
@@ -851,8 +882,8 @@ footer .navbar-nav li a:hover {
     line-height: 26px;
     margin-bottom: 20px;
   }
-  .container {
-    max-width: 320px;
+  #vk {
+    display: none;
   }
   .main_object .list {
     width: 100%;
@@ -860,6 +891,9 @@ footer .navbar-nav li a:hover {
   }
   .carousel {
     height: 750px;
+  }
+  .filter-wrapper {
+    width: 100%;
   }
   .filter-wrapper .filter-2 .form-control {
     border-right: 1px solid #ced4da;
@@ -874,9 +908,6 @@ footer .navbar-nav li a:hover {
     font-size: 12px;
     font-weight: 500;
   }
-  .filter-wrapper .filter-window {
-    max-width: 320px;
-  }
   .filter-wrapper .filter-window .filter-1 {
     display: flex;
     flex-direction: column;
@@ -886,7 +917,7 @@ footer .navbar-nav li a:hover {
     top: 91%;
   }
   .filter-wrapper .btn-apply-filter {
-    left: 5%;
+    left: 10%;
     bottom: -35px;
     font-size: 14px;
   }
@@ -912,7 +943,7 @@ footer .navbar-nav li a:hover {
     margin-left: 0;
   }
   .news-wrapper {
-    margin-top: 0px;
+    margin-top: 30px;
   }
   .news-wrapper a {
     font-size: 24px;
@@ -923,7 +954,6 @@ footer .navbar-nav li a:hover {
     gap: 20px;
   }
   .news-wrapper .list .news-item {
-    max-width: 208px;
     width: 100%;
   }
   .news-wrapper .text-center {
@@ -946,7 +976,8 @@ footer .navbar-nav li a:hover {
     gap: 10px;
     text-align: center;
   }
-  footer .nav-logo {
+  footer .icons {
     width: 100%;
+    justify-content: center;
   }
 }
