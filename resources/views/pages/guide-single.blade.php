@@ -16,7 +16,7 @@
                 <div class="text">
                     <h2>{{__('guide.post')}} NT Properties</h2>
                     <p>
-                        {{__('guide.description')}}
+                        {!! __('guide.description') !!}
                     </p>
                 </div>
                 <img src="{{asset('img/rykovod.jpg')}}"/>
