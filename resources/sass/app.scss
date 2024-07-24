@@ -76,7 +76,7 @@ h4 {
 .container {
     max-width: 1200px;
     width: 100%;
-    padding: 0;
+    padding: 0 5px;
 }
 
 .btn-orange{
@@ -399,7 +399,7 @@ a{
         background: #ff6d12;
         border-color: #ff6d12;
         position: relative;
-        left: 30%;
+        left: calc((100% - 241px) / 2 );
         bottom: -50px;
         font-size: 20px;
         padding: 15px 40px 18px 40px;
@@ -730,7 +730,6 @@ footer{
             top: 85.4%;
         }
         .btn-apply-filter {
-            left: 32%;
             bottom: -35px;
             font-size: 14px;
         }
@@ -778,6 +777,7 @@ footer{
         max-width: 769px;
     }
     .main_object {
+
         .list {
             grid-template-columns: 1fr 1fr;
         }
@@ -816,7 +816,6 @@ footer{
             top: 90.3%;
         }
         .btn-apply-filter {
-            left: 30%;
             bottom: -35px;
             font-size: 14px;
         }
@@ -933,7 +932,7 @@ footer{
             top: 91%;
         }
         .btn-apply-filter {
-            left: 23%;
+
             bottom: -35px;
             font-size: 14px;
         }
@@ -1008,30 +1007,6 @@ footer{
 
 }
 
-@media (max-device-width: 768px) and (min-device-width: 560px) {
-    .filter-wrapper {
-        .btn-apply-filter {
-            left: 17%;
-        }
-    }
-
-}
-@media (max-device-width: 480px) and (min-device-width: 451px) {
-    .filter-wrapper {
-        .btn-apply-filter {
-            left: 25% !important;
-        }
-    }
-
-}
-@media (max-device-width: 450px) and (min-device-width: 410px) {
-    .filter-wrapper {
-        .btn-apply-filter {
-            left: 20% !important;
-        }
-    }
-
-}
 
 @media (min-device-width: 320px) and (max-device-width: 480px) {
     .bread {
@@ -1096,7 +1071,7 @@ footer{
             top: 91%;
         }
         .btn-apply-filter {
-            left: 10%;
+
             bottom: -35px;
             font-size: 14px;
         }

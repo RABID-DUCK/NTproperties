@@ -64,7 +64,7 @@ h1 {
 .container {
   max-width: 1200px;
   width: 100%;
-  padding: 0;
+  padding: 0 5px;
 }
 
 .btn-orange {
@@ -351,7 +351,7 @@ a {
   background: #ff6d12;
   border-color: #ff6d12;
   position: relative;
-  left: 30%;
+  left: calc((100% - 241px) / 2);
   bottom: -50px;
   font-size: 20px;
   padding: 15px 40px 18px 40px;
@@ -637,7 +637,6 @@ footer .navbar-nav li a:hover {
     top: 85.4%;
   }
   .filter-wrapper .btn-apply-filter {
-    left: 32%;
     bottom: -35px;
     font-size: 14px;
   }
@@ -704,7 +703,6 @@ footer .navbar-nav li a:hover {
     top: 90.3%;
   }
   .filter-wrapper .btn-apply-filter {
-    left: 30%;
     bottom: -35px;
     font-size: 14px;
   }
@@ -797,7 +795,6 @@ footer .navbar-nav li a:hover {
     top: 91%;
   }
   .filter-wrapper .btn-apply-filter {
-    left: 23%;
     bottom: -35px;
     font-size: 14px;
   }
@@ -858,21 +855,6 @@ footer .navbar-nav li a:hover {
     justify-content: center;
   }
 }
-@media (max-device-width: 768px) and (min-device-width: 560px) {
-  .filter-wrapper .btn-apply-filter {
-    left: 17%;
-  }
-}
-@media (max-device-width: 480px) and (min-device-width: 451px) {
-  .filter-wrapper .btn-apply-filter {
-    left: 25% !important;
-  }
-}
-@media (max-device-width: 450px) and (min-device-width: 410px) {
-  .filter-wrapper .btn-apply-filter {
-    left: 20% !important;
-  }
-}
 @media (min-device-width: 320px) and (max-device-width: 480px) {
   .bread a {
     font-size: 10px;
@@ -917,7 +899,6 @@ footer .navbar-nav li a:hover {
     top: 91%;
   }
   .filter-wrapper .btn-apply-filter {
-    left: 10%;
     bottom: -35px;
     font-size: 14px;
   }
