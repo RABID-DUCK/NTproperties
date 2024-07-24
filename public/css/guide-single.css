@@ -10,6 +10,16 @@
   flex-direction: column;
   gap: 20px;
 }
+.guide .info .text h2 {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 600;
+}
+.guide .info img {
+  max-width: 200px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 .guide #cancel {
   color: #ff6d12;
 }
