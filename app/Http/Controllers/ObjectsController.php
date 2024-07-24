@@ -18,6 +18,8 @@ class ObjectsController extends Controller
 
         if (app()->currentLocale() == 'EN') {
             $objects = $objects->where('eng_title', '<>', '')->latest();
+        }else{
+            $objects = $objects->where('eng_title', null)->latest();
         }
 
         $objects = $objects->paginate(12);

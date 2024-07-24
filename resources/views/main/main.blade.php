@@ -102,7 +102,7 @@
                                          <strong>{{__('main.price_select_2')}}:</strong> {{$object->all_square}} {{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
                                      <hr>
                                      <div class="price">
-                                         <h3>{{$object->type_room == 1 ? __('main.type_room_1') : __('main.type_room_2')}}</h3>
+                                         <h3>{{$object->type_room == 1 ? __('main.type_room_1_1') : __('main.type_room_2')}}</h3>
                                          <p>{{$object->price}} ₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
                                      </div>
                                  </div>
