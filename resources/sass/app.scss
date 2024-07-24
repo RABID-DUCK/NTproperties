@@ -203,70 +203,8 @@ a{
     }
 }
 
-//.item-header-wrapper{
-//    margin-left: 20px;
-//}
-//
-//header {
-//    display: flex;
-//    flex-direction: column;
-//    align-items: center;
-//    padding: 20px 0 0;
-//
-//    position: sticky;
-//    top: 0;
-//    left: 0;
-//    z-index: 100;
-//
-//    box-shadow: rgba(0, 0, 0, 0.5) 0 0 5px 0;
-//
-//    background: white;
-//
-//    .navbar {
-//        position: sticky;
-//        top:0;
-//
-//        padding-bottom: 0;
-//    }
-//
-//    .navbar-nav {
-//        gap: 30px;
-//        .nav-item {
-//        padding: 0;
-//    }
-//    }
-//
-//    .d-flex {
-//        span {
-//            font-size: 14px;
-//            font-weight: 400;
-//        }
-//    }
-//}
-
-//.nav-wrap{
-//
-//    a, span{
-//        color: #3c3c3c;
-//
-//        &:hover{
-//            color: #ff6d12;
-//            transition: color 0.1s ease-in;
-//        }
-//    }
-//
-//    i{
-//        font-size: 25px;
-//        margin-top: 7px;
-//    }
-//
-//    .item-header-wrapper{
-//
-//    }
-//}
-
 .main_object {
-    padding: 30px 0;
+    padding: 30px 40px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
