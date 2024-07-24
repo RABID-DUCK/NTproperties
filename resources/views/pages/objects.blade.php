@@ -180,9 +180,9 @@
 
                                 <strong>{{__('main.price_select_2')}}:</strong> {{ number_format($object->all_square, 0, '', ' ') }} {{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
                             <hr>
-                            <div class="price">
+                            <div class="price price-object">
                                 <h3>{{$object->type_room == 1 ? __("main.type_room_1_1") : __("main.type_room_2")}}</h3>
-                                <p>{{ number_format($object->price, 0, '', ' ') }} ₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
+                                <p data-price="{{ $object->price }}" data-square="{{ $object->all_square }}">{{ number_format($object->price, 0, '', ' ') }} ₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
                             </div>
                         </div>
                     </a>
@@ -362,6 +362,34 @@
 
         items.forEach(function (item) {
             container.appendChild(item);
+        });
+    });
+
+    const priceTypeSelect = document.querySelector('select[name="price_type2"]');
+    const priceInputs = document.querySelectorAll('.price-object');
+
+    priceTypeSelect.addEventListener('change', function() {
+        const selectedValue = this.value;
+
+        priceInputs.forEach(function(priceInput) {
+            const priceElement = priceInput.querySelector('p');
+
+            const priceText = priceElement.textContent;
+            const price = parseInt(priceText);
+            const square = priceElement.dataset.square;
+            const price_object = parseInt(priceElement.dataset.price);
+
+            let result;
+            if (selectedValue === 'main') {
+                result = price * square;
+            } else {
+                result = price_object;
+            }
+
+            const currency = '₽';
+            const appLocale = `{{app()->currentLocale()}}`;
+            const unit = selectedValue === 'main' ? (appLocale === 'RU' ? 'общая' : 'total') : (appLocale === 'RU' ? 'м²' : 'sq.m.');
+            priceElement.innerHTML = `${result.toLocaleString()} ${currency}/${unit}`;
         });
     });
 </script>
