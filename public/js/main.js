@@ -7,6 +7,12 @@ inputSearch.addEventListener("click", () => {
     blockSearch.classList.toggle("show")
 })
 
+var inputSearchMobile = document.getElementById("search_mobile")
+var blockSearchMobile = document.querySelector(".search_mobile")
+
+inputSearchMobile.addEventListener("click", () => {
+    blockSearchMobile.classList.toggle("show")
+})
 
 
 var displayFlex = document.getElementById("fl");
