@@ -181,7 +181,7 @@
                                 <strong>{{__('main.price_select_2')}}:</strong> {{ number_format($object->all_square, 0, '', ' ') }} {{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
                             <hr>
                             <div class="price price-object">
-                                <h3>{{$object->type_room == 1 ? __("main.type_room_1_1") : __("main.type_room_2")}}</h3>
+                                <h3>{{$object->price_type == 1 ? __("main.type_room_1_1") : __("main.type_room_2")}}</h3>
                                 <p data-price="{{ $object->price }}" data-square="{{ $object->all_square }}">{{ number_format($object->price, 0, '', ' ') }} ₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
                             </div>
                         </div>
