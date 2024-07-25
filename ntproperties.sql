@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 19 2024 г., 23:31
+-- Время создания: Июл 25 2024 г., 09:50
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -89,7 +89,8 @@ INSERT INTO `feed_backs` (`id`, `name`, `title`, `description`, `created_at`, `u
 (2, '213', '44', '55', '2024-07-18 21:45:02', '2024-07-18 21:45:02'),
 (3, '444', '5', '4', '2024-07-18 21:46:29', '2024-07-18 21:46:29'),
 (4, '5', '6', '7', '2024-07-18 21:47:03', '2024-07-18 21:47:03'),
-(5, '5', '6', '7', '2024-07-18 21:47:33', '2024-07-18 21:47:33');
+(5, '5', '6', '7', '2024-07-18 21:47:33', '2024-07-18 21:47:33'),
+(6, 'Олег', 'Вопрос по объекту', 'Можно ли арендовать объект ИП Никольское?', '2024-07-20 18:23:20', '2024-07-20 18:23:20');
 
 -- --------------------------------------------------------
 
@@ -183,7 +184,8 @@ INSERT INTO `mailling_users` (`id`, `email`, `created_at`, `updated_at`) VALUES
 (2, 'gnida@gmail.com', '2024-07-17 17:13:46', '2024-07-17 17:13:46'),
 (3, 'da@mail.ru', '2024-07-17 17:21:33', '2024-07-17 17:21:33'),
 (4, 'a@gmail.com', '2024-07-17 17:25:27', '2024-07-17 17:25:27'),
-(5, 'asdasd@gmail.com', '2024-07-18 21:47:45', '2024-07-18 21:47:45');
+(5, 'asdasd@gmail.com', '2024-07-18 21:47:45', '2024-07-18 21:47:45'),
+(6, 'sadads@mail.ru', '2024-07-20 18:23:28', '2024-07-20 18:23:28');
 
 -- --------------------------------------------------------
 
@@ -219,7 +221,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (15, '2024_07_17_195357_create_feed_backs_table', 8),
 (16, '2024_07_17_195407_create_mailling_users_table', 8),
 (17, '2024_07_17_211016_add_eng_column_in_tables', 9),
-(18, '2024_07_19_212432_add_column_file_in_reviews', 10);
+(18, '2024_07_19_212432_add_column_file_in_reviews', 10),
+(19, '2024_07_24_221607_add_nullable_in_news', 11);
 
 -- --------------------------------------------------------
 
@@ -229,7 +232,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `news` (
   `id` bigint UNSIGNED NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -245,7 +248,7 @@ CREATE TABLE `news` (
 INSERT INTO `news` (`id`, `image`, `title`, `description`, `created_at`, `updated_at`, `eng_title`, `eng_description`) VALUES
 (10, 'k1mel7cgbea9vj2rin3hshcjkoaywc32.png', 'Холдинг \"Строительный Альянс\" построит 746 тыс. кв. м площадей Light Industrial', 'Холдинг \"Строительный альянс\" является одним из ведущих девелоперов на рынке Light Industrial, текущий портфель проектов компании на стадии реализации включает 615 тыс. кв. м. В число этих проектов входит цифровой промышленный хаб «Жуковский» (общая площадь 250 тыс. кв. м), данный объект объединяет индустриальный парк с общественно-городским пространством, включает общественно-деловую, социальную и спортивную инфраструктуру. В Краснодаре и Санкт-Петербурге «Строительный альянс» реализует два крупных проекта с общей площадью 200 и 100 тыс. кв. м соответственно. Во втором квартале 2025 г. планируется ввод в эксплуатацю порядка 50 тыс. кв. м площадей Light Industrial в <br> цифровом промышленном коворкинге \"Есипово 4\" в Солнечногорском районе, помимо этого девелопер строит еще 81 тыс. кв. м индустриальной недвижимости в Коледино с запланированной датой ввода до конца 2024 г.\r\n\r\nСогласно данным NT Properties на июнь 2024 г. объем рынка Light Industrial Московского региона составляет 569 тыс. кв. м площадей, на этапе строительства и планирования находится еще более 700 тыс. кв. м.\r\n\r\nСредневзвешенная ставка аренды в объектах Light Industrial составляет 17 100 руб./ кв. м/ год, включая НДС и операционные расходы.', '2024-07-11 16:26:26', '2024-07-19 17:51:37', NULL, NULL),
 (11, 'fuqnqy80zyys6ymwr7cnj6gv9gapa1im.jpg', 'Маркетплейс Ozon на пороге крупнейшей сделки на складском рынке: аренда всего логопарка \"Северные врата\"', '<p align=\"justify\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px 0px 30px; font-family: \" open=\"\" sans\",=\"\" tahoma,=\"\" helvetica,=\"\" sans-serif;=\"\" outline:=\"\" none;=\"\" -webkit-font-smoothing:=\"\" antialiased;=\"\" line-height:=\"\" 26px;=\"\" color:=\"\" rgb(60,=\"\" 60,=\"\" 60);\"=\"\"><span style=\"color: rgb(60, 60, 60); font-family: &quot;Open Sans&quot;, Tahoma, Helvetica, sans-serif; text-align: start;\">Маркетплейс Ozon может стать арендатором всего строящегося логопарка \"Северные врата\", занимающего впечатляющие 270 000 кв. м.&nbsp;&nbsp;Эта сделка, если она состоится, станет самой крупной по аренде складских площадей в 2024 году.</span><br style=\"margin: 0px; padding: 0px; font-family: &quot;Open Sans&quot;, Tahoma, Helvetica, sans-serif; outline: none; -webkit-font-smoothing: antialiased; color: rgb(60, 60, 60); text-align: start;\"><br style=\"margin: 0px; padding: 0px; font-family: &quot;Open Sans&quot;, Tahoma, Helvetica, sans-serif; outline: none; -webkit-font-smoothing: antialiased; color: rgb(60, 60, 60); text-align: start;\"><span style=\"color: rgb(60, 60, 60); font-family: &quot;Open Sans&quot;, Tahoma, Helvetica, sans-serif; text-align: start;\">\"Северные врата\" - это первый проект Radius Group в России после продажи индустриального парка \"Южные врата\" и объявления о деятельности девелопера в ОАЭ. Логопарк, строящийся на участке 50 га в Белом Расте, в 35 км от МКАД по Дмитровскому шоссе, станет одним из крупнейших складских комплексов в Московском регионе. Общий объем инвестиций в проект оценивается в 16-18 млрд рублей.</span><br style=\"margin: 0px; padding: 0px; font-family: &quot;Open Sans&quot;, Tahoma, Helvetica, sans-serif; outline: none; -webkit-font-smoothing: antialiased; color: rgb(60, 60, 60); text-align: start;\"><br style=\"margin: 0px; padding: 0px; font-family: &quot;Open Sans&quot;, Tahoma, Helvetica, sans-serif; outline: none; -webkit-font-smoothing: antialiased; color: rgb(60, 60, 60); text-align: start;\"><span style=\"color: rgb(60, 60, 60); font-family: &quot;Open Sans&quot;, Tahoma, Helvetica, sans-serif; text-align: start;\">Первоначально Radius Group планировала строительство логопарка в три фазы с 2024 по 2029 гг., но с учетом появления крупного арендатора сроки строительства могут быть значительно сокращены.</span><br style=\"margin: 0px; padding: 0px; font-family: &quot;Open Sans&quot;, Tahoma, Helvetica, sans-serif; outline: none; -webkit-font-smoothing: antialiased; color: rgb(60, 60, 60); text-align: start;\"><br style=\"margin: 0px; padding: 0px; font-family: &quot;Open Sans&quot;, Tahoma, Helvetica, sans-serif; outline: none; -webkit-font-smoothing: antialiased; color: rgb(60, 60, 60); text-align: start;\"><span style=\"color: rgb(60, 60, 60); font-family: &quot;Open Sans&quot;, Tahoma, Helvetica, sans-serif; text-align: start;\">Ставка аренды в \"Северных вратах\" ориентировочно составляет 9 500 рублей за кв. м без ОРЕХ и НДС, однако, учитывая объем, стоимость может быть уменьшена. С учетом минимальных операционных расходов в размере 1 400 рублей за кв. м, ежегодные выплаты Ozon могут достигать порядка 13 000 рублей за кв. м или около 3,5 млрд рублей за весь логопарк.</span></p>', '2024-07-11 17:07:39', '2024-07-19 17:49:14', NULL, NULL),
-(15, 'jwmzstz9bplgngqrv7dvr9e00jhx489l.jpg', 'Продолжающийся рост ставок аренды', '<p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px 0px 25px; font-family: &quot;Open Sans&quot;, Tahoma, Helvetica, sans-serif; outline: none; -webkit-font-smoothing: antialiased; line-height: 26px; color: rgb(60, 60, 60); text-align: justify;\"><span style=\"margin: 0px; padding: 0px; font-family: var(--ui-font-family-primary, var(--ui-font-family-helvetica)); outline: none; -webkit-font-smoothing: antialiased;\">По состоянию на июнь 2024 г. мы фиксируем рост средневзвешенной базовой ставки аренды на складские площади класса А до 11 323 руб./кв. м/год, что на 14% больше по сравнению с 1 кварталом текущего года. Средняя стоимость продажи в складских комплексах класса А достигает отметки в 80 000 руб./кв. м. Продолжающийся рост арендных ставок по-прежнему вызван высоким уровень спроса и дефицитом предложения, сейчас доля свободных площадей продолжает оставаться на низком уровне и составляет всего 0,5% (или 97 200 кв. м).</span><br style=\"margin: 0px; padding: 0px; outline: none; -webkit-font-smoothing: antialiased;\"></p><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px 0px 25px; font-family: &quot;Open Sans&quot;, Tahoma, Helvetica, sans-serif; outline: none; -webkit-font-smoothing: antialiased; line-height: 26px; color: rgb(60, 60, 60); text-align: justify;\">Незначительный рост вакансии в среднесрочной перспективе может произойти в случае выхода на рынок ряда объектов спекулятивного строительства и высвобождения площадей, в таком случае рост ставок должен замедлиться.</p>', '2024-07-19 17:52:18', '2024-07-19 17:52:18', NULL, NULL);
+(15, 'jwmzstz9bplgngqrv7dvr9e00jhx489l.jpg', 'Продолжающийся рост ставок аренды', '<p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px 0px 25px; font-family: \"Open Sans\", Tahoma, Helvetica, sans-serif; outline: none; -webkit-font-smoothing: antialiased; line-height: 26px; color: rgb(60, 60, 60); text-align: justify;\"><span style=\"margin: 0px; padding: 0px; font-family: var(--ui-font-family-primary, var(--ui-font-family-helvetica)); outline: none; -webkit-font-smoothing: antialiased;\">По состоянию на июнь 2024 г. мы фиксируем рост средневзвешенной базовой ставки аренды на складские площади класса А до 11 323 руб./кв. м/год, что на 14% больше по сравнению с 1 кварталом текущего года. Средняя стоимость продажи в складских комплексах класса А достигает отметки в 80 000 руб./кв. м. Продолжающийся рост арендных ставок по-прежнему вызван высоким уровень спроса и дефицитом предложения, сейчас доля свободных площадей продолжает оставаться на низком уровне и составляет всего 0,5% (или 97 200 кв. м).</span><br style=\"margin: 0px; padding: 0px; outline: none; -webkit-font-smoothing: antialiased;\"></p><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px 0px 25px; font-family: \"Open Sans\", Tahoma, Helvetica, sans-serif; outline: none; -webkit-font-smoothing: antialiased; line-height: 26px; color: rgb(60, 60, 60); text-align: justify;\">Незначительный рост вакансии в среднесрочной перспективе может произойти в случае выхода на рынок ряда объектов спекулятивного строительства и высвобождения площадей, в таком случае рост ставок должен замедлиться.</p>', '2024-07-10 23:58:18', '2024-07-24 19:22:05', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -260,11 +263,11 @@ CREATE TABLE `objects` (
   `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `type_room` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `column_pitch` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `column_pitch` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `lighting` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `fire_system` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'null',
-  `price_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `price` int NOT NULL,
+  `price_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `price` int DEFAULT NULL,
   `all_square` int DEFAULT NULL,
   `free_square` int DEFAULT NULL,
   `min_square` int DEFAULT NULL,
@@ -294,7 +297,7 @@ CREATE TABLE `objects` (
 INSERT INTO `objects` (`id`, `address`, `city`, `title`, `description`, `type_room`, `column_pitch`, `lighting`, `fire_system`, `price_type`, `price`, `all_square`, `free_square`, `min_square`, `class_house`, `height`, `distance_mkad`, `floor_load`, `zoom`, `x_coord`, `y_coord`, `region_id`, `highway_id`, `direction_id`, `created_at`, `updated_at`, `eng_city`, `eng_title`, `eng_description`, `eng_lighting`, `eng_fire_system`) VALUES
 (2, NULL, 'Москва', 'Ступино Крылова 14', '<span style=\"color: rgb(60, 60, 60); font-family: \"Open Sans\", Tahoma, Helvetica, sans-serif;\">В аренду предлагается производственно-складское помещение, расположенное в Ступинском районе. Площадь склада 6 300 кв. м, с возможностью увеличения до 12 000 кв.м. Возможно деление на блоки от 3 000 кв. м. Помещение свободно и доступно на аренду.</span>', '1', '6х30', 'Светодиодное', 'Спринклерная', '1', 12000, 6300, 6300, 6300, 'B', 9.5, 92, 8, 15, 54.899576, 38.060163, 16, 18, 23, '2024-07-14 15:24:16', '2024-07-19 19:33:09', NULL, NULL, NULL, NULL, NULL),
 (3, NULL, NULL, 'М-10 Радумля', '<span style=\"color: rgb(60, 60, 60); font-family: \"Open Sans\", Tahoma, Helvetica, sans-serif;\">Склад расположен на пересечении Ленинградского шоссе и А-107 (\"бетонка\"). Возможна аренда блоков от 10 000 кв. м. Доступ - октябрь 2024 г.</span>', '1', '12x24', 'Светодиодное', NULL, '1', 16800, 21293, 17173, 17173, 'A', 12, 32, 8, 15, 56.07331, 37.133592, 16, 20, 19, '2024-07-14 15:23:16', '2024-07-19 19:53:23', NULL, NULL, NULL, NULL, NULL),
-(4, NULL, NULL, 'ИП Никольское', '<span style=\"color: rgb(60, 60, 60); font-family: \"Open Sans\", Tahoma, Helvetica, sans-serif;\">Склад расположен на севере Московской области недалеко от ЦКАД. В аренду предлагается площади от 10 000 кв. м. Доступ - август 2024 г.</span>', '1', '12x24', 'Светодиодное', NULL, '1', 14000, 123, 52728, 52728, 'A', 12.5, 35, 8, 15, 56.144781, 37.375455, 16, 17, 19, '2024-07-14 15:24:16', '2024-07-19 19:59:35', NULL, NULL, NULL, NULL, NULL),
+(4, NULL, NULL, 'ИП Никольское', '<span style=\"color: rgb(60, 60, 60); font-family: \"Open Sans\", Tahoma, Helvetica, sans-serif;\">Склад расположен на севере Московской области недалеко от ЦКАД. В аренду предлагается площади от 10 000 кв. м. Доступ - август 2024 г.</span>', '1', '12x24', 'Светодиодное', NULL, '1', 14000, 52728, 52728, 52728, 'A', 12.5, 35, 8, 15, 56.144781, 37.375455, 16, 17, 19, '2024-07-14 15:24:16', '2024-07-24 20:57:52', NULL, NULL, NULL, NULL, NULL),
 (5, NULL, 'Москва', 'Подольских Курсантов', '<p><span style=\"color: rgb(60, 60, 60); font-family: \"Open Sans\", Tahoma, Helvetica, sans-serif;\">Объект общей площадью - 15 754, 5 кв. м расположен на южном направлении, внутри МКАД.К продаже предлагается готовый стабильный арендный бизнес - реновированный городской склад. Склад полностью сдан в аренду.остью сдан в аренду.</span></p>', '1', '12х18', 'Светодиодное', 'Гидрантная/ Спринклерная', '2', 70000, 15754, 15754, 15754, 'A', 11, 0, 8, 15, 55.595755, 37.627831, 15, 23, 23, '2024-07-17 19:02:23', '2024-07-19 19:16:06', NULL, NULL, '<p><br></p>', NULL, NULL),
 (6, NULL, NULL, NULL, NULL, '1', '30x6', NULL, NULL, '1', 2500, NULL, NULL, NULL, NULL, 12.4, NULL, 6, 15, 55.612319, 36.842775, 16, 22, 25, '2024-07-19 20:29:27', '2024-07-19 20:31:26', NULL, 'Chascy Logistic Park', NULL, NULL, 'Sprinkler');
 
@@ -526,7 +529,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT для таблицы `feed_backs`
 --
 ALTER TABLE `feed_backs`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `high_ways`
@@ -544,25 +547,25 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT для таблицы `mailling_users`
 --
 ALTER TABLE `mailling_users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT для таблицы `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT для таблицы `objects`
 --
 ALTER TABLE `objects`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблицы `personal_access_tokens`
@@ -580,7 +583,7 @@ ALTER TABLE `regions`
 -- AUTO_INCREMENT для таблицы `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
