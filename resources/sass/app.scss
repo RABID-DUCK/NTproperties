@@ -399,7 +399,7 @@ a{
         background: #ff6d12;
         border-color: #ff6d12;
         position: relative;
-        left: calc((100% - 241px) / 2 );
+        left: calc((100% - 300px) / 2 );
         bottom: -50px;
         font-size: 20px;
         padding: 15px 40px 18px 40px;
@@ -730,6 +730,7 @@ footer{
             top: 85.4%;
         }
         .btn-apply-filter {
+            left: calc((100% - 241px) / 2 );
             bottom: -35px;
             font-size: 14px;
         }
@@ -816,6 +817,7 @@ footer{
             top: 90.3%;
         }
         .btn-apply-filter {
+            left: calc((100% - 241px) / 2 );
             bottom: -35px;
             font-size: 14px;
         }
@@ -898,11 +900,17 @@ footer{
         //max-width: 480px;
     }
     .carousel {
-        height: 750px;
+        height: 850px;
     }
     .filter-wrapper {
 
         width: 100%;
+        .filter-4 {
+            flex-wrap: wrap !important;
+        }
+        .form-select {
+            width: 100%;
+        }
         .filter-2 {
             .form-control {
                 border-right: 1px solid #ced4da;
@@ -932,7 +940,7 @@ footer{
             top: 91%;
         }
         .btn-apply-filter {
-
+            left: calc((100% - 241px) / 2 );
             bottom: -35px;
             font-size: 14px;
         }
@@ -1035,12 +1043,18 @@ footer{
         }
     }
     .carousel {
-        height: 750px;
+        height: 850px;
     }
 
 
     .filter-wrapper {
 
+        .filter-4 {
+            flex-wrap: wrap !important;
+        }
+        .form-select {
+            width: 100%;
+        }
         width: 100%;
         .filter-2 {
             .form-control {
@@ -1071,7 +1085,7 @@ footer{
             top: 91%;
         }
         .btn-apply-filter {
-
+            left: calc((100% - 241px) / 2 );
             bottom: -35px;
             font-size: 14px;
         }

@@ -48,7 +48,7 @@
 
             </div>
 
-            <div class="filter-4 d-flex mt-3">
+            <div class="filter-4 d-flex mt-3 ">
                 <select class="form-select" name="region" id="" @if($regions->isEmpty()) disabled @endif>
                     @if($regions->isNotEmpty())
                         @foreach($regions as $region)

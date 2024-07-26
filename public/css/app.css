@@ -351,7 +351,7 @@ a {
   background: #ff6d12;
   border-color: #ff6d12;
   position: relative;
-  left: calc((100% - 241px) / 2);
+  left: calc((100% - 300px) / 2);
   bottom: -50px;
   font-size: 20px;
   padding: 15px 40px 18px 40px;
@@ -637,6 +637,7 @@ footer .navbar-nav li a:hover {
     top: 85.4%;
   }
   .filter-wrapper .btn-apply-filter {
+    left: calc((100% - 241px) / 2);
     bottom: -35px;
     font-size: 14px;
   }
@@ -703,6 +704,7 @@ footer .navbar-nav li a:hover {
     top: 90.3%;
   }
   .filter-wrapper .btn-apply-filter {
+    left: calc((100% - 241px) / 2);
     bottom: -35px;
     font-size: 14px;
   }
@@ -768,9 +770,15 @@ footer .navbar-nav li a:hover {
     width: 100%;
   }
   .carousel {
-    height: 750px;
+    height: 850px;
   }
   .filter-wrapper {
+    width: 100%;
+  }
+  .filter-wrapper .filter-4 {
+    flex-wrap: wrap !important;
+  }
+  .filter-wrapper .form-select {
     width: 100%;
   }
   .filter-wrapper .filter-2 .form-control {
@@ -795,6 +803,7 @@ footer .navbar-nav li a:hover {
     top: 91%;
   }
   .filter-wrapper .btn-apply-filter {
+    left: calc((100% - 241px) / 2);
     bottom: -35px;
     font-size: 14px;
   }
@@ -872,9 +881,15 @@ footer .navbar-nav li a:hover {
     grid-template-columns: 1fr;
   }
   .carousel {
-    height: 750px;
+    height: 850px;
   }
   .filter-wrapper {
+    width: 100%;
+  }
+  .filter-wrapper .filter-4 {
+    flex-wrap: wrap !important;
+  }
+  .filter-wrapper .form-select {
     width: 100%;
   }
   .filter-wrapper .filter-2 .form-control {
@@ -899,6 +914,7 @@ footer .navbar-nav li a:hover {
     top: 91%;
   }
   .filter-wrapper .btn-apply-filter {
+    left: calc((100% - 241px) / 2);
     bottom: -35px;
     font-size: 14px;
   }
