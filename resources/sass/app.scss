@@ -308,7 +308,10 @@ a{
     position: absolute;
     top: 15%;
     left: 30%;
-
+    .input-group-text {
+        background: none;
+        border: none;
+    }
     .form-select {
         &:focus {
             border-color: #ff6d12 !important;

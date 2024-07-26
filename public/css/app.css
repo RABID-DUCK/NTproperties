@@ -276,6 +276,10 @@ a {
   top: 15%;
   left: 30%;
 }
+.filter-wrapper .input-group-text {
+  background: none;
+  border: none;
+}
 .filter-wrapper .form-select:focus {
   border-color: #ff6d12 !important;
   outline: 0 !important;
