@@ -43,6 +43,7 @@ class ObjectRequest extends FormRequest
             'distance_mkad' => 'nullable',
             'images' => 'nullable',
             'date' => 'nullable|date',
+            'availability' => 'nullable',
 
             'zoom' => 'nullable',
             'x_coord' => 'nullable',

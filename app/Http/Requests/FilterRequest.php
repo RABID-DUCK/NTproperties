@@ -34,6 +34,7 @@ class FilterRequest extends FormRequest
             'highway' => 'nullable',
             'distance_min' => 'nullable|integer',
             'distance_max' => 'nullable|integer',
+            'availability' => 'nullable',
         ];
     }
 }

@@ -11,7 +11,7 @@
             </svg>
             </a><a href="{{route('main-page')}}"> {{__('main.main')}} <span>></span></a><a href="#"> {{__('main.object')}} <span>></span></a>
         </div>
-        <h1>{{ app()->currentLocale() == 'EN' ? 'Objects' : 'Объекты' }}</h1>
+        <h1>{{ __('main.object') }}</h1>
 
         <form class="filter-wrapper" action="{{route('object-list')}}" id="filterForm">
             <div class="filter-window">
@@ -58,7 +58,8 @@
                             </div>
                             <input type="number" style="border-right: 1px solid #ced4da;border-radius: .25rem;" class="form-control" placeholder="700 000" name="square_max">
                         </div>
-                        <input type="checkbox" id="isHave"></input>
+                        <input type="hidden" name="availability" value="">
+                        <input type="checkbox" id="isHave" name="availability" value="on"></input>
                         <label class="btn" for="isHave">{{__('main.stellage')}}</label>
                     </div>
 
@@ -182,7 +183,15 @@
                             <hr>
                             <div class="price price-object">
                                 <h3>{{$object->price_type == 1 ? __("main.type_room_1_1") : __("main.type_room_2")}}</h3>
-                                <p data-price="{{ $object->price }}" data-square="{{ $object->all_square }}">{{ number_format($object->price, 0, '', ' ') }} ₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
+                                <p data-price="{{ $object->price_type == 1 && $object->all_square !== null ? ($object->price * $object->all_square) / 12 : ($object->all_square !== null ? $object->price * $object->all_square : $object->price) }}" data-square="{{ $object->all_square }}">
+                                    @if($object->all_square !== null)
+                                        {{ number_format($object->price_type == 1 ? ($object->price * $object->all_square) / 12 : $object->price * $object->all_square, 0, '', ' ') }}
+                                        ₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
+
+                                    @else
+                                        {{ number_format($object->price_type, 0, '', ' ') }}₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
+                                    @endif
+                                    </p>
                             </div>
                         </div>
                     </a>
@@ -351,8 +360,8 @@
         var container = document.querySelector('.list-objects');
         var items = Array.from(container.querySelectorAll('.item-object'));
         items.sort(function (a, b) {
-            var priceA = parseFloat(a.getAttribute('data-price'));
-            var priceB = parseFloat(b.getAttribute('data-price'));
+            var priceA = parseFloat(a.getAttribute('data-price').match(/\d+/)[0]);
+            var priceB = parseFloat(b.getAttribute('data-price').match(/\d+/)[0]);
             if (sortDirection === 'asc') {
                 return priceA - priceB;
             } else {
@@ -362,35 +371,6 @@
 
         items.forEach(function (item) {
             container.appendChild(item);
-        });
-    });
-
-    const priceTypeSelect = document.querySelector('select[name="price_type2"]');
-    const priceInputs = document.querySelectorAll('.price-object');
-
-    priceTypeSelect.addEventListener('change', function() {
-        const selectedValue = this.value;
-
-        priceInputs.forEach(function(priceInput) {
-            const priceElement = priceInput.querySelector('p');
-            const appLocale = `{{app()->currentLocale()}}`;
-
-            if(appLocale === 'RU'){
-                const price = parseInt(priceElement.dataset.price);
-                const square = priceElement.dataset.square;
-                const price_object = parseInt(priceElement.dataset.price);
-
-                let result;
-                if (selectedValue === 'main') {
-                    result = price * square;
-                } else {
-                    result = price_object;
-                }
-
-                const currency = '₽';
-                const unit = selectedValue === 'main' ? (appLocale === 'RU' ? 'общая' : 'total') : (appLocale === 'RU' ? 'м²' : 'sq.m.');
-                priceElement.innerHTML = `${result.toLocaleString()} ${currency}/${unit}`;
-            }
         });
     });
 </script>

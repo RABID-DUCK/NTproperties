@@ -43,9 +43,9 @@
                     </div>
                     <input type="number" style="border-right: 1px solid #ced4da;border-radius: .25rem;" class="form-control" placeholder="700 000" name="square_max">
                 </div>
-                <input type="checkbox" id="isHave">
+                <input type="hidden" name="availability" value="">
+                <input type="checkbox" id="isHave" name="availability" value="on"></input>
                 <label class="btn" for="isHave">{{__('main.stellage')}}</label>
-
             </div>
 
             <div class="filter-4 d-flex mt-3 ">

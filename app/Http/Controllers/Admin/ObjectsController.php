@@ -32,6 +32,12 @@ class ObjectsController extends Controller
             $data['created_at'] = now();
         }
 
+        if(isset($data['availability']) && $data['availability'] == 'on'){
+            $data['availability'] = 1;
+        }else{
+            $data['availability'] = 0;
+        }
+
         if($request->file('images')){
             $images = $request->file('images');
         }
@@ -77,6 +83,12 @@ class ObjectsController extends Controller
             $data['created_at'] = now();
         }
         unset($data['date']);
+
+        if(isset($data['availability']) && $data['availability'] == 'on'){
+            $data['availability'] = 1;
+        }else{
+            $data['availability'] = 0;
+        }
 
         $object = Objects::query()->where('id', $object['id'])->first();
         $object->update($data);

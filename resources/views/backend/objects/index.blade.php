@@ -73,6 +73,13 @@
                             <input type="text" class="form-control" name="title">
                         </div>
 
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="checkbox" name="availability" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Наличие стеллажей
+                            </label>
+                        </div>
+
                         <div>
                             <label for="recipient-name" class="col-form-label">Дата создания</label>
                             <input type="datetime-local" class="form-control" name="date">
