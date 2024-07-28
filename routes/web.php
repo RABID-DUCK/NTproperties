@@ -53,7 +53,7 @@ Route::get('/news', [NewsSingleController::class, 'index'])->name('news')->middl
 
 Route::get('/object-single', [ObjectSingleController::class, 'index'])->name('object-single')->middleware('locale');
 Route::get('/objects', [ObjectsController::class, 'index'])->name('objects')->middleware('locale');
-Route::get('/objects/{object:id}', [ObjectsController::class, 'show'])->name('objects.show')->middleware('locale');
+Route::get('/objects/{object:id}/{id}', [ObjectsController::class, 'show'])->name('objects.show')->middleware('locale');
 Route::get('/object-list', [ObjectsController::class, 'list'])->name('object-list')->middleware('locale');
 
 Route::get('/partners', [PartnersController::class, 'index'])->name('partners')->middleware('locale');

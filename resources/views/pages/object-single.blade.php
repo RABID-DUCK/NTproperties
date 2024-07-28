@@ -97,13 +97,11 @@
                 <div class="price">
                     <span>{{$object->price_type == 1 ? __('main.type_room_1_1') : __('main.type_room_2')}}</span>
                     <p>
-                        @if($object->all_square !== null)
-                            {{ number_format($object->price_type == 1 ? ($object->price * $object->all_square) / 12 : $object->price * $object->all_square, 0, '', ' ') }}
-                            ₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
-
-                        @else
-                            {{ number_format($object->price_type, 0, '', ' ') }}₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
-                        @endif</p>
+                        {{ number_format($object->price, 0, '', ' ') }}₽
+                    </p>
+                    <p>
+                        {{ number_format($price, 0, '', ' ') }}₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
+                    </p>
                 </div>
             </div>
         </div>

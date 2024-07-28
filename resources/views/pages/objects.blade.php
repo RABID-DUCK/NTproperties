@@ -154,7 +154,7 @@
             @if($objects->isNotEmpty())
                 @foreach($objects as $object)
                     @if(app()->currentLocale() == 'RU' && $object->title !== null)
-                    <a href="{{route('objects.show', $object->id)}}" class="item item-object" data-price="{{ $object->price }}">
+                    <a href="{{route('objects.show', [$object->id, $price_type2 ?? 1])}}" class="item item-object" data-price="{{ $object->price }}">
                         @if(!empty($object->getImages($object->id)))
                             <img src="{{asset('storage/images/' . $object->getImages($object->id)->name)}}" alt="{{app()->currentLocale() == 'RU' ? $object->title : $object->eng_title}}" />
                         @endif
@@ -184,20 +184,20 @@
                             <div class="price price-object">
                                 <h3>{{$object->price_type == 1 ? __("main.type_room_1_1") : __("main.type_room_2")}}</h3>
                                 <p data-price="{{ $object->price_type == 1 && $object->all_square !== null ? ($object->price * $object->all_square) / 12 : ($object->all_square !== null ? $object->price * $object->all_square : $object->price) }}" data-square="{{ $object->all_square }}">
-                                    @if($object->all_square !== null)
+                                    @if(isset($price_type2) && $price_type2 == 2 && $object->all_square !== null)
                                         {{ number_format($object->price_type == 1 ? ($object->price * $object->all_square) / 12 : $object->price * $object->all_square, 0, '', ' ') }}
                                         ₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
 
                                     @else
-                                        {{ number_format($object->price_type, 0, '', ' ') }}₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
+                                        {{ number_format($object->price, 0, '', ' ') }}₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
                                     @endif
-                                    </p>
+                                </p>
                             </div>
                         </div>
                     </a>
 
                     @elseif(app()->currentLocale() == 'EN' && $object->eng_title !== null)
-                        <a href="{{route('objects.show', $object->id)}}" class="item item-object" data-price="{{ $object->price }}">
+                        <a href="{{route('objects.show', [$object->id, 1])}}" class="item item-object" data-price="{{ $object->price }}">
                             @if(!empty($object->getImages($object->id)))
                                 <img src="{{asset('storage/images/' . $object->getImages($object->id)->name)}}" alt="{{app()->currentLocale() == 'RU' ? $object->title : $object->eng_title}}" />
                             @endif
@@ -226,7 +226,15 @@
                                 <hr>
                                 <div class="price price-object">
                                     <h3>{{$object->type_room == 1 ? __("main.type_room_1") : __("main.type_room_2")}}</h3>
-                                    <p>{{ number_format($object->price, 0, '', ' ') }} ₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
+                                    <p>
+                                        @if(isset($price_type2) && $price_type2 == 2 && $object->all_square !== null)
+                                            {{ number_format($object->price_type == 1 ? ($object->price * $object->all_square) / 12 : $object->price * $object->all_square, 0, '', ' ') }}
+                                            ₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
+
+                                        @else
+                                            {{ number_format($object->price, 0, '', ' ') }}₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
+                                        @endif
+                                    </p>
                                 </div>
                             </div>
                         </a>

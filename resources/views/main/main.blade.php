@@ -79,7 +79,7 @@
                  @if($objects->isNotEmpty())
                      @foreach($objects as $object)
                        @if(app()->currentLocale() == 'RU' && $object->title !== null)
-                             <a href="{{route('objects.show', $object->id)}}" class="item">
+                             <a href="{{route('objects.show', [$object->id, 1])}}" class="item">
                                  @if(!empty($object->getImages($object->id)))
                                      <img src="{{asset('storage/images/' . $object->getImages($object->id)->name)}}" alt="{{app()->currentLocale() == 'RU' ? $object->title : $object->eng_title}}" />
                                  @endif
@@ -109,14 +109,15 @@
                                                  ₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
 
                                              @else
-                                                 {{ number_format($object->price_type, 0, '', ' ') }}₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
-                                             @endif</p>
+                                                 {{ number_format($object->price, 0, '', ' ') }}₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
+                                             @endif
+                                         </p>
                                      </div>
                                  </div>
                              </a>
 
                          @elseif(app()->currentLocale() == 'EN' && $object->eng_title !== null)
-                             <a href="{{route('objects.show', $object->id)}}" class="item">
+                             <a href="{{route('objects.show', [$object->id, 1])}}" class="item">
                                  @if(!empty($object->getImages($object->id)))
                                      <img src="{{asset('storage/images/' . $object->getImages($object->id)->name)}}" alt="{{app()->currentLocale() == 'RU' ? $object->title : $object->eng_title}}" />
                                  @endif
@@ -140,7 +141,15 @@
                                      <hr>
                                      <div class="price">
                                          <h3>{{$object->type_room == 1 ? __('main.type_room_1') : __('main.type_room_2')}}</h3>
-                                         <p>{{ number_format($object->price, 0, '', ' ') }} ₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
+                                         <p>
+                                             @if($object->all_square !== null)
+                                                 {{ number_format($object->price_type == 1 ? ($object->price * $object->all_square) / 12 : $object->price * $object->all_square, 0, '', ' ') }}
+                                                 ₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
+
+                                             @else
+                                                 {{ number_format($object->price, 0, '', ' ') }}₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
+                                             @endif
+                                         </p>
                                      </div>
                                  </div>
                              </a>

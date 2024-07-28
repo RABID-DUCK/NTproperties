@@ -32,8 +32,14 @@ class ObjectsController extends Controller
         return view('pages.objects', compact('objects', 'regions', 'directions', 'highways', 'news', 'reviews'));
     }
 
-    public function show(Objects $object){
-        return view('pages.object-single', compact('object'));
+    public function show(Objects $object, $id){
+        $price = $object->price;
+        if($object->price_type == 2){
+            $object->price = $object->price * $object->all_square;
+        }else{
+            $object->price = ($object->price * $object->all_square) / 12;
+        }
+        return view('pages.object-single', compact('object', 'id', 'price'));
     }
 
     public function list(FilterRequest $request){
@@ -43,15 +49,16 @@ class ObjectsController extends Controller
         $highways = Highways::all();
         $news = News::query()->get()->sortByDesc('created_at');
         $reviews = Reviews::query()->get()->sortByDesc('created_at');
+        $price_type2 = 1;
 
         $objects = Objects::query()
-//            ->when($data['price_type2'], function ($query) use ($data) {
-//                if($data['price_type2'] == 'metr'){
-//                    return $query->where('price_type', 1);
-//                }else{
-//                    return $query->where('price_type', 2);
-//                }
-//            })
+            ->when($data['price_type2'], function ($query) use ($data, &$price_type2) {
+                if($data['price_type2'] == 'metr'){
+                    $price_type2 = 1;
+                }else{
+                    $price_type2 = 2;
+                }
+            })
             ->when($data['price_type'], function ($query, $price_type) {
                 return $query->where('price_type', $price_type);
             })
@@ -100,6 +107,6 @@ class ObjectsController extends Controller
             })
             ->latest()->paginate(12);
 
-        return view('pages.objects', compact('objects', 'regions', 'directions', 'highways', 'news', 'reviews', 'request'));
+        return view('pages.objects', compact('objects', 'regions', 'directions', 'highways', 'news', 'reviews', 'request', 'price_type2'));
     }
 }
