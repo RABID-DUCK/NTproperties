@@ -188,6 +188,10 @@
   max-height: none !important;
   height: 100%;
 }
+.object #modal .slider .bx-wrapper .bx-viewport li img {
+  -o-object-fit: none !important;
+     object-fit: none !important;
+}
 .object .close {
   position: absolute;
   z-index: 100000;
