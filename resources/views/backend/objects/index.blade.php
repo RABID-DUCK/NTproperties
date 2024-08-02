@@ -73,6 +73,48 @@
                             <input type="text" class="form-control" name="title">
                         </div>
 
+                        <div>
+                            <label for="recipient-name" class="col-form-label">Название англ</label>
+                            <input type="text" class="form-control" name="eng_title">
+                        </div>
+
+                        @if($regions->isNotEmpty())
+                            <label for="recipient-name" class="col-form-label">Регион</label>
+                            <select class="form-select" name="region_id" id="">
+                                @foreach($regions as $region)
+                                    <option value="{{$region->id}}">{{$region->name}}</option>
+                                @endforeach
+                            </select>
+                        @endif
+
+                        @if($directions->isNotEmpty())
+                            <label for="recipient-name" class="col-form-label">Направление</label>
+                            <select class="form-select" name="direction_id" id="">
+                                @foreach($directions as $direction)
+                                    <option value="{{$direction->id}}">{{$direction->name}}</option>
+                                @endforeach
+                            </select>
+                        @endif
+
+                        @if($highways->isNotEmpty())
+                            <label for="recipient-name" class="col-form-label">Шоссе</label>
+                            <select class="form-select" name="highway_id" id="">
+                                @foreach($highways as $highWay)
+                                    <option value="{{$highWay->id}}">{{$highWay->name}}</option>
+                                @endforeach
+                            </select>
+                        @endif
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Описание</label>
+                            <textarea id="summernote" name="description"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Описание англ</label>
+                            <textarea id="summernote2" name="eng_description"></textarea>
+                        </div>
+
                         <div class="form-check mt-3">
                             <input class="form-check-input" type="checkbox" name="availability" id="flexRadioDefault1">
                             <label class="form-check-label" for="flexRadioDefault1">
@@ -85,20 +127,48 @@
                             <input type="datetime-local" class="form-control" name="date">
                         </div>
 
-                        <div>
-                            <label for="recipient-name" class="col-form-label">Название англ</label>
-                            <input type="text" class="form-control" name="eng_title">
+
+
+                        <div class="mb-3 mt-3 characteristick">
+                            <b style="font-size: 24px">Характеристики:</b> <br/>
+                            <label for="recipient-name" class="col-form-label">Общая площадь, кв. м</label>
+                            <input type="text" class="form-control" name="all_square">
+
+                            <label for="recipient-name" class="col-form-label">Свободная площадь, кв. м</label>
+                            <input type="text" class="form-control" name="free_square">
+
+                            <label for="recipient-name" class="col-form-label">Минимальный блок, кв. м</label>
+                            <input type="text" class="form-control" name="min_square">
+
+                            <label for="recipient-name" class="col-form-label">-высота, м</label>
+                            <input type="text" class="form-control" name="height">
+
+                            <label for="recipient-name" class="col-form-label">-шаг колонн, м</label>
+                            <input type="text" class="form-control" name="column_pitch">
+
+                            <label for="recipient-name" class="col-form-label">-нагрузка на пол, т/кв. м</label>
+                            <input type="text" class="form-control" name="floor_load">
+
+                            <label for="recipient-name" class="col-form-label">-освещение</label>
+                            <input type="text" class="form-control" name="lighting">
+
+                            <label for="recipient-name" class="col-form-label">-освещение англ</label>
+                            <input type="text" class="form-control" name="eng_lighting">
+
+                            <label for="recipient-name" class="col-form-label">-система пожаротушения</label>
+                            <input type="text" class="form-control" name="fire_system">
+
+                            <label for="recipient-name" class="col-form-label">-система пожаротушения англ</label>
+                            <input type="text" class="form-control" name="eng_fire_system">
+
+                            <label for="recipient-name" class="col-form-label">Удаленность от МКАД, км</label>
+                            <input type="number" class="form-control" name="distance_mkad">
+
+                            <label for="recipient-name" class="col-form-label">Класс помещений</label>
+                            <input type="text" class="form-control" name="class_house">
+
                         </div>
 
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Описание</label>
-                            <textarea id="summernote" name="description"></textarea>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Описание англ</label>
-                            <textarea id="summernote2" name="eng_description"></textarea>
-                        </div>
 
                         <div>
                             <label for="recipient-name" class="col-form-label">Тип:</label>
@@ -131,72 +201,8 @@
                             <input type="text" class="form-control" name="eng_city">
                         </div>
 
-                        <div class="mb-3 mt-3 characteristick">
-                            <b style="font-size: 24px">Характеристики:</b> <br/>
 
-                            @if($regions->isNotEmpty())
-                            <label for="recipient-name" class="col-form-label">Регион</label>
-                            <select class="form-select" name="region_id" id="">
-                                @foreach($regions as $region)
-                                    <option value="{{$region->id}}">{{$region->name}}</option>
-                                @endforeach
-                            </select>
-                            @endif
-
-                            @if($directions->isNotEmpty())
-                            <label for="recipient-name" class="col-form-label">Направление</label>
-                            <select class="form-select" name="direction_id" id="">
-                                @foreach($directions as $direction)
-                                    <option value="{{$direction->id}}">{{$direction->name}}</option>
-                                @endforeach
-                            </select>
-                            @endif
-
-                            @if($highways->isNotEmpty())
-                            <label for="recipient-name" class="col-form-label">Шоссе</label>
-                            <select class="form-select" name="highway_id" id="">
-                                @foreach($highways as $highWay)
-                                    <option value="{{$highWay->id}}">{{$highWay->name}}</option>
-                                @endforeach
-                            </select>
-                            @endif
-
-                            <label for="recipient-name" class="col-form-label">Удаленность от МКАД, км</label>
-                            <input type="number" class="form-control" name="distance_mkad">
-
-                            <label for="recipient-name" class="col-form-label">Класс помещений</label>
-                            <input type="text" class="form-control" name="class_house">
-
-                            <label for="recipient-name" class="col-form-label">Общая площадь, кв. м</label>
-                            <input type="text" class="form-control" name="all_square">
-
-                            <label for="recipient-name" class="col-form-label">Свободная площадь, кв. м</label>
-                            <input type="text" class="form-control" name="free_square">
-
-                            <label for="recipient-name" class="col-form-label">Минимальный блок, кв. м</label>
-                            <input type="text" class="form-control" name="min_square">
-
-                            <label for="recipient-name" class="col-form-label">-высота, м</label>
-                            <input type="text" class="form-control" name="height">
-
-                            <label for="recipient-name" class="col-form-label">-шаг колонн, м</label>
-                            <input type="text" class="form-control" name="column_pitch">
-
-                            <label for="recipient-name" class="col-form-label">-нагрузка на пол, т/кв. м</label>
-                            <input type="text" class="form-control" name="floor_load">
-
-                            <label for="recipient-name" class="col-form-label">-освещение</label>
-                            <input type="text" class="form-control" name="lighting">
-
-                            <label for="recipient-name" class="col-form-label">-освещение англ</label>
-                            <input type="text" class="form-control" name="eng_lighting">
-
-                            <label for="recipient-name" class="col-form-label">-система пожаротушения</label>
-                            <input type="text" class="form-control" name="fire_system">
-
-                            <label for="recipient-name" class="col-form-label">-система пожаротушения англ</label>
-                            <input type="text" class="form-control" name="eng_fire_system">
-                        </div>
+                        <b class="mt-3">Фотографии:</b>
 
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="customFile" name="images[]" multiple>

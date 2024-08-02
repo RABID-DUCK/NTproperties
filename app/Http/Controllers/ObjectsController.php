@@ -26,8 +26,8 @@ class ObjectsController extends Controller
         $regions = Regions::all();
         $directions = Directions::all();
         $highways = Highways::all();
-        $news = News::query()->get()->sortByDesc('created_at');
-        $reviews = Reviews::query()->get()->sortByDesc('created_at');
+        $news = News::query()->latest()->take(3)->get();
+        $reviews = Reviews::query()->latest()->take(3)->get();
 
         return view('pages.objects', compact('objects', 'regions', 'directions', 'highways', 'news', 'reviews'));
     }
