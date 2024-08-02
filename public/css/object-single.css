@@ -185,6 +185,7 @@
   width: 80%;
 }
 .object #modal .slider .bx-wrapper {
+  max-height: none !important;
   height: 100%;
 }
 .object .close {
