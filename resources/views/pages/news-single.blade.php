@@ -15,7 +15,7 @@
         <div class="news-single">
             <h1>{{app()->currentLocale() == 'RU' ? $news->title : $news->eng_title}}</h1>
                  <div class="item">
-                    <span class="data">{{$news->created_at}}</span>
+                    <span class="data">{{$news->created_at->format('d.m.Y')}}</span>
                     <div class="content">
                         <p>
                             <img src="{{asset('/storage/images/'.$news->image)}}" alt="{{$news->image}}" align="left"/>
