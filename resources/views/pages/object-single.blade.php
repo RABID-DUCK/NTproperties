@@ -100,7 +100,7 @@
                         {{ number_format($object->price, 0, '', ' ') }}₽
                     </p>
                     <p>
-                        {{ number_format($price, 0, '', ' ') }}₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
+                        {{ number_format($price, 0, '', ' ') }}₽
                     </p>
                 </div>
             </div>
