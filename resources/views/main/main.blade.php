@@ -102,16 +102,20 @@
                                          <strong>{{__('main.price_select_2')}}:</strong> {{$object->all_square}} {{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
                                      <hr>
                                      <div class="price">
-                                         <h3>{{$object->price_type == 1 ? __("main.type_room_1_1") : __("main.type_room_2")}}</h3>
-                                         <p>
-                                             @if($object->all_square !== null)
-                                                 {{ number_format($object->price, 0, '', ' ') }}
-                                                 ₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
+                                        <div class="type_price">
+                                            <h3>{{$object->price_type == 1 ? __("main.type_room_1_1") : __("main.type_room_2")}}</h3>
+                                         </div>
+                                         <div class="text_price">
+                                             <p>
+                                                 @if($object->all_square !== null)
+                                                     {{ number_format($object->price, 0, '', ' ') }}
+                                                     ₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
 
-                                             @else
-                                                 {{ number_format($object->price, 0, '', ' ') }}₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
-                                             @endif
-                                         </p>
+                                                 @else
+                                                     {{ number_format($object->price, 0, '', ' ') }}₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
+                                                 @endif
+                                             </p>
+                                         </div>
                                      </div>
                                  </div>
                              </a>
@@ -140,16 +144,20 @@
                                          <strong>{{__('main.price_select_2')}}:</strong> {{ number_format($object->all_square, 0, '', ' ') }} {{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
                                      <hr>
                                      <div class="price">
-                                         <h3>{{$object->price_type == 1 ? __("main.type_room_1_1") : __("main.type_room_2")}}}</h3>
-                                         <p>
-                                             @if($object->all_square !== null)
-                                                 {{ number_format($object->price, 0, '', ' ') }}
-                                                 ₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
+                                        <div class="type_price">
+                                            <h3>{{$object->price_type == 1 ? __("main.type_room_1_1") : __("main.type_room_2")}}}</h3>
+                                         </div>
+                                         <div class="text_price">
+                                             <p>
+                                                 @if($object->all_square !== null)
+                                                     {{ number_format($object->price, 0, '', ' ') }}
+                                                     ₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
 
-                                             @else
-                                                 {{ number_format($object->price, 0, '', ' ') }}₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
-                                             @endif
-                                         </p>
+                                                 @else
+                                                     {{ number_format($object->price, 0, '', ' ') }}₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
+                                                 @endif
+                                             </p>
+                                         </div>
                                      </div>
                                  </div>
                              </a>
