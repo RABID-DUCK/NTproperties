@@ -50,6 +50,7 @@ class ObjectsController extends Controller
         $news = News::query()->get()->sortByDesc('created_at');
         $reviews = Reviews::query()->get()->sortByDesc('created_at');
         $price_type2 = 1;
+        $price_type = $data['price_type'];
 
         $objects = Objects::query()
             ->when($data['price_type2'], function ($query) use ($data, &$price_type2) {
@@ -107,6 +108,6 @@ class ObjectsController extends Controller
             })
             ->latest()->paginate(12);
 
-        return view('pages.objects', compact('objects', 'regions', 'directions', 'highways', 'news', 'reviews', 'request', 'price_type2'));
+        return view('pages.objects', compact('objects', 'regions', 'directions', 'highways', 'news', 'reviews', 'request', 'price_type2', 'price_type'));
     }
 }

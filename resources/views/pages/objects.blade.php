@@ -18,8 +18,8 @@
                 <div class="filter-content">
                     <div class="filter-1 d-flex">
                         <div class="button">
-                            <button type="button" class="btn d-flex align-items-center active" id="rentBtn"><i class="fas fa-check" style="margin-right: 10px;"></i> {{__('main.type_room_1')}}</button>
-                            <button type="button" class="btn d-flex align-items-center" id="saleBtn" style="margin-left: 10px; margin-right: 10px"><i class="fas fa-times" style="margin-right: 10px;"></i> {{__('main.type_room_2')}}</button>
+                            <button type="button" class="btn d-flex align-items-center {{isset($price_type) && $price_type == 1 ? 'active' : ''}} {{!isset($price_type) ? 'active' : ''}}" id="rentBtn"><i class="fas fa-check" style="margin-right: 10px;"></i> {{__('main.type_room_1')}}</button>
+                            <button type="button" class="btn d-flex align-items-center {{isset($price_type) && $price_type == 2 ? 'active' : ''}}" id="saleBtn" style="margin-left: 10px; margin-right: 10px"><i class="fas fa-times" style="margin-right: 10px;"></i> {{__('main.type_room_2')}}</button>
                         </div>
                         <input type="hidden" name="price_type" id="price_type" value="1">
                         <select class="form-select" name="type_room" id="">
@@ -278,7 +278,7 @@
                         <a href="{{route('news-single', $item->id)}}" class="item">
                             <img src="{{asset('storage/images/' . $item->image)}}" alt="{{$item->img}}" />
                              <div class="text">
-                                 <p class="date">{{$item->created_at->format('m.d.y')}}</p>
+                                 <p class="date">{{$item->created_at->format('d.m.y')}}</p>
                                  <h3>{{app()->currentLocale() == 'RU' ? $item->title : $item->eng_title}}</h3>
                              </div>
                         </a>
@@ -287,7 +287,7 @@
                             <a href="{{route('news-single', $item->id)}}" class="item">
                                 <img src="{{asset('storage/images/' . $item->image)}}" alt="{{$item->img}}" />
                                 <div class="text">
-                                    <p class="date">{{$item->created_at->format('m.d.y')}}</p>
+                                    <p class="date">{{$item->created_at->format('d.m.y')}}</p>
                                     <h3>{{app()->currentLocale() == 'RU' ? $item->title : $item->eng_title}}</h3>
                                 </div>
                             </a>
@@ -307,7 +307,7 @@
                         <a href="{{route('reviews.single', $review->id)}}" class="item">
                             <img src="{{asset('storage/images/' . $review->image)}}"/>
                              <div class="text">
-                                 <p class="date">{{$review->created_at->format('m.d.y')}}</p>
+                                 <p class="date">{{$review->created_at->format('d.m.y')}}</p>
                                  <h3>{{app()->currentLocale() == 'RU' ? $review->title : $review->eng_title}}</h3>
                              </div>
                         </a>
@@ -316,7 +316,7 @@
                             <a href="{{route('reviews.single', $review->id)}}" class="item">
                                 <img src="{{asset('storage/images/' . $review->image)}}"/>
                                 <div class="text">
-                                    <p class="date">{{$review->created_at->format('m.d.y')}}</p>
+                                    <p class="date">{{$review->created_at->format('d.m.y')}}</p>
                                     <h3>{{app()->currentLocale() == 'RU' ? $review->title : $review->eng_title}}</h3>
                                 </div>
                             </a>

@@ -13,7 +13,7 @@
         <div class="news-single">
             <h1>{{app()->currentLocale() == 'RU' ? $reviews->title : $reviews->eng_title}}</h1>
                  <div class="item">
-                    <span class="data">{{$reviews->created_at->format('m.d.y')}}</span>
+                    <span class="data">{{$reviews->created_at->format('d.m.y')}}</span>
                     <div class="content">
                         <p>
                             <img src="{{asset('/storage/images/'.$reviews->image)}}" alt="{{$reviews->image}}" align="left"/>
