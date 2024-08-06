@@ -351,22 +351,22 @@
     let rentBtn = document.getElementById('rentBtn');
     let saleBtn = document.getElementById('saleBtn');
 
-    if(rentBtn  && saleBtn){
+    if(rentBtn && saleBtn){
         rentBtn.addEventListener('click', function() {
             this.innerHTML = '<i class="fas fa-check" style="margin-right: 10px;"></i> {{__("main.type_room_1")}}';
             saleBtn.innerHTML = '<i class="fas fa-times" style="margin-right: 10px;"></i> {{__("main.type_room_2")}}';
             let but = document.getElementById('price_type');
-            but.setAttribute('value', '1')
-            this.classList.add('active');
+            but.setAttribute('value', '1');
+            rentBtn.classList.add('active');
             saleBtn.classList.remove('active');
         });
 
         saleBtn.addEventListener('click', function() {
-            this.innerHTML = '<i class="fas fa-check" style="margin-right: 10px;"></i> {{__("main.type_room_1")}}';
-            rentBtn.innerHTML = '<i class="fas fa-times" style="margin-right: 10px;"></i> {{__("main.type_room_2")}}';
+            this.innerHTML = '<i class="fas fa-check" style="margin-right: 10px;"></i> {{__("main.type_room_2")}}';
+            rentBtn.innerHTML = '<i class="fas fa-times" style="margin-right: 10px;"></i> {{__("main.type_room_1")}}';
             let but = document.getElementById('price_type');
-            but.setAttribute('value', '2')
-            this.classList.add('active');
+            but.setAttribute('value', '2');
+            saleBtn.classList.add('active');
             rentBtn.classList.remove('active');
         });
     }
