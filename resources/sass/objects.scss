@@ -156,14 +156,26 @@
                     margin-top: 60px;
                 }
                 .price {
-                    h3 {
-                        color: #8c9092;
-                        font-size: 15px;
+                    .type_price {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        h3 {
+                            color: #8c9092;
+                            font-size: 15px;
+                        }
                     }
-                    p {
-                        color: #ff6d12;
-                        font-size: 18px;
+                    .text_price {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        p {
+                            color: #ff6d12;
+                            font-size: 18px;
+                        }
                     }
+
+
                     display: flex;
                     justify-content: space-between;
                     align-items: center;

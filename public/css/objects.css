@@ -155,11 +155,21 @@
   justify-content: space-between;
   align-items: center;
 }
-.objects .list .item .text .price h3 {
+.objects .list .item .text .price .type_price {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.objects .list .item .text .price .type_price h3 {
   color: #8c9092;
   font-size: 15px;
 }
-.objects .list .item .text .price p {
+.objects .list .item .text .price .text_price {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.objects .list .item .text .price .text_price p {
   color: #ff6d12;
   font-size: 18px;
 }
