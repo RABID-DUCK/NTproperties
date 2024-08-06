@@ -25,7 +25,7 @@ return [
     'type_room_4' => 'Промышленные участки',
     'price' => 'Цена',
     'price_select_1' => 'за м&sup2; в год',
-    'price_select_2' => 'Общая',
+    'price_select_2' => 'Общая (в месяц)',
     'square' => 'Площадь',
     'stellage' => 'Наличие стеллажей',
     'all_directions' => 'Все направления',

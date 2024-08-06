@@ -25,7 +25,7 @@ return [
     'type_room_4' => 'Warehouse',
     'price' => 'Price',
     'price_select_1' => 'per sq.m.',
-    'price_select_2' => 'Total',
+    'price_select_2' => 'Total (per month)',
     'square' => 'Area',
     'stellage' => 'with racks',
     'all_directions' => 'Any directions',
