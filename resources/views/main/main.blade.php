@@ -102,10 +102,10 @@
                                          <strong>{{__('main.price_select_2')}}:</strong> {{$object->all_square}} {{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
                                      <hr>
                                      <div class="price">
-                                         <h3>{{$object->type_room == 1 ? __('main.type_room_1_1') : __('main.type_room_2')}}</h3>
+                                         <h3>{{$object->price_type == 1 ? __("main.type_room_1_1") : __("main.type_room_2")}}</h3>
                                          <p>
                                              @if($object->all_square !== null)
-                                                 {{ number_format($object->price_type == 1 ? ($object->price * $object->all_square) / 12 : $object->price * $object->all_square, 0, '', ' ') }}
+                                                 {{ number_format($object->price, 0, '', ' ') }}
                                                  ₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
 
                                              @else
@@ -140,10 +140,10 @@
                                          <strong>{{__('main.price_select_2')}}:</strong> {{ number_format($object->all_square, 0, '', ' ') }} {{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}</p>
                                      <hr>
                                      <div class="price">
-                                         <h3>{{$object->type_room == 1 ? __('main.type_room_1') : __('main.type_room_2')}}</h3>
+                                         <h3>{{$object->price_type == 1 ? __("main.type_room_1_1") : __("main.type_room_2")}}}</h3>
                                          <p>
                                              @if($object->all_square !== null)
-                                                 {{ number_format($object->price_type == 1 ? ($object->price * $object->all_square) / 12 : $object->price * $object->all_square, 0, '', ' ') }}
+                                                 {{ number_format($object->price, 0, '', ' ') }}
                                                  ₽/{{app()->currentLocale() == 'RU' ? 'м²' : 'sq.m.'}}
 
                                              @else
